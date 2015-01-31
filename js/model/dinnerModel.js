@@ -21,12 +21,7 @@ var DinnerModel = function() {
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-	    var menu = [];
-	    for (key in dishes){
-	        //alert(dishes[key].name);
-            menu[key] = dishes[key].name;
-        }
-		return menu;
+		//TODO Lab 2
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
