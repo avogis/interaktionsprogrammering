@@ -5,6 +5,6 @@ $(function() {
 	//And create the needed controllers and views
 	var exampleView = new ExampleView($("#exampleView"));
 	var viewAllDishes = new ViewAllDishes($("#dinnerDishes"));
-	var viewSTartPage = new ViewStartPage$("#viewStartPage"));
+	var viewStartPage = new ViewStartPage($("#viewStartPage"));
 
 });
