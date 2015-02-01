@@ -34,7 +34,6 @@ var ViewAllDishes = function (container) {
 	    	}
 	    	if(i == 1){ //i don't understand why this isn't working
 	    		var found = optionNamesTemp.indexOf(menu[i][j]);
-	    		//alert("optionNamesTemp: " + optionNamesTemp + "\nfound: "+found + "\noptionNamesTemp.indexOf(menu[i][j]): "+optionNamesTemp.indexOf(menu[i][j])+"\n menu[i][j] "+menu[i][j]);
 				if(found == -1){
 					var option = document.createElement("option");
 					option.value = menu[i][j];
@@ -54,4 +53,11 @@ var ViewAllDishes = function (container) {
 	}
     myTableDiv.appendChild(table);
 
+    var e = document.getElementById("chooseFood");
+	var chosenOption = e.options[e.selectedIndex].value;
+
+	var chosenIngridient = document.getElementById("chooseIngridient").value;
+	alert("chosenIngridient: "+chosenIngridient);
+
+    var temp = document.getElementById("searchButton").onClick(model.getAllDishes(chosenOption, chosenIngridient));
 } 
