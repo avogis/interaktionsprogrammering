@@ -1,4 +1,4 @@
-header {
+#headerViewAllDishes {
 	text-align: left;
 	font-style: normal;
 	font-family: "Times New Roman", Times, serif;
@@ -7,7 +7,7 @@ header {
 	background-color:#abdeee;
 }
 
-aside {
+#asideViewAllDishes {
 	line-height: 30px;
     background-color: #eeeeee;
     height: 400px;
@@ -16,16 +16,11 @@ aside {
     padding: 5px; 
 }
 
-tr {
+#trViewAllDishes {
 	padding: 5px;	
 }
 
-
-td {
-	padding: 10px;	
-}
-
-hr {
+#hrViewAllDishes {
     display: block;
     height: 1px;
     border: 0;

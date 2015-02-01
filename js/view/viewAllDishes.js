@@ -16,6 +16,7 @@ var ViewAllDishes = function (container) {
 
 	for (i = 0; i < menu.length; i++) {
 	    var tr = document.createElement('TR');
+	    tr.id = "trViewAllDishes";
 	    for (j = 0; j < menu[i].length; j++) {
 	    	if(i == 2){
 	    		var td = document.createElement('TD');
