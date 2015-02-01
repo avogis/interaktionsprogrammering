@@ -1,37 +1,75 @@
-h1 {
+p {
+    color: black;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+h2 {
+    color: black;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+#pageTitle {
     color: black;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 60px;
 }
-h2 {
+#pageSubTitle {
     color: black;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 20px;
 }
-
+.row {
+    position: relative;
+}
+#bottomAlignedText {
+    position: absolute;
+    bottom: 15px;
+    right: 0;
+}
 #startPageBody {
     background-image: url("images/familydinner.jpg");
     background-size: cover;
 }
-
-#topOfPage {
-	background-color: #E6B280;
-	background:rgba(255,255,255,0.7);
+#pageHeader {
+	 background:rgba(255,255,255,0.7);
 }
-
- .row {
-      position: relative;
-  }
-
-#bottomAlignedText {
-    position: absolute;
-    bottom: 8px;
-    right: 0;
-  }
+#startPageDescription {
+    background:rgba(255,255,255,0.7);
+    margin-top: 350px;
+}
+#createDinnerButton {
+  background: #FFCC80;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 
-#pageDescription {
-	background-color: blue;
-	padding-top: 3000px;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
