@@ -1,0 +1,73 @@
+header {
+	text-align: left;
+	font-style: normal;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 50px;
+	padding: 5px;
+	background-color:#abdeee;
+}
+
+aside {
+	line-height: 30px;
+    background-color: #eeeeee;
+    height: 400px;
+    width: 200px;
+    float: left;
+    padding: 5px; 
+}
+
+tr {
+	padding: 5px;	
+}
+
+
+td {
+	padding: 10px;	
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #000;
+    margin: 1em 0;
+    padding: 0;
+}
+
+#selectDish {
+	height: 120px;
+	width: 800px;
+	background-color:#aacaae;
+    float:left;
+    padding:10px;	
+}
+#menuScroll {
+	max-width:800px;
+	background-color:#acceee;
+	overflow: auto;
+    float:left;
+    padding:10px;	
+}
+
+#menu {
+	table-layout: fixed;
+	white-space: pre-wrap;
+}
+#foodDescription {
+	max-width: 150px;
+	max-height: 150px;
+	white-space: nowrap; /*somethng here is not correct, dunno yet how to fix it.*/
+	overflow: hidden;
+	text-align: center;
+	text-overflow: ellipsis;	
+}
+#foodPic {
+	align: center;
+	max-width: 150px;
+	max-height: 150px;
+}
+#foodName{
+	text-align: center;
+	max-width: 150px;
+	max-height: 150px;
+}

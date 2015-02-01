@@ -8,16 +8,38 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styling.css">
 
 </head>
 <body>
-<div class="container">
-    <h1>Dinner planner</h1>
-    <div id="dinnerDishes">
-        <div>
+<header>Dinner planner</header>
+<aside>
+    my dinner, people etc
+</aside>
+<section id = "selectDish">
+    <div>
+        <h4>SELECT DISH</h2>
+    </div>
+    <hr />
+    <form class="form-inline">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter key words">
+            <button type="submit" class="btn btn-primary">search</button>
         </div>
+        <div class="form-group">
+            <select class="form-control" id="chooseFood">
+                <!-- <option value="one">One</option>
+                <option value="two">Two</option>-->
+            </select> 
+        </div>
+    </form>    
+</section>
+<section id= "menuScroll">
+<div class="container">
+    <div id="dinnerDishes">
     </div>
 </div>
+</section>
  
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery.js"></script>
