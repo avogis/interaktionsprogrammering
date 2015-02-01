@@ -21,22 +21,7 @@ var DinnerModel = function() {
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		var menu = [];
-		var names = [];
-		var types = [];
-		var image = [];
-		var description = [];
-	    for (key in dishes){
-	        names[key] = [dishes[key].name];
-	        types[key] = [dishes[key].type];
-	        image[key] = [dishes[key].image];
-	        description[key] = [dishes[key].description];
-        }
-        menu[0] = names;
-        menu[1] = types;
-        menu[2] = image;
-        menu[3] = description;
-		return menu;
+		return dishes;
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
@@ -63,8 +48,7 @@ var DinnerModel = function() {
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	this.getAllDishes = function (type,filter) {
-		alert("type: "+type+" filter: "+filter)
+	this.getAllDishes = function (type, filter) {
 	  return $(dishes).filter(function(index,dish) {
 		var found = true;
 		if(filter){
@@ -79,7 +63,6 @@ var DinnerModel = function() {
 				found = true;
 			}
 		}
-		//alert("dish.type == type && found"+dish.type == type && found);
 	  	return dish.type == type && found;
 	  });	
 	}
