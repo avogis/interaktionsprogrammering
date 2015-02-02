@@ -76,6 +76,7 @@ var ViewAllDishes = function (container) {
         dishPic.src = "images/"+array[index].image;
         dishPic.alt = array[index].name;
         dishPic.id = "allDishPics";
+        dishPic.className = "img-rounded";
         dishPicDiv.appendChild(dishPic);
         //div for name
         var dishNameDiv = document.createElement("DIV");
@@ -93,6 +94,18 @@ var ViewAllDishes = function (container) {
         colName.appendChild(dishNameDiv);
         colName.appendChild(dishPicDiv);
         colName.appendChild(dishDescDiv);
+    }
+
+    populateNrOfGuest("populateGuestOption");
+
+    function populateNrOfGuest(divName){
+        var nrOfGuests = document.getElementById(divName);
+        for(i = 1; i <= 15; i++){
+            var option = document.createElement("option");
+            option.value = i;
+            option.text = i;
+            nrOfGuests.appendChild(option);
+        }
     }
 
 
