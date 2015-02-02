@@ -10,23 +10,23 @@ var ViewAllDishes = function (container) {
                 clearDiv(document.getElementById(colNames[i]));
             }
         }
-            console.log(array);
-            var options = document.getElementById("chooseFood");
-            var optionNamesTemp = [];
-            if(array.length > 5){
-                for(i = 0; i < array.length; i=i+5){
-                    for(j = 0; j < 5; j++){
-                        var index = (i+j);
-                        LoopDishes(options, array, optionNamesTemp, index, j, update);
-                    }
+        console.log(array);
+        var options = document.getElementById("chooseFood");
+        var optionNamesTemp = [];
+        if(array.length > 5){
+            for(i = 0; i < array.length; i=i+5){
+                for(j = 0; j < 5; j++){
+                    var index = (i+j);
+                    LoopDishes(options, array, optionNamesTemp, index, j, update);
                 }
             }
-            else{
-                for(i = 0; i < array.length; i++){
-                    var index = i;
-                    LoopDishes(options, array, optionNamesTemp, index, i, update);
-                }
-            }         
+        }
+        else{
+            for(i = 0; i < array.length; i++){
+                var index = i;
+                LoopDishes(options, array, optionNamesTemp, index, i, update);
+            }
+        }         
     }
 
     var LoopDishes = function(options, array, optionNamesTemp, index, colNameIndex, update){
