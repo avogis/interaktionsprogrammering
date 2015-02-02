@@ -1,20 +1,27 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
+
+	var numberOfGuests = 0;
  
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 
-
-	this.setNumberOfGuests = function(num) {
-		//TODO Lab 2
+	//OR WHAT DO YOU MEAN? DON`T UNDERSTAND
+	this.setNumberOfGuests = function(num) { 
+		document.getElementById("populateGuestOption").selectedIndex = num;
+		console.log(document.getElementById("populateGuestOption").selectedIndex = num);
 	}
 
 	// should return 
-	this.getNumberOfGuests = function() {
-		//TODO Lab 2
+	this.getNumberOfGuests = function() { //why does it return a number that is +1 the selected?!
+		var choice = document.getElementById("populateGuestOption");
+		var chosenOption = choice.options[choice.selectedIndex].value;
+		numberOfGuests = chosenOption; //should I save this here?
+		return chosenOption;
 	}
 
-	//Returns the dish that is on the menu for selected type 
+	//Returns the dish that is on the menu for selected type <- DON'T REALLY UNDER STAND THE DIRREFENCE BETWEEN THIS ONE AND
+	// getAllDishes function
 	this.getSelectedDish = function(type) {
 		//TODO Lab 2
 	}
@@ -24,7 +31,7 @@ var DinnerModel = function() {
 		return dishes;
 	}
 
-	//Returns all ingredients for all the dishes on the menu.
+	//Returns all ingredients for all the dishes on the menu. WHY WOULD THAT BE A GOOD THING?
 	this.getAllIngredients = function() {
 		//TODO Lab 2
 	}

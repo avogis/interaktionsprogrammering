@@ -108,14 +108,15 @@ var ViewAllDishes = function (container) {
         }
     }
 
+    model.setNumberOfGuests("13");
+    console.log(model.getNumberOfGuests());
 
     var temp = document.getElementById("searchButton");
     temp.addEventListener("click", 
     	function(e){
     		var choice = document.getElementById("chooseFood");
 			var chosenOption = choice.options[choice.selectedIndex].value;
-
-			var chosenIngridient = document.getElementById("chooseIngridient").value;
+            var chosenIngridient = document.getElementById("chooseIngridient").value;
 			console.log(chosenIngridient);
     		var chosenDish = model.getAllDishes(chosenOption, chosenIngridient);
     		e.preventDefault(); //making the page not reload
