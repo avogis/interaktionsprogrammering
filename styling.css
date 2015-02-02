@@ -15,8 +15,10 @@
 }
 
 #menuScroll {
-	overflow: visible;
-    overflow-y: scroll;	
+	overflow: hidden;
+    overflow-y: scroll;
+    height: 200px;
+    /*padding-top: 50px;	*/
 }
 
 #allDishDescriptions {
@@ -35,4 +37,14 @@
 	text-align: center;
 	height: 40px;
 	width: 150px;	
+}
+
+#twoSections {
+	height: 600px;
+}
+
+#selectDish {
+	height: 150px;
+	/*padding-top: 50px;*/
+	padding-bottom: 50px;
 }
