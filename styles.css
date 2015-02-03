@@ -10,6 +10,15 @@ h2 {
     font-size: 25px;
 }
 
+h3{
+    color: black;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 20px;
+} 
+body {
+    background: white;
+}
+
 #pageTitle {
     color: black;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
@@ -38,6 +47,7 @@ h2 {
 #startPageDescription {
     background:rgba(255,255,255,0.7);
     margin-top: 350px;
+    margin-bottom: 30px;
 }
 #createDinnerButton {
   background: #FFCC80;
@@ -45,6 +55,21 @@ h2 {
   font-size: 20px;
   margin-bottom: 10px;
 }
+#pageHeader {
+    background: #FFE0A3;
+}
+#pageLeft {
+    border-style: solid;
+    text-align: center;
+}
+#recipePreparation {
+   
+}
+#ingredientList {
+    border-style: solid;
+}
+
+
 
 
 
