@@ -100,7 +100,7 @@ var ViewAllDishes = function (container) {
 
     function populateNrOfGuest(divName){
         var nrOfGuests = document.getElementById(divName);
-        for(i = 1; i <= 15; i++){
+        for(i = 0; i <= 15; i++){
             var option = document.createElement("option");
             option.value = i;
             option.text = i;
