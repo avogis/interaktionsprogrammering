@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dinner planner</title>
+    <title>Homelette - Create Dinner</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
@@ -13,91 +13,115 @@
 
 </head>
 <body>
-<!-- <header id="headerViewAllDishes">Dinner planner</header> -->
-<div class="row" id="startPageHeader">
-    <div class="col-md-3">
-        <div id="pageTitle">
-            Homelette
-        </div>
-    </div>
-    <div class="col-md-9" id="bottomAlignedText">
-        <div id="pageSubTitle">
-            From the best chefs in the world directly into your kitchen
-        </div>  
-</div>
-</div>
-<section id = "allThings">
-    <div class="row">
-        <div class="col-md-3">
-            <aside id="asideViewAllDishes">
-                <div>
-                    <h3 id="myDinner">My dinner</h3>
-                </div>
-                <div class="row" id="guest">
-                    <div class="col-md-6" id="guestDiv">Guests</div>
-                    <div class="col-md-3" id="guestPopulateDiv">
-                        <select class = "form-control" id="populateGuestOption" value></select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6" id="dishNameDiv">Dish Name</div>
-                    <div class="col-md-6" id="costDiv">Cost</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6" id="">Pending</div>
-                    <div class="col-md-6" id="">0.0</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-offset-6" id="totalSek">SEK 0.0</div>
-                </div>
-                <div id = "confirmDinnerButton">
-                    <button type="submit" class="btn btn-primary" id="confirmDinner" value="submit">Confirm Dinner</button>
-                </div>
-            </aside>
-        </div>
-        <div class="col-md-9" id="twoSections">
-            <section id = "selectDish">
-                <div>
-                    <h4>SELECT DISH</h2>
-                </div>
-                <hr id="hrViewAllDishes"/>
-                <form class="form-inline">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="chooseIngridient" value="" placeholder="Enter key words">
-                        <button type="submit" class="btn btn-primary" id="searchButton" value="submit">search</button>
-                    </div>
-                    <div class="form-group">
-                        <select class="form-control" id="chooseFood" value="">
-                        </select> 
-                    </div>
-                </form>    
-            </section>
-            <div id="separatorDiv"></div>
-            <section id= "menuScroll">
-                <div class="col-md-2" id="colOne">   
-                </div>
-                <div class="col-md-2" id="colTwo">
-                </div>
-                <div class="col-md-2" id="colThree">
-                </div>
-                <div class="col-md-2" id="colFour">
-                </div>
-                <div class="col-md-2" id="colFive">
-                </div>
-            </section>
-        </div>
-    </div>
-</section>
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery.js"></script>
-<!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <div class="container">
 
-<!-- The application JavaScript code -->
-<script src="js/app.js"></script>
-<script src="js/model/dinnerModel.js"></script>
-<script src="js/view/exampleView.js"></script>
-<script src="js/view/viewAllDishes.js"></script>
-<!-- <script src="js/view/exampleViewController.js"></script> -->
+        <!-- HEADER -->
+        <section >
+            <div class="row" id="pageHeader">
+                <div class="col-md-3">
+                    <div id="pageTitle">Homelette</div>
+                </div>
+                <div class="col-md-9" id="bottomAlignedText">
+                    <div id="pageSubTitle">
+                        From the best chefs in the world directly into your kitchen
+                    </div>  
+                </div>
+            </div>
+        </section>
+        
+        <div class="row">
+            <!-- Left side of page -->
+            <section >
+                <div class="col-sm-2" id="pageLeft">
+                    <div class="row">
+                        <h3>My Dinner</h3>
+                    </div>
+                    <div class="row" id="guest">
+                        <div class="col-md-6" id="guestDiv">Guests</div>
+                        <div class="col-md-6" id="guestPopulateDiv">
+                            <select class = "form-control" id="populateGuestOption" value></select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <table class="table">
+                            <thead>
+                                 <tr>
+                                    <th>Dish Name</th>
+                                    <th>Cost</th>
+                                 </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Pending</td>
+                                    <td>77.20</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">Total cost</div>
+                        <div class="col-md-6" id="totalSek">0.00 SEK</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button type="submit" class="btn" id="confirmDinner" value="submit">Confirm Dinner</button>
+                        </div>
+                    </div>          
+                </div>
+            </section>
+
+            <!-- Main Contente -->
+            <div class="col-md-9" id="searchDish">
+                <section id = "selectDish">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>Select Dish</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="chooseIngridient" value="" placeholder="Enter key words">
+                                    <button type="submit" class="btn" id="searchButton" value="submit">search</button>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="chooseFood" value="">
+                                    </select> 
+                                </div>
+                            </form>  
+                        </div>
+                    </div>  
+                </section>
+
+                <div id="separatorDiv"></div>
+                <section id= "menuScroll">
+                    <div class="row" id= "menuScroll">
+                        <div class="col-md-2" id="colOne">   
+                        </div>
+                        <div class="col-md-2" id="colTwo">
+                        </div>
+                        <div class="col-md-2" id="colThree">
+                        </div>
+                        <div class="col-md-2" id="colFour">
+                        </div>
+                        <div class="col-md-2" id="colFive">
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+    <!-- The application JavaScript code -->
+    <script src="js/app.js"></script>
+    <script src="js/model/dinnerModel.js"></script>
+    <script src="js/view/exampleView.js"></script>
+    <script src="js/view/viewAllDishes.js"></script>
+    <!-- <script src="js/view/exampleViewController.js"></script> -->
 </body>
 </html>
