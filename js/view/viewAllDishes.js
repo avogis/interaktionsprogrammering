@@ -108,7 +108,7 @@ var ViewAllDishes = function (container) {
         }
     }
 
-    model.setNumberOfGuests("13");
+    model.setNumberOfGuests("11");
     console.log(model.getNumberOfGuests());
 
     var temp = document.getElementById("searchButton");
