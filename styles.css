@@ -61,21 +61,16 @@ button {
 }
 #pageHeader {
     background: #CCCCCC;
-    width: 1135px;
 }
 #pageLeft {
     border-style: solid;
     text-align: center;
     min-height: 600px;
-    width: 250px;
 }
-#recipePreparation {
-   width:500px;
-}
+
 #ingredientList {
     background-color: #FFDB94;
     border: solid;
-    width:400px;
 
 }
 #igredientTable tr{
@@ -91,12 +86,12 @@ button {
 
 /*viewAllDishes*/
 
-.col-md-2{
+/*.col-md-2{
     padding-top: 20px;
     width: 20%;
     float: left;
     height: 200px;
-}
+}*/
 
 #menuScroll {
     overflow: hidden;
@@ -149,7 +144,6 @@ button {
 /*Dinner overview*/
 #overviewBorder {
     background-color: #FFDB94;
-    width: 1150px;
 }
 #colBackButton {
     position: absolute;
@@ -160,7 +154,6 @@ button {
     margin-top: 20px;
     margin-bottom: 20px;
     height: 300px;
-    width: 1150px;
 }
 
 #overviewTotalCost{
