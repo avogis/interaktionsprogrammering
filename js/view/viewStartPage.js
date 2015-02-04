@@ -1,4 +1,0 @@
-var ViewStartPage = function (container) {
-
-	
-}
