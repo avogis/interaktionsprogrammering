@@ -136,12 +136,7 @@ var ViewAllDishes = function (container) {
             searchDishDiv.style.display = "none";
             var clickedOnImageId = event.srcElement.id;
             var dish = model.getDish(clickedOnImageId);
-            var imageDiv = document.getElementById("imageOfChosenDish");
-            var addImage = addAnImage(dish);
-            var dishName = document.getElementById("nameOfDish");
-            dishName.innerHTML = dish.name;
-            imageDiv.appendChild(addImage);
-            document.getElementById("viewRecipeDetails").style.display = "";
+            viewRecipedetails("#viewRecipeDetails"); 
         };
     }
 
