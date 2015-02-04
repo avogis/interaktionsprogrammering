@@ -1,4 +1,4 @@
-function CentralFunction(){
+CentralFunction = function(){
 
     function addAnImage(dish){
         var dishPic = document.createElement("IMG");
@@ -7,6 +7,4 @@ function CentralFunction(){
         dishPic.id = dish.id;
         return dishPic;
     }
-
-
 }

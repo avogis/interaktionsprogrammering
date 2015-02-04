@@ -86,12 +86,12 @@ button {
 
 /*viewAllDishes*/
 
-/*.col-md-2{
+.col-md-2{
     padding-top: 20px;
     width: 20%;
     float: left;
     height: 200px;
-}*/
+}
 
 #menuScroll {
     overflow: hidden;

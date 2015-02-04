@@ -136,7 +136,7 @@ var ViewAllDishes = function (container) {
             searchDishDiv.style.display = "none";
             var clickedOnImageId = event.srcElement.id;
             var dish = model.getDish(clickedOnImageId);
-            viewRecipedetails("#viewRecipeDetails"); 
+            var recipeDets = ViewRecipeDetails("#viewRecipeDetails"); 
         };
     }
 
