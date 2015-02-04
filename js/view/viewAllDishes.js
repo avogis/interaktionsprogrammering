@@ -1,7 +1,7 @@
 var ViewAllDishes = function (container) {
 
     var model = new DinnerModel();
-    var menu = model.getFullMenu();
+    var menu = model.getAllAvailableDishes();
     var colNames = ["colOne", "colTwo", "colThree", "colFour", "colFive"];
 
     var ShowMenu = function(container, array, update){
@@ -110,6 +110,17 @@ var ViewAllDishes = function (container) {
 
     model.setNumberOfGuests("11");
     console.log(model.getNumberOfGuests());
+
+    model.getSelectedDish("starter");
+
+    var tempArray = [];
+    tempArray.push(menu[0]);
+    tempArray.push(menu[4]);
+    model.getAllIngredients(tempArray);
+    console.log("totalMenuPrice: ");
+    console.log(model.getTotalMenuPrice(tempArray));
+    console.log("add dish to menu: ");
+    console.log(model.addDishToMenu(2));
 
     var temp = document.getElementById("searchButton");
     temp.addEventListener("click", 

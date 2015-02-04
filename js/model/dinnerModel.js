@@ -1,13 +1,15 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
 
-	var numberOfGuests = 0;
- 
+	var fullMenu = [];
+	var numberOfMyGuests = 0; 
+
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 
 	//OR WHAT DO YOU MEAN? DON`T UNDERSTAND
-	this.setNumberOfGuests = function(num) { 
+	this.setNumberOfGuests = function(num) {
+		//the number of guests should be set in a different div 
 		document.getElementById("populateGuestOption").selectedIndex = num;
 		console.log(document.getElementById("populateGuestOption").selectedIndex = num);
 	}
@@ -16,40 +18,81 @@ var DinnerModel = function() {
 	this.getNumberOfGuests = function() { //why does it return a number that is +1 the selected?!
 		var choice = document.getElementById("populateGuestOption");
 		var chosenOption = choice.options[choice.selectedIndex].value;
-		numberOfGuests = chosenOption; //should I save this here?
+		numberOfMyGuests = chosenOption;
 		return chosenOption;
 	}
 
-	//Returns the dish that is on the menu for selected type <- DON'T REALLY UNDER STAND THE DIRREFENCE BETWEEN THIS ONE AND
-	// getAllDishes function
+	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
-		//TODO Lab 2
+		var arrayToReturn = [];
+		for(i = 0; i < dishes.length; i++){
+			console.log("dish.type");
+			console.log(dishes[i].type);
+			if(dishes[i].type === type){
+				arrayToReturn.push(dishes[i]);
+			}
+		}
+		console.log("results of getSelectedDish: ");
+		console.log(arrayToReturn);
+		return arrayToReturn;
 	}
 
 	//Returns all the dishes on the menu.
-	this.getFullMenu = function() {
+	//missinterpreted this one!
+	//i think that the menu should be passed throught the controller right?
+	//remove the parameter menu afterwards
+	this.getFullMenu = function(menu) {
+		// don't understand yet
+		//might need to do this as with the getNumberOfGuests
+		return menu;
+	}
+
+	//HOW DO I ACCESS THE DISHES OTHERWISE?
+	this.getAllAvailableDishes = function() {
 		return dishes;
 	}
 
-	//Returns all ingredients for all the dishes on the menu. WHY WOULD THAT BE A GOOD THING?
-	this.getAllIngredients = function() {
-		//TODO Lab 2
+	//Returns all ingredients for all the dishes on the menu. 
+	//added parameter "menu"
+	//remove menu afterwards
+	this.getAllIngredients = function(menu) {
+		var ingredientsArray = [];
+		for(i = 0; i < menu.length; i++){
+			ingredientsArray.push(menu[i].ingredients);
+		}
+		console.log("results of getAllIngredients: ");
+		console.log(ingredientsArray);
+		return ingredientsArray;
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
-	this.getTotalMenuPrice = function() {
-		//TODO Lab 2
+	//remove parameter menu
+	this.getTotalMenuPrice = function(menu) {
+		var allIngredients = this.getAllIngredients(this.getFullMenu(menu));
+		var totalPrice = 0;
+		for(i = 0; i < allIngredients.length; i++){
+			for(j = 0; j < allIngredients[i].length; j++){
+				totalPrice = totalPrice + allIngredients[i][j].price;
+			}
+		}
+		console.log("result of getTotalMenuPrice: ");
+		console.log(totalPrice * parseInt(this.getNumberOfGuests()));
+		return totalPrice * parseInt(this.getNumberOfGuests());	
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		//TODO Lab 2 
+    	fullMenu.push[dishes.id];
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		//TODO Lab 2
+		var index = fullMenu.indexOf(dishes.id);
+		if(index > -1){
+			fullMenu.splice(index, 1);
+		}
+
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
