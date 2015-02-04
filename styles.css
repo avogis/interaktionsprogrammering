@@ -66,14 +66,17 @@ button {
     border-style: solid;
     text-align: center;
     min-height: 600px;
+    width:auto;
 }
+
+/*Recipe details*/
 
 #ingredientList {
     background-color: #FFDB94;
     border: solid;
 
 }
-#igredientTable tr{
+#ingredientTable tr{
     border: hidden;
 }
 
