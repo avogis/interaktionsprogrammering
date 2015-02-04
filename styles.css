@@ -19,7 +19,7 @@ body {
     background: white;
 }
 button {
-    background: #FFCC80;
+    background: #FFAD33;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
@@ -60,20 +60,30 @@ button {
   margin-bottom: 10px;
 }
 #pageHeader {
-    background: #FFE0A3;
+    background: #CCCCCC;
 }
 #pageLeft {
     border-style: solid;
     text-align: center;
+    min-height: 600px;
 }
 #recipePreparation {
    
 }
 #ingredientList {
-    border-style: solid;
+    background-color: #FFDB94;
+    border: solid;
+
 }
+#igredientTable tr{
+    border: hidden;
+}
+
 #backButton {
     margin-top: 10px;
+}
+#confirmDishButton {
+    margin-bottom: 10px;
 }
 
 /*viewAllDishes*/
@@ -104,7 +114,6 @@ button {
 }
 
 #searchDish {
-    border: solid;
     margin-left: 10px;
 }
 
@@ -112,7 +121,7 @@ button {
     padding-top: 40px;
     padding-bottom: 40px;
     padding-left: 40px;
-    border-bottom: solid;
+    background-color: #FFDB94;
 }
 
 #separatorDiv {
