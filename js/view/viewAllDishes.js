@@ -129,6 +129,8 @@ var ViewAllDishes = function (container) {
     // console.log(model.addDishToMenu(2));
 
     var images = document.getElementsByTagName("img");
+
+    //ALL OF THIS SHOULD BE IN IN ANOTHER CONTROLLER
     for(var i = 0; i < images.length; i++) {
         var image = images[i];
         image.onclick = function(event) {
@@ -141,6 +143,27 @@ var ViewAllDishes = function (container) {
             var dishName = document.getElementById("nameOfDish");
             dishName.innerHTML = dish.name;
             imageDiv.appendChild(addImage);
+            var ingriedientsList = document.getElementById("headerIngriedients");
+            ingriedientsList.innerHTML = "Dinner for " + model.getNumberOfGuests() + " people";
+            var ingriedients = document.getElementById("igredientTable");
+            var listOfIngridients = dish.ingredients;
+            console.log(listOfIngridients.length);
+            for(i = 0; i < listOfIngridients.length; i++){
+                var ingriedient = document.createElement("TR");
+                var amount = document.createElement("TD");
+                var product = document.createElement("TD");
+                var sek = document.createElement("TD");
+                var price = document.createElement("TD");
+                amount.innerHTML = listOfIngridients[i].quantity + " " + listOfIngridients[i].unit;
+                product.innerHTML = listOfIngridients[i].name;
+                sek.innerHTML = "SEK";
+                price.innerHTML = listOfIngridients[i].price; 
+                ingriedient.appendChild(amount);
+                ingriedient.appendChild(product);
+                ingriedient.appendChild(sek);
+                ingriedient.appendChild(price);
+            }
+            ingriedients.appendChild(ingriedient);
             document.getElementById("viewRecipeDetails").style.display = "";
         };
     }
