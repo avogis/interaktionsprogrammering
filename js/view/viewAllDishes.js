@@ -134,6 +134,7 @@ var ViewAllDishes = function (container) {
     for(var i = 0; i < images.length; i++) {
         var image = images[i];
         image.onclick = function(event) {
+            var nrGuests = model.getNumberOfGuests();
             var searchDishDiv = document.getElementById("searchDish");
             searchDishDiv.style.display = "none";
             var clickedOnImageId = event.srcElement.id;
@@ -144,27 +145,30 @@ var ViewAllDishes = function (container) {
             dishName.innerHTML = dish.name;
             imageDiv.appendChild(addImage);
             var ingriedientsList = document.getElementById("headerIngriedients");
-            ingriedientsList.innerHTML = "Dinner for " + model.getNumberOfGuests() + " people";
+            ingriedientsList.innerHTML = "Dinner for " + nrGuests + " people";
             var ingriedients = document.getElementById("igredientTable");
             var listOfIngridients = dish.ingredients;
             console.log(listOfIngridients.length);
+            var priceForADish = 0;
             for(i = 0; i < listOfIngridients.length; i++){
                 var ingriedient = document.createElement("TR");
                 var amount = document.createElement("TD");
                 var product = document.createElement("TD");
                 var sek = document.createElement("TD");
                 var price = document.createElement("TD");
-                amount.innerHTML = listOfIngridients[i].quantity + " " + listOfIngridients[i].unit;
+                amount.innerHTML = (listOfIngridients[i].quantity  * nrGuests) + " " + listOfIngridients[i].unit;
                 product.innerHTML = listOfIngridients[i].name;
                 sek.innerHTML = "SEK";
-                price.innerHTML = listOfIngridients[i].price; 
+                price.innerHTML = (listOfIngridients[i].price * nrGuests); 
                 ingriedient.appendChild(amount);
                 ingriedient.appendChild(product);
                 ingriedient.appendChild(sek);
                 ingriedient.appendChild(price);
                 ingriedients.appendChild(ingriedient);
                 document.getElementById("description").innerHTML = dish.description;
+                priceForADish = priceForADish + (listOfIngridients[i].price * nrGuests);
             }
+            document.getElementById("totalCostViewDish").innerHTML = priceForADish;
             document.getElementById("viewRecipeDetails").style.display = "";
         };
     }
