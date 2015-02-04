@@ -45,7 +45,7 @@
 
         <div id = "viewAllDishes" style = "display:none">
             <div class="row">
-                <!-- Left side of page -->
+                <!-- Left side of page, same as for recipeView -->
                 <section >
                     <div class="col-sm-2" id="pageLeft">
                         <div class="row">
@@ -83,9 +83,9 @@
                             </div>
                         </div>          
                     </div>
-                </section>
+                </section> <!-- end of previously known aside -->
 
-                <!-- Main Contente -->
+                <!-- Main Content -->
                 <div class="col-md-9" id="searchDish">
                     <section id = "selectDish">
                         <div class="row">
@@ -124,60 +124,16 @@
                             </div>
                         </div>
                     </section>
-                </div>
-            </div>
-        </div>
+                </div> <!-- end of main content of viewAllDishes -->
 
-        <!-- ViewRecipeDetails -->
-        <div id = "viewRecipeDetails" style = "display: none">  
-            <div class="row">
 
-                <!-- Left side of page -->
-                <section>
-                    <div class="col-sm-2" id="pageLeft">
-                        <div class="row">
-                            <h3>My Dinner</h3>
-                        </div>
-                        <div class="row" id="guest">
-                            <div class="col-md-6" id="guestDiv">Guests</div>
-                            <div class="col-md-6" id="guestPopulateDiv">
-                                <select class = "form-control" id="populateGuestOption" value></select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <table class="table">
-                                <thead>
-                                     <tr>
-                                        <th id="dishName">Dish Name</th>
-                                        <th id="dishCost">Cost</th>
-                                     </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Pending</td>
-                                        <td id="pendingCost">77.20</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6" id="totalCost">Total cost</div>
-                            <div class="col-md-6" id="totalSek">0.00 SEK</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <button type="submit" class="btn" id="confirmDinner" value="submit">Confirm Dinner</button>
-                            </div>
-                        </div>          
-                    </div>
-                </section>
-
-                <!-- Middle of page  -->
-                <section>
+                <!-- ViewRecipeDetails -->
+                <div id = "viewRecipeDetails" style = "display: none">
+                 <section>
                     <div class="col-md-6" id="recipePreparation">
                         <div class="row">
                             <div class="col-md-12">
-                                <h2 id="nameOfDish"></h2>
+                                <h2 id = "nameOfDish"></h2>
                             </div>
                         </div>
                         <div class="row">
@@ -248,9 +204,10 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> 
+                </div>   <!-- end of main content of viewRecipe -->  
             </div>
-        </div>
+        </div> <!-- end of ViewAllApges -->
 
     </div> <!--  bodyAllPagesClosed -->
 
