@@ -30,186 +30,226 @@
 
         <div id = "bodyForAllPages">
 
-        <div id = "startPage" style = "">
-            <div class="row" id= "startPageBody" >
-                <div class="col-md-5" id="startPageDescription">
-                    <h2>A Home Dinner Service</h2>  
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <p>Start quickly</p>
-                    <button id="createDinnerButton" class="btn">Create Dinner</span></button>
+            <div id = "startPage" style = "">
+                <div class="row" id= "startPageBody" >
+                    <div class="col-md-5" id="startPageDescription">
+                        <h2>A Home Dinner Service</h2>  
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>Start quickly</p>
+                        <button id="createDinnerButton" class="btn">Create Dinner</span></button>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- VIEW ALL DISHES -->
+            <!-- VIEW ALL DISHES -->
 
-        <div id = "viewAllDishes" style = "display:none">
-            <div class="row">
-                <!-- Left side of page, same as for recipeView -->
-                <section >
-                    <div class="col-sm-2" id="pageLeft">
-                        <div class="row">
-                            <h3>My Dinner</h3>
-                        </div>
-                        <div class="row" id="guest">
-                            <div class="col-md-6" id="guestDiv">Guests</div>
-                            <div class="col-md-6" id="guestPopulateDiv">
-                                <select class = "form-control" id="populateGuestOption" value></select>
+            <div id = "viewAllDishes" style = "display:none">
+                <div class="row">
+                    <!-- Left side of page, same as for recipeView -->
+                    <section >
+                        <div class="col-sm-2" id="pageLeft">
+                            <div class="row">
+                                <h3>My Dinner</h3>
                             </div>
-                        </div>
-                        <div class="row">
-                            <table class="table">
-                                <thead>
-                                     <tr>
-                                        <th id="dishName">Dish Name</th>
-                                        <th>Cost</th>
-                                     </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Pending</td>
-                                        <td id="totalCost">77.20</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">Total cost</div>
-                            <div class="col-md-6" id="totalSek">0.00 SEK</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <button type="submit" class="btn" id="confirmDinner" value="submit">Confirm Dinner</button>
+                            <div class="row" id="guest">
+                                <div class="col-md-6" id="guestDiv">Guests</div>
+                                <div class="col-md-6" id="guestPopulateDiv">
+                                    <select class = "form-control" id="populateGuestOption" value></select>
+                                </div>
                             </div>
-                        </div>          
-                    </div>
-                </section> <!-- end of previously known aside -->
-
-                <!-- Main Content -->
-                <div class="col-md-9" id="searchDish">
-                    <section id = "selectDish">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h2>Select Dish</h2>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-9">
-                                <form class="form-inline">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="chooseIngridient" value="" placeholder="Enter key words">
-                                        <button type="submit" class="btn" id="searchButton" value="submit">search</button>
-                                    </div>
-                                    <div class="form-group">
-                                        <select class="form-control" id="chooseFood" value="">
-                                        </select> 
-                                    </div>
-                                </form>  
-                            </div>
-                        </div>  
-                    </section>
-
-                    <div id="separatorDiv"></div>
-                    <section id= "menuScroll">
-                        <div class="row" id= "menuScroll">
-                            <div class="col-md-2" id="colOne">   
-                            </div>
-                            <div class="col-md-2" id="colTwo">
-                            </div>
-                            <div class="col-md-2" id="colThree">
-                            </div>
-                            <div class="col-md-2" id="colFour">
-                            </div>
-                            <div class="col-md-2" id="colFive">
-                            </div>
-                        </div>
-                    </section>
-                </div> <!-- end of main content of viewAllDishes -->
-
-
-                <!-- ViewRecipeDetails -->
-                <div id = "viewRecipeDetails" style = "display: none">
-                 <section>
-                    <div class="col-md-6" id="recipePreparation">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h2 id = "nameOfDish"></h2>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12" id="imageOfChosenDish">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <button class="btn" id="backButton">Back to select dish</button>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h3>Preparations</h3>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p>Lorem impsum...</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Right side of page -->
-                <section>
-                    <div class="col-md-4" id="ingredientList">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h3>Ingredients for 4 people</h3>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <table class="table" >
-                                    <tbody id="igredientTable">
+                            <div class="row">
+                                <table class="table">
+                                    <thead>
+                                         <tr>
+                                            <th id="dishName">Dish Name</th>
+                                            <th>Cost</th>
+                                         </tr>
+                                    </thead>
+                                    <tbody>
                                         <tr>
-                                            <td>2tbs</td>
-                                            <td>olive oil</td>
-                                            <td>SEK</td>
-                                            <td>0.20</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2tbs</td>
-                                            <td>olive oil</td>
-                                            <td>SEK</td>
-                                            <td>0.20</td>
-                                        </tr>
-                                        <tr> 
-                                            <td>2tbs</td>
-                                            <td>olive oil</td>
-                                            <td>SEK</td>
-                                            <td>0.20</td>
+                                            <td>Pending</td>
+                                            <td id="totalCost">77.20</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
+                            <div class="row">
+                                <div class="col-md-6">Total cost</div>
+                                <div class="col-md-6" id="totalSek">0.00 SEK</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn" id="confirmDinner" value="submit">Confirm Dinner</button>
+                                </div>
+                            </div>          
+                        </div>
+                    </section> <!-- end of previously known aside -->
+
+                    <!-- Main Content -->
+                    <div class="col-md-9" id="searchDish">
+                        <section id = "selectDish">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h2>Select Dish</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <form class="form-inline">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="chooseIngridient" value="" placeholder="Enter key words">
+                                            <button type="submit" class="btn" id="searchButton" value="submit">search</button>
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control" id="chooseFood" value="">
+                                            </select> 
+                                        </div>
+                                    </form>  
+                                </div>
+                            </div>  
+                        </section>
+
+                        <div id="separatorDiv"></div>
+                        <section id= "menuScroll">
+                            <div class="row" id= "menuScroll">
+                                <div class="col-md-2" id="colOne">   
+                                </div>
+                                <div class="col-md-2" id="colTwo">
+                                </div>
+                                <div class="col-md-2" id="colThree">
+                                </div>
+                                <div class="col-md-2" id="colFour">
+                                </div>
+                                <div class="col-md-2" id="colFive">
+                                </div>
+                            </div>
+                        </section>
+                    </div> <!-- end of main content of viewAllDishes -->
+
+
+                    <!-- ViewRecipeDetails -->
+                    <div id = "viewRecipeDetails" style = "display: none">
+                     <section>
+                        <div class="col-md-6" id="recipePreparation">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h2 id = "nameOfDish"></h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12" id="imageOfChosenDish">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button class="btn" id="backButton">Back to select dish</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3>Preparations</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Lorem impsum...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Right side of page -->
+                    <section>
+                        <div class="col-md-4" id="ingredientList">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3>Ingredients for 4 people</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table class="table" >
+                                        <tbody id="igredientTable">
+                                            <tr>
+                                                <td>2tbs</td>
+                                                <td>olive oil</td>
+                                                <td>SEK</td>
+                                                <td>0.20</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2tbs</td>
+                                                <td>olive oil</td>
+                                                <td>SEK</td>
+                                                <td>0.20</td>
+                                            </tr>
+                                            <tr> 
+                                                <td>2tbs</td>
+                                                <td>olive oil</td>
+                                                <td>SEK</td>
+                                                <td>0.20</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button class="btn" id="confirmDishButton">Confirm Dish</button>
+                                </div>
+                                <div class="col-md-3">
+                                    <p> Total cost </p>
+                                </div>
+                                <div class="col-md-3" id="costDish">
+                                    <p> 0.00 SEK </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section> 
+                    </div>   <!-- end of main content of viewRecipe -->  
+                </div>
+            </div> <!-- end of ViewAllApges -->
+
+            <!-- viewDinnerOverview -->
+            <div id="viewDinnerOverview">
+                <!-- Horizontal middle -->
+                <div class="row" id="overviewBorder">
+                    <div class="col-md-2 col-md-offset-1" id"myDinner">
+                        <h2> My Dinner: 4 </h2>
+                    </div>
+                    <div class="col-md-2 col-md-offset-8" id="colBackButton">
+                        <button class="btn" id="backEditButton">Go back and edit dinner</button>
+                    </div>
+                </div>
+                <!-- Main Content -->
+                <div class="row" id="overviewContent">
+                    <div class="col-md-8" id="overviewDishes">
+                    <!-- Här ska det poplueras med valda dishes -->
+
+                    
+
+                    </div>
+                    <div class="col-md-4" id="overviewTotalCost">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>Total Cost</p>
+                            </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
-                                <button class="btn" id="confirmDishButton">Confirm Dish</button>
-                            </div>
-                            <div class="col-md-3">
-                                <p> Total cost </p>
-                            </div>
-                            <div class="col-md-3" id="costDish">
-                                <p> 0.00 SEK </p>
+                            <div class="col-md-12">
+                                <p>0.00</p>
                             </div>
                         </div>
                     </div>
-                </section> 
-                </div>   <!-- end of main content of viewRecipe -->  
-            </div>
-        </div> <!-- end of ViewAllApges -->
+                </div>
+                <div class="row" id="overviewPrint">
+                    <div class="col-md-12">
+                        <button class="btn" id="overviewPrintButton">Print full recipe</button>
+                    </div>
+                </div>
+            </div> <!-- End of view Dinner Overview -->
+            
 
-    </div> <!--  bodyAllPagesClosed -->
+        </div> <!--  bodyAllPagesClosed -->
 
     </div>
     <!-- jQuery -->
