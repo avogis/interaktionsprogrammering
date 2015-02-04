@@ -71,6 +71,10 @@ button {
 
 /*Recipe details*/
 
+#imageOfChosenDish img {
+    height:400px;
+}
+
 #ingredientList {
     background-color: #FFDB94;
     border: solid;
