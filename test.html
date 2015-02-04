@@ -1,0 +1,84 @@
+<div id = "viewAllDishes">
+            <div class="row">
+                <!-- Left side of page -->
+                <section >
+                    <div class="col-sm-2" id="pageLeft">
+                        <div class="row">
+                            <h3>My Dinner</h3>
+                        </div>
+                        <div class="row" id="guest">
+                            <div class="col-md-6" id="guestDiv">Guests</div>
+                            <div class="col-md-6" id="guestPopulateDiv">
+                                <select class = "form-control" id="populateGuestOption" value></select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <table class="table">
+                                <thead>
+                                     <tr>
+                                        <th>Dish Name</th>
+                                        <th>Cost</th>
+                                     </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Pending</td>
+                                        <td>77.20</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">Total cost</div>
+                            <div class="col-md-6" id="totalSek">0.00 SEK</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button type="submit" class="btn" id="confirmDinner" value="submit">Confirm Dinner</button>
+                            </div>
+                        </div>          
+                    </div>
+                </section>
+
+                <!-- Main Contente -->
+                <div class="col-md-9" id="searchDish">
+                    <section id = "selectDish">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>Select Dish</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="chooseIngridient" value="" placeholder="Enter key words">
+                                        <button type="submit" class="btn" id="searchButton" value="submit">search</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-control" id="chooseFood" value="">
+                                        </select> 
+                                    </div>
+                                </form>  
+                            </div>
+                        </div>  
+                    </section>
+
+                    <div id="separatorDiv"></div>
+                    <section id= "menuScroll">
+                        <div class="row" id= "menuScroll">
+                            <div class="col-md-2" id="colOne">   
+                            </div>
+                            <div class="col-md-2" id="colTwo">
+                            </div>
+                            <div class="col-md-2" id="colThree">
+                            </div>
+                            <div class="col-md-2" id="colFour">
+                            </div>
+                            <div class="col-md-2" id="colFive">
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>

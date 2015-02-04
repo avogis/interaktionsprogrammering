@@ -1,0 +1,3 @@
+var ViewAllRecipies = function (container) {
+
+}
