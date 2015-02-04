@@ -163,6 +163,7 @@ var ViewAllDishes = function (container) {
                 ingriedient.appendChild(sek);
                 ingriedient.appendChild(price);
                 ingriedients.appendChild(ingriedient);
+                document.getElementById("description").innerHTML = dish.description;
             }
             document.getElementById("viewRecipeDetails").style.display = "";
         };
