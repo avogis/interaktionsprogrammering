@@ -162,8 +162,8 @@ var ViewAllDishes = function (container) {
                 ingriedient.appendChild(product);
                 ingriedient.appendChild(sek);
                 ingriedient.appendChild(price);
+                ingriedients.appendChild(ingriedient);
             }
-            ingriedients.appendChild(ingriedient);
             document.getElementById("viewRecipeDetails").style.display = "";
         };
     }
