@@ -3,6 +3,7 @@ var ViewAllDishes = function (container) {
     var model = new DinnerModel();
     var menu = model.getAllAvailableDishes();
     var colNames = ["colOne", "colTwo", "colThree", "colFour", "colFive"];
+    var pathToImages = "images/";
 
     var ShowMenu = function(container, array, update){
         if(update == true){
@@ -72,10 +73,7 @@ var ViewAllDishes = function (container) {
     function setDishContent(colName, array, index){
         //div for pic
         var dishPicDiv = document.createElement("DIV");
-        var dishPic = document.createElement("IMG");
-        dishPic.src = "images/"+array[index].image;
-        dishPic.alt = array[index].name;
-        dishPic.id = "allDishPics";
+        var dishPic = addAnImage(array[index]);
         dishPic.className = "img-rounded";
         dishPicDiv.appendChild(dishPic);
         //div for name
@@ -108,6 +106,14 @@ var ViewAllDishes = function (container) {
         }
     }
 
+    function addAnImage(dish){
+        var dishPic = document.createElement("IMG");
+        dishPic.src = pathToImages+dish.image;
+        dishPic.alt = dish.name;
+        dishPic.id = dish.id;
+        return dishPic;
+    }
+
     model.setNumberOfGuests("11");
     console.log(model.getNumberOfGuests());
 
@@ -117,10 +123,28 @@ var ViewAllDishes = function (container) {
     tempArray.push(menu[0]);
     tempArray.push(menu[4]);
     model.getAllIngredients(tempArray);
-    console.log("totalMenuPrice: ");
-    console.log(model.getTotalMenuPrice(tempArray));
-    console.log("add dish to menu: ");
-    console.log(model.addDishToMenu(2));
+    // console.log("totalMenuPrice: ");
+    // console.log(model.getTotalMenuPrice(tempArray));
+    // console.log("add dish to menu: ");
+    // console.log(model.addDishToMenu(2));
+
+    var images = document.getElementsByTagName("img");
+    for(var i = 0; i < images.length; i++) {
+        var image = images[i];
+        image.onclick = function(event) {
+            var viewAllDishesDiv = document.getElementById("viewAllDishes");
+            viewAllDishesDiv.style.display = "none";
+            var clickedOnImageId = event.srcElement.id;
+            var dish = model.getDish(clickedOnImageId);
+            var imageDiv = document.getElementById("imageOfChosenDish");
+            var addImage = addAnImage(dish);
+            var dishName = document.getElementById("nameOfDish");
+            dishName.innerHTML = dish.name;
+            imageDiv.appendChild(addImage);
+            document.getElementById("viewRecipeDetails").style.display = "";
+        };
+    }
+
 
     var temp = document.getElementById("searchButton");
     temp.addEventListener("click", 
@@ -128,16 +152,16 @@ var ViewAllDishes = function (container) {
     		var choice = document.getElementById("chooseFood");
 			var chosenOption = choice.options[choice.selectedIndex].value;
             var chosenIngridient = document.getElementById("chooseIngridient").value;
-			console.log(chosenIngridient);
+			//console.log(chosenIngridient);
     		var chosenDish = model.getAllDishes(chosenOption, chosenIngridient);
     		e.preventDefault(); //making the page not reload
             var temp = [];
             for(i = 0; i < chosenDish.length; i++){
                 temp.push(chosenDish[i]);
             }
-            console.log(temp);
+            //console.log(temp);
             ShowMenu(container, temp, true);
     	}
-    	);
+    );
 
 } 

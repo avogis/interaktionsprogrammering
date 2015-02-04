@@ -61,14 +61,14 @@
                             <table class="table">
                                 <thead>
                                      <tr>
-                                        <th>Dish Name</th>
+                                        <th id="dishName">Dish Name</th>
                                         <th>Cost</th>
                                      </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>Pending</td>
-                                        <td>77.20</td>
+                                        <td id="totalCost">77.20</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -129,7 +129,7 @@
         </div>
 
         <!-- ViewRecipeDetails -->
-        <div id = "viewRecipeDetails" style = "display:none">  
+        <div id = "viewRecipeDetails" style = "display: none">  
             <div class="row">
 
                 <!-- Left side of page -->
@@ -148,20 +148,20 @@
                             <table class="table">
                                 <thead>
                                      <tr>
-                                        <th>Dish Name</th>
-                                        <th>Cost</th>
+                                        <th id="dishName">Dish Name</th>
+                                        <th id="dishCost">Cost</th>
                                      </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>Pending</td>
-                                        <td>77.20</td>
+                                        <td id="pendingCost">77.20</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">Total cost</div>
+                            <div class="col-md-6" id="totalCost">Total cost</div>
                             <div class="col-md-6" id="totalSek">0.00 SEK</div>
                         </div>
                         <div class="row">
@@ -177,12 +177,11 @@
                     <div class="col-md-6" id="recipePreparation">
                         <div class="row">
                             <div class="col-md-12">
-                                <h2>Lasagna</h2>
+                                <h2 id="nameOfDish"></h2>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
-                                <img src="images/lasagna.jpg" class="img-responsive" alt="Responsive image">
+                            <div class="col-md-12" id="imageOfChosenDish">
                             </div>
                         </div>
                         <div class="row">
