@@ -65,8 +65,8 @@
                                             <th>Cost</th>
                                          </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
+                                    <tbody id = "dishNameAndCostTBody">
+                                        <tr id ="dishNameAndCostTR1">
                                             <td id="dishName" >Pending</td>
                                             <td id="dishCost">0.00</td>
                                         </tr>
@@ -74,8 +74,12 @@
                                 </table>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">Total cost</div>
-                                <div class="col-md-6" id="totalSek">0.00 SEK</div>
+                                <div class="col-md-6">
+                                    <p>Total cost</p>
+                                </div>
+                                <div class="col-md-6" >
+                                    <p id="totalSek" >0.00 SEK</p>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
@@ -191,47 +195,52 @@
                 </div>
             </div> <!-- end of ViewAllApges -->
 
-            <!-- viewDinnerOverview -->
+            <!-- viewDinnerOverview and Print -->
             <div id="viewDinnerOverview" style="display: none">
                 <!-- Horizontal middle -->
                 <div class="row" id="overviewBorder">
-                    <div class="col-md-3 col-md-offset-1" id"myDinner">
-                        <h2> My Dinner: 4 </h2>
+                    <div class="col-md-3 col-md-offset-1">
+                        <h2 id="myDinner"> My Dinner: </h2>
                     </div>
                     <div class="col-md-3 col-md-offset-7" id="colBackButton">
                         <button class="btn" id="backEditButton">Go back and edit dinner</button>
                     </div>
                 </div>
-                <!-- Main Content -->
-                <div class="row" id="overviewContent">
-                    <div class="col-md-8" id="overviewDishes">
-                    <!-- Här ska det poplueras med valda dishes -->
-                        <div class="row" id"displayChosenMenu">
-                            <div class="col-md-2" id="colOne">   
+                <div> <!--Overviewcontentdiv -->
+                    <!-- Main Content -->
+                    <div class="row" id="overviewContent" style="display: none">
+                        <div class="col-md-8" id="overviewDishes">
+                        <!-- Här ska det poplueras med valda dishes -->
+                            <div class="row" id="displayChosenMenu">
+                                <div class="col-md-2" id="colOneOver">   
+                                </div>
+                                <div class="col-md-2" id="colTwoOver">
+                                </div>
+                                <div class="col-md-2" id="colThreeOver">
+                                </div>
                             </div>
-                            <div class="col-md-2" id="colTwo">
+                        </div>
+                        <div class="col-md-4" id="overviewTotalCost">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Total Cost</p>
+                                </div>
                             </div>
-                            <div class="col-md-2" id="colThree">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p id="totalCostOver">0.00</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4" id="overviewTotalCost">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p>Total Cost</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p>0.00</p>
-                            </div>
+                    <div class="row" id="overviewPrint" style="display: none">
+                        <div class="col-md-12">
+                            <button class="btn" id="overviewPrintButton">Print full recipe</button>
                         </div>
                     </div>
                 </div>
-                <div class="row" id="overviewPrint">
-                    <div class="col-md-12">
-                        <button class="btn" id="overviewPrintButton">Print full recipe</button>
-                    </div>
+                <div id="printRecipe" style="display: none"> <!-- Print recipe -->
+                    <!-- recipies are populated here -->
                 </div>
             </div> <!-- End of view Dinner Overview -->
             

@@ -37,10 +37,6 @@ var DinnerModel = function() {
 	//i think that the menu should be passed throught the controller right?
 	//remove the parameter menu afterwards
 	this.getFullMenu = function() {
-		// don't understand yet
-		//might need to do this as with the getNumberOfGuests
-		console.log("fullMenu in getFullMenu ");
-		console.log(fullMenu);
 		return fullMenu;
 	}
 
@@ -81,16 +77,9 @@ var DinnerModel = function() {
 		for(key in dishes){
 			if(dishes[key].id == id){
 				fullMenu.push(dishes[key]);
-				document.getElementById("dishName").innerHTML = dishes[key].name;
-				console.log("FullMenui addDishtoMenu");
-				console.log(fullMenu);
-				document.getElementById("dishCost").innerHTML = this.getTotalMenuPrice();
 				break;
 			}
 		}
-		console.log("fullMenu in Add Dish to Menu: ");
-		console.log(fullMenu); //this doesn't really seem to work
-
 	}
 
 	//Removes dish from menu

@@ -1,6 +1,5 @@
-var ViewAllDishes = function (container) {
+var ViewAllDishes = function (container, model) {
 
-    var model = new DinnerModel();
     var menu = model.getAllAvailableDishes();
     var colNames = ["colOne", "colTwo", "colThree", "colFour", "colFive"];
     var pathToImages = "images/";
@@ -65,7 +64,6 @@ var ViewAllDishes = function (container) {
     }	
 
     function clearDiv(div){
-        console.log("YOOO? kommer jag in här?")
         div.innerHTML = "";
     }
 
@@ -114,7 +112,6 @@ var ViewAllDishes = function (container) {
     }
 
     model.setNumberOfGuests("11");
-    console.log(model.getNumberOfGuests());
 
     model.getSelectedDish("starter");
 
@@ -122,10 +119,6 @@ var ViewAllDishes = function (container) {
     tempArray.push(menu[0]);
     tempArray.push(menu[4]);
     model.getAllIngredients(tempArray);
-    // console.log("totalMenuPrice: ");
-    // console.log(model.getTotalMenuPrice(tempArray));
-    // console.log("add dish to menu: ");
-    // console.log(model.addDishToMenu(2));
 
     var images = document.getElementsByTagName("img");
 
@@ -147,7 +140,6 @@ var ViewAllDishes = function (container) {
             ingriedientsList.innerHTML = "Dinner for " + nrGuests + " people";
             var ingriedients = document.getElementById("igredientTable");
             var listOfIngridients = dish.ingredients;
-            console.log(listOfIngridients.length);
             var priceForADish = 0;
             for(i = 0; i < listOfIngridients.length; i++){
                 var ingriedient = document.createElement("TR");
@@ -166,6 +158,7 @@ var ViewAllDishes = function (container) {
                 ingriedients.appendChild(ingriedient);
                 document.getElementById("description").innerHTML = dish.description;
                 priceForADish = priceForADish + (listOfIngridients[i].price * nrGuests);
+                document.getElementById("dishCost").innerHTML = priceForADish;
             }
             document.getElementById("totalCostViewDish").innerHTML = priceForADish;
             document.getElementById("viewRecipeDetails").style.display = "";
@@ -193,10 +186,10 @@ var ViewAllDishes = function (container) {
     confirmDinDin.addEventListener("click", 
         function(e){
             document.getElementById("viewAllDishes").style.display = "none";
-            console.log("model.getFullMenu()");
-            console.log(model.getFullMenu());
-            var dindinOverview = new DinnerOverview();
+            ViewDinnerOverview(model);
+            document.getElementById("overviewContent").style.display = "";
             document.getElementById("viewDinnerOverview").style.display = "";
+            document.getElementById("overviewPrint").style.display = "";
         }
     );
 } 

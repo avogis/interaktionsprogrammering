@@ -4,8 +4,8 @@ $(function() {
 	
 	//And create the needed controllers and views
 	var viewStartPage = new ViewStartPage($("#viewStartPage"));
-	var viewAllDishes = new ViewAllDishes($("#dinnerDishes"));
-	var viewRecipeDetails = new ViewRecipeDetails($("#viewRecipeDetails"));
-	var dinnerOverview = new DinnerOverview();
+	var viewAllDishes = new ViewAllDishes($("#dinnerDishes"), model);
+	var viewRecipeDetails = new ViewRecipeDetails($("#viewRecipeDetails"), model);
+	// var viewDinnerOverview = new ViewDinnerOverview(model);
 
 });
