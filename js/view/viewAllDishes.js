@@ -11,7 +11,6 @@ var ViewAllDishes = function (container) {
                 clearDiv(document.getElementById(colNames[i]));
             }
         }
-        console.log(array);
         var options = document.getElementById("chooseFood");
         var optionNamesTemp = [];
         if(array.length > 5){
@@ -174,22 +173,30 @@ var ViewAllDishes = function (container) {
     }
 
 
-    var temp = document.getElementById("searchButton");
-    temp.addEventListener("click", 
+    var searchBtn= document.getElementById("searchButton");
+    searchBtn.addEventListener("click", 
     	function(e){
     		var choice = document.getElementById("chooseFood");
 			var chosenOption = choice.options[choice.selectedIndex].value;
             var chosenIngridient = document.getElementById("chooseIngridient").value;
-			//console.log(chosenIngridient);
     		var chosenDish = model.getAllDishes(chosenOption, chosenIngridient);
     		e.preventDefault(); //making the page not reload
-            var temp = [];
+            var searchBtn= [];
             for(i = 0; i < chosenDish.length; i++){
-                temp.push(chosenDish[i]);
+                searchBtn.push(chosenDish[i]);
             }
-            //console.log(temp);
-            ShowMenu(container, temp, true);
+            ShowMenu(container, searchBtn, true);
     	}
     );
 
+    var confirmDinDin= document.getElementById("confirmDinner");
+    confirmDinDin.addEventListener("click", 
+        function(e){
+            document.getElementById("viewAllDishes").style.display = "none";
+            console.log("model.getFullMenu()");
+            console.log(model.getFullMenu());
+            var dindinOverview = new DinnerOverview();
+            document.getElementById("viewDinnerOverview").style.display = "";
+        }
+    );
 } 

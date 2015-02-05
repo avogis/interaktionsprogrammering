@@ -11,7 +11,6 @@ var DinnerModel = function() {
 	this.setNumberOfGuests = function(num) {
 		//the number of guests should be set in a different div 
 		document.getElementById("populateGuestOption").selectedIndex = num;
-		console.log(document.getElementById("populateGuestOption").selectedIndex = num);
 	}
 
 	// should return 
@@ -26,14 +25,10 @@ var DinnerModel = function() {
 	this.getSelectedDish = function(type) {
 		var arrayToReturn = [];
 		for(i = 0; i < dishes.length; i++){
-			console.log("dish.type");
-			console.log(dishes[i].type);
 			if(dishes[i].type === type){
 				arrayToReturn.push(dishes[i]);
 			}
 		}
-		console.log("results of getSelectedDish: ");
-		console.log(arrayToReturn);
 		return arrayToReturn;
 	}
 
@@ -41,10 +36,12 @@ var DinnerModel = function() {
 	//missinterpreted this one!
 	//i think that the menu should be passed throught the controller right?
 	//remove the parameter menu afterwards
-	this.getFullMenu = function(menu) {
+	this.getFullMenu = function() {
 		// don't understand yet
 		//might need to do this as with the getNumberOfGuests
-		return menu;
+		console.log("fullMenu in getFullMenu ");
+		console.log(fullMenu);
+		return fullMenu;
 	}
 
 	//HOW DO I ACCESS THE DISHES OTHERWISE?
@@ -55,44 +52,57 @@ var DinnerModel = function() {
 	//Returns all ingredients for all the dishes on the menu. 
 	//added parameter "menu"
 	//remove menu afterwards
-	this.getAllIngredients = function(menu) {
+	this.getAllIngredients = function() {
+		var menu = this.getFullMenu();
 		var ingredientsArray = [];
 		for(i = 0; i < menu.length; i++){
 			ingredientsArray.push(menu[i].ingredients);
 		}
-		console.log("results of getAllIngredients: ");
-		console.log(ingredientsArray);
 		return ingredientsArray;
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	//remove parameter menu
-	this.getTotalMenuPrice = function(menu) {
-		var allIngredients = this.getAllIngredients(this.getFullMenu(menu));
+	this.getTotalMenuPrice = function() {
+		var allIngredients = this.getAllIngredients(fullMenu);
 		var totalPrice = 0;
 		for(i = 0; i < allIngredients.length; i++){
 			for(j = 0; j < allIngredients[i].length; j++){
 				totalPrice = totalPrice + allIngredients[i][j].price;
 			}
 		}
-		console.log("result of getTotalMenuPrice: ");
-		console.log(totalPrice * parseInt(this.getNumberOfGuests()));
 		return totalPrice * parseInt(this.getNumberOfGuests());	
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
+	//don't really understand...
 	this.addDishToMenu = function(id) {
-    	fullMenu.push[dishes.id];
+		for(key in dishes){
+			if(dishes[key].id == id){
+				fullMenu.push(dishes[key]);
+				document.getElementById("dishName").innerHTML = dishes[key].name;
+				console.log("FullMenui addDishtoMenu");
+				console.log(fullMenu);
+				document.getElementById("dishCost").innerHTML = this.getTotalMenuPrice();
+				break;
+			}
+		}
+		console.log("fullMenu in Add Dish to Menu: ");
+		console.log(fullMenu); //this doesn't really seem to work
+
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		var index = fullMenu.indexOf(dishes.id);
-		if(index > -1){
-			fullMenu.splice(index, 1);
+		for(key in dishes){
+			if(dishes[key].id == id){
+				var index = fullMenu.indexOf(dishes[key].id);
+				if(index > -1){
+					fullMenu.splice(index, 1);
+				}
+			}
 		}
-
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")

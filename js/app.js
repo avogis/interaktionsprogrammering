@@ -6,5 +6,6 @@ $(function() {
 	var viewStartPage = new ViewStartPage($("#viewStartPage"));
 	var viewAllDishes = new ViewAllDishes($("#dinnerDishes"));
 	var viewRecipeDetails = new ViewRecipeDetails($("#viewRecipeDetails"));
+	var dinnerOverview = new DinnerOverview();
 
 });

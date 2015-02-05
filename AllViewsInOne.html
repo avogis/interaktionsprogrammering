@@ -61,14 +61,14 @@
                                 <table class="table">
                                     <thead>
                                          <tr>
-                                            <th id="dishName">Dish Name</th>
+                                            <th>Dish Name</th>
                                             <th>Cost</th>
                                          </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Pending</td>
-                                            <td id="totalCost">77.20</td>
+                                            <td id="dishName" >Pending</td>
+                                            <td id="dishCost">0.00</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -206,9 +206,14 @@
                 <div class="row" id="overviewContent">
                     <div class="col-md-8" id="overviewDishes">
                     <!-- Här ska det poplueras med valda dishes -->
-
-                    
-
+                        <div class="row" id"displayChosenMenu">
+                            <div class="col-md-2" id="colOne">   
+                            </div>
+                            <div class="col-md-2" id="colTwo">
+                            </div>
+                            <div class="col-md-2" id="colThree">
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-4" id="overviewTotalCost">
                         <div class="row">
@@ -242,10 +247,10 @@
     <!-- The application JavaScript code -->
     <script src="js/app.js"></script>
     <script src="js/model/dinnerModel.js"></script>
-    <script src="js/view/centralFunctions.js"></script>
     <script src="js/view/viewStartPage.js"></script>
     <script src="js/view/viewAllDishes.js"></script>
     <script src="js/view/viewRecipeDetails.js"></script>
+    <script src="js/view/viewDinnerOverview.js"></script>
     <!-- <script src="js/view/exampleViewController.js"></script> -->
 </body>
 </html>
