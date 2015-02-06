@@ -170,6 +170,18 @@ var ViewAllDishes = function (container, model) {
     }
 
 
+
+    var table= document.getElementById("dishNameAndCostTBody");
+    var allDishesInMenu = table.getElementsByTagName("TR")
+    for(i = 0; i < allDishesInMenu.length; i++){
+        allDishesInMenu[i].addEventListener("click", 
+        function(e){
+            console.log(e.srcElement);
+        }
+        );
+    }
+
+
     var searchBtn= document.getElementById("searchButton");
     searchBtn.addEventListener("click", 
     	function(e){
