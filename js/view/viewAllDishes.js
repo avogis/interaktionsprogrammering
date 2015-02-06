@@ -57,19 +57,19 @@ var ViewAllDishes = function (container, model) {
 
     ShowMenu(container, menu, false);
 
-    //is it prehaps better to replace div content rather clear a whole div? 
-    //lets ask someone
-    function ReplaceContentInWholeDiv(wholeDiv, dish){
-        //replace div pic 
-        //replace div name
-        //replace div description
+    // //is it prehaps better to replace div content rather clear a whole div? 
+    // //lets ask someone
+    // function ReplaceContentInWholeDiv(wholeDiv, dish){
+    //     //replace div pic 
+    //     //replace div name
+    //     //replace div description
 
-    }
+    // }
 
-    function ReplaceContentInContainer(id, content) {
-        var container = document.getElementById(id);
-        container.innerHTML = content;
-    }	
+    // function ReplaceContentInContainer(id, content) {
+    //     var container = document.getElementById(id);
+    //     container.innerHTML = content;
+    // }	
 
     function clearDiv(div){
         div.innerHTML = "";
@@ -172,18 +172,6 @@ var ViewAllDishes = function (container, model) {
     }
 
 
-
-    // var table= document.getElementById("dishNameAndCostTBody");
-    // var allDishesInMenu = table.getElementsByTagName("TR")
-    // for(i = 0; i < allDishesInMenu.length; i++){
-    //     allDishesInMenu[i].addEventListener("click", 
-    //                 function(e){
-    //                     console.log(e.srcElement);
-    //                 }
-    //             );
-    // }
-
-
     var searchBtn= document.getElementById("searchButton");
     searchBtn.addEventListener("click", 
     	function(e){
@@ -200,7 +188,7 @@ var ViewAllDishes = function (container, model) {
     	}
     );
 
-    var chosenType= document.getElementById("chooseFood");
+    var chosenType = document.getElementById("chooseFood");
     chosenType.addEventListener("change", 
         function(e){
             var chosenType = document.getElementById("chooseFood");
