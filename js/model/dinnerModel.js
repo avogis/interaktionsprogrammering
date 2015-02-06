@@ -9,27 +9,27 @@ var DinnerModel = function() {
 
 	//OR WHAT DO YOU MEAN? DON`T UNDERSTAND
 	this.setNumberOfGuests = function(num) {
-		//the number of guests should be set in a different div 
-		document.getElementById("populateGuestOption").selectedIndex = num;
+		numberOfMyGuests = num; 
 	}
 
 	// should return 
 	this.getNumberOfGuests = function() { //why does it return a number that is +1 the selected?!
-		var choice = document.getElementById("populateGuestOption");
-		var chosenOption = choice.options[choice.selectedIndex].value;
-		numberOfMyGuests = chosenOption;
-		return chosenOption;
+		return numberOfMyGuests;
 	}
 
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
-		var arrayToReturn = [];
-		for(i = 0; i < dishes.length; i++){
-			if(dishes[i].type === type){
-				arrayToReturn.push(dishes[i]);
+		if(type == "all"){
+			return dishes;
+		}else{
+			var arrayToReturn = [];
+			for(i = 0; i < dishes.length; i++){
+				if(dishes[i].type === type){
+					arrayToReturn.push(dishes[i]);
+				}
 			}
+			return arrayToReturn;
 		}
-		return arrayToReturn;
 	}
 
 	//Returns all the dishes on the menu.

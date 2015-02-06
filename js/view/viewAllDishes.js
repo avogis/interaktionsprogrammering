@@ -4,14 +4,22 @@ var ViewAllDishes = function (container, model) {
     var colNames = ["colOne", "colTwo", "colThree", "colFour", "colFive"];
     var pathToImages = "images/";
 
+
+    var options = document.getElementById("chooseFood");
+    var optionNamesTemp = [];
+    var allOption = document.createElement("option");
+    var allOptionText = "all";
+    allOption.value = allOptionText;
+    allOption.text = allOptionText;
+    options.appendChild(allOption);
+    optionNamesTemp.push(allOptionText);
+
     var ShowMenu = function(container, array, update){
         if(update == true){
             for(i = 0; i < colNames.length; i++){
                 clearDiv(document.getElementById(colNames[i]));
             }
         }
-        var options = document.getElementById("chooseFood");
-        var optionNamesTemp = [];
         if(array.length > 5){
             for(i = 0; i < array.length; i=i+5){
                 for(j = 0; j < 5; j++){
@@ -111,18 +119,9 @@ var ViewAllDishes = function (container, model) {
         return dishPic;
     }
 
-    model.setNumberOfGuests("11");
-
-    model.getSelectedDish("starter");
-
-    var tempArray = [];
-    tempArray.push(menu[0]);
-    tempArray.push(menu[4]);
-    model.getAllIngredients(tempArray);
-
-    var images = document.getElementsByTagName("img");
 
     //ALL OF THIS SHOULD BE IN IN ANOTHER CONTROLLER
+    var images = document.getElementsByTagName("img");
     for(var i = 0; i < images.length; i++) {
         var image = images[i];
         image.onclick = function(event) {
@@ -147,6 +146,11 @@ var ViewAllDishes = function (container, model) {
                 var product = document.createElement("TD");
                 var sek = document.createElement("TD");
                 var price = document.createElement("TD");
+                ingriedient.id = "ingriedient"+i;
+                amount.id = "amount"+i;
+                product.id = "product"+i;
+                sek.id = "sek"+i;
+                price.id = "price"+i;
                 amount.innerHTML = (listOfIngridients[i].quantity  * nrGuests) + " " + listOfIngridients[i].unit;
                 product.innerHTML = listOfIngridients[i].name;
                 sek.innerHTML = "SEK";
@@ -174,13 +178,34 @@ var ViewAllDishes = function (container, model) {
             var chosenIngridient = document.getElementById("chooseIngridient").value;
     		var chosenDish = model.getAllDishes(chosenOption, chosenIngridient);
     		e.preventDefault(); //making the page not reload
-            var searchBtn= [];
+            var tempArray= [];
             for(i = 0; i < chosenDish.length; i++){
-                searchBtn.push(chosenDish[i]);
+                tempArray.push(chosenDish[i]);
             }
-            ShowMenu(container, searchBtn, true);
+            ShowMenu(container, tempArray, true);
     	}
     );
+
+    var chosenType= document.getElementById("chooseFood");
+    chosenType.addEventListener("change", 
+        function(e){
+            var chosenType = document.getElementById("chooseFood");
+            var chosenOption = chosenType.options[chosenType.selectedIndex].value;
+            var allDishesOfAType = model.getSelectedDish(chosenOption);
+            e.preventDefault();
+            ShowMenu(container, allDishesOfAType, true);     
+        }
+    );
+
+    var chosenNrOfGuests= document.getElementById("populateGuestOption");
+    chosenNrOfGuests.addEventListener("change", 
+        function(e){
+            var chosenNrOfGuests = document.getElementById("populateGuestOption");
+            var chosenOption = chosenNrOfGuests.options[chosenNrOfGuests.selectedIndex].value;
+            model.setNumberOfGuests(chosenOption);
+            e.preventDefault();   
+        }
+    );     
 
     var confirmDinDin= document.getElementById("confirmDinner");
     confirmDinDin.addEventListener("click", 
