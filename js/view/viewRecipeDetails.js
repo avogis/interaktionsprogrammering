@@ -14,7 +14,6 @@ var ViewRecipeDetails = function (container, model) {
 			var dishNameAndCostTR = document.createElement("TR");
 			dishNameAndCostTR.addEventListener("click", 
                 function(e){
-                	console.log(e.srcElement);
                 	if(e.srcElement.className !== "btn btn-danger"){
 	                	var nameOr = e.srcElement.id;
 	                   	var dishId = nameOr.replace("added", "");

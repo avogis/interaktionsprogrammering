@@ -74,7 +74,7 @@ var ViewDinnerOverview = function(model){
     		}
     		for(i = 0; i < menu.length; i++){
     			var printDishRow = document.createElement("DIV");
-    			printDishRow.className = "row"
+    			printDishRow.className = "row";
     			var printDishPic = document.createElement("DIV");
     			printDishPic.className = "col-md-2";
     			var printDishName = document.createElement("DIV");
