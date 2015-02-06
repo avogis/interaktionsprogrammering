@@ -154,7 +154,7 @@ var ViewAllDishes = function (container, model) {
                 amount.innerHTML = (listOfIngridients[i].quantity  * nrGuests) + " " + listOfIngridients[i].unit;
                 product.innerHTML = listOfIngridients[i].name;
                 sek.innerHTML = "SEK";
-                price.innerHTML = (listOfIngridients[i].price * nrGuests); 
+                price.innerHTML = (listOfIngridients[i].price * nrGuests);
                 ingriedient.appendChild(amount);
                 ingriedient.appendChild(product);
                 ingriedient.appendChild(sek);
@@ -171,15 +171,15 @@ var ViewAllDishes = function (container, model) {
 
 
 
-    var table= document.getElementById("dishNameAndCostTBody");
-    var allDishesInMenu = table.getElementsByTagName("TR")
-    for(i = 0; i < allDishesInMenu.length; i++){
-        allDishesInMenu[i].addEventListener("click", 
-        function(e){
-            console.log(e.srcElement);
-        }
-        );
-    }
+    // var table= document.getElementById("dishNameAndCostTBody");
+    // var allDishesInMenu = table.getElementsByTagName("TR")
+    // for(i = 0; i < allDishesInMenu.length; i++){
+    //     allDishesInMenu[i].addEventListener("click", 
+    //                 function(e){
+    //                     console.log(e.srcElement);
+    //                 }
+    //             );
+    // }
 
 
     var searchBtn= document.getElementById("searchButton");

@@ -12,8 +12,16 @@ var ViewRecipeDetails = function (container, model) {
 			clearDiv(document.getElementById("imageOfChosenDish"));
 			var dishNameAndCostTBody = document.getElementById("dishNameAndCostTBody");
 			var dishNameAndCostTR = document.createElement("TR");
+			dishNameAndCostTR.addEventListener("click", 
+                function(e){
+                	var nameOr = e.srcElement.id;
+                   	var dishId = nameOr.replace("added", "");
+                   	var dish
+                }
+            ); 
 			var dishName = document.createElement("TD");
 			dishName.innerHTML = model.getDish(id).name;
+			dishName.id = "added"+id;
 			var dishCost = document.createElement("TD");
 			dishCost.innerHTML = model.getTotalMenuPrice();
 			dishNameAndCostTR.appendChild(dishName);
