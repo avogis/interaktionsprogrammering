@@ -18,7 +18,7 @@ var ViewDinnerOverview = function(model){
 
 	if(menu.length !== 0){
 		for(i = 0; i < menu.length; i++){
-			setDishContent(colNames[i%3], menu, i)
+			setDishContent(colNames[i%3], menu, i);
 		}		
     }
 
@@ -27,6 +27,7 @@ var ViewDinnerOverview = function(model){
 
 	function setDishContent(colName, array, index){
 		var colNameParent = document.createElement("DIV");
+		colNameParent.className = "col-md-2";
 		colNameParent.id = colName; 
 		//div for pic
 		var dishPicDiv = document.createElement("DIV");
