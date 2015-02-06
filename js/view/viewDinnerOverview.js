@@ -3,13 +3,10 @@ var ViewDinnerOverview = function(model){
 	var colNames = ["colOneOver", "colTwoOver", "colThreeOver"];
 	
 	var menu = model.getFullMenu();
-	console.log("model");
-	console.log(model);
-	console.log("menu in DinnerOverview:");
-	console.log(menu);
-	console.log(menu.length);
 
 	var firstConfirm = true;
+
+	clearDiv(document.getElementById("displayChosenMenu"));
 
 
 	if(firstConfirm !== true){
@@ -29,7 +26,8 @@ var ViewDinnerOverview = function(model){
     document.getElementById("myDinner").innerHTML = "My dinner: " + model.getNumberOfGuests();
 
 	function setDishContent(colName, array, index){
-		var colNameParent = document.getElementById(colName); 
+		var colNameParent = document.createElement("DIV");
+		colNameParent.id = colName; 
 		//div for pic
 		var dishPicDiv = document.createElement("DIV");
 		var dishPic = addAnImage(array[index]);
@@ -51,6 +49,7 @@ var ViewDinnerOverview = function(model){
 		colNameParent.appendChild(dishNameDiv);
 		colNameParent.appendChild(dishPicDiv);
 		colNameParent.appendChild(dishDescDiv);
+		document.getElementById("displayChosenMenu").appendChild(colNameParent);
 	}
 
 	function addAnImage(dish){
