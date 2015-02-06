@@ -66,7 +66,8 @@ var ViewDinnerOverview = function(model){
     	function(e){
     		document.getElementById("overviewContent").style.display = "none";
     		document.getElementById("overviewPrint").style.display = "none";
-    		var printDiv = document.getElementById("printRecipe")
+    		var printDiv = document.getElementById("printRecipe");
+    		clearDiv(printDiv);
     		printDiv.style.display = "";
     		if(firstConfirm !== true){
     			clearDiv(printDiv);
