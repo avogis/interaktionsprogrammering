@@ -14,18 +14,38 @@ var ViewRecipeDetails = function (container, model) {
 			var dishNameAndCostTR = document.createElement("TR");
 			dishNameAndCostTR.addEventListener("click", 
                 function(e){
-                	var nameOr = e.srcElement.id;
-                   	var dishId = nameOr.replace("added", "");
-                   	var dish
+                	console.log(e.srcElement);
+                	if(e.srcElement.className !== "btn btn-danger"){
+	                	var nameOr = e.srcElement.id;
+	                   	var dishId = nameOr.replace("added", "");
+	                   	var btn = document.getElementById("addedBtn"+dishId);
+	                   	if(btn.style.display == "none"){
+	                   		btn.style.display = "";
+	                   	}else{
+	                   		btn.style.display = "none";	
+	                   	}
+	                	var dish = model.getDish(dishId);
+                    }
                 }
             ); 
 			var dishName = document.createElement("TD");
 			dishName.innerHTML = model.getDish(id).name;
 			dishName.id = "added"+id;
 			var dishCost = document.createElement("TD");
+			var deleteButton = document.createElement("BUTTON");
+			deleteButton.className = "btn btn-danger";
+			deleteButton.style.display = "none";
+			deleteButton.id = "addedBtn"+id;
+			deleteButton.innerHTML = "x";
+			deleteButton.addEventListener("click",
+                   		function(e){
+							model.removeDishFromMenu(id);
+							dishNameAndCostTR.remove();	
+                   		});
 			dishCost.innerHTML = model.getTotalMenuPrice();
 			dishNameAndCostTR.appendChild(dishName);
 			dishNameAndCostTR.appendChild(dishCost);
+			dishNameAndCostTR.appendChild(deleteButton);
 			dishNameAndCostTBody.appendChild(dishNameAndCostTR);
 			document.getElementById("dishCost").innerHTML = "0.0";
 			document.getElementById("totalSek").innerHTML = model.getTotalMenuPrice()+" SEK";
@@ -42,7 +62,7 @@ var ViewRecipeDetails = function (container, model) {
     	}
     ); 
 
-    var chosenNrOfGuests= document.getElementById("populateGuestOption");
+    var chosenNrOfGuests = document.getElementById("populateGuestOption");
     chosenNrOfGuests.addEventListener("change", 
         function(e){
             var chosenNrOfGuests = document.getElementById("populateGuestOption");
