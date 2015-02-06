@@ -178,15 +178,17 @@ button {
 #overviewContent {
     margin-top: 20px;
     margin-bottom: 20px;
-    height: 300px;
 }
 
 #overviewTotalCost{
-    border-left: solid;
-    vertical-align: bottom;
+    padding-top: 150px;
+}
+#displayChosenMenu col {
+    text-align: right;
 }
 #overviewDishes {
     height:100%;
+    border-right: solid;
 }
 #overviewTotalCost {
     height:100%;

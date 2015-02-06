@@ -47,18 +47,18 @@
                 <div class="row">
                     <!-- Left side of page, same as for recipeView -->
                     <section >
-                        <div class="col-md-2" id="pageLeft">
+                        <div class="col-md-3" id="pageLeft">
                             <div class="row">
                                 <h3>My Dinner</h3>
                             </div>
                             <div class="row" id="guest">
                                 <div class="col-md-6" id="guestDiv">Guests</div>
-                                <div class="col-md-6" id="guestPopulateDiv">
+                                <div class="col-md-4" id="guestPopulateDiv">
                                     <select class = "form-control" id="populateGuestOption" value></select>
                                 </div>
                             </div>
                             <div class="row">
-                                <table class="table">
+                                <table class="table" id="dishTable">
                                     <thead>
                                          <tr>
                                             <th>Dish Name</th>
@@ -74,15 +74,15 @@
                                 </table>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-6" id="leftTotalCost">
                                     <p>Total cost</p>
                                 </div>
-                                <div class="col-md-6" >
+                                <div class="col-md-6" id="leftTotalSek">
                                     <p id="totalSek" >0.00 SEK</p>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <button type="submit" class="btn" id="confirmDinner" value="submit">Confirm Dinner</button>
                                 </div>
                             </div>          
@@ -90,7 +90,7 @@
                     </section> <!-- end of previously known aside -->
 
                     <!-- Main Content -->
-                    <div class="col-md-10" id="searchDish">
+                    <div class="col-md-9" id="searchDish">
                         <section id = "selectDish">
                             <div class="row">
                                 <div class="col-md-12">
@@ -134,7 +134,7 @@
                     <!-- ViewRecipeDetails -->
                     <div id = "viewRecipeDetails" style = "display: none">
                      <section>
-                        <div class="col-md-6" id="recipePreparation">
+                        <div class="col-md-5" id="recipePreparation">
                             <div class="row">
                                 <div class="col-md-12">
                                     <h2 id = "nameOfDish"></h2>
