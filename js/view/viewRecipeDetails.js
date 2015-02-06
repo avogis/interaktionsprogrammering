@@ -18,13 +18,15 @@ var ViewRecipeDetails = function (container, model) {
                 	if(e.srcElement.className !== "btn btn-danger"){
 	                	var nameOr = e.srcElement.id;
 	                   	var dishId = nameOr.replace("added", "");
-	                   	var btn = document.getElementById("addedBtn"+dishId);
-	                   	if(btn.style.display == "none"){
-	                   		btn.style.display = "";
-	                   	}else{
-	                   		btn.style.display = "none";	
-	                   	}
-	                	var dish = model.getDish(dishId);
+	                   	if(dishId !== ""){
+		                   	var btn = document.getElementById("addedBtn"+dishId);
+		                   	if(btn.style.display == "none"){
+		                   		btn.style.display = "";
+		                   	}else{
+		                   		btn.style.display = "none";	
+		                   	}
+		                	var dish = model.getDish(dishId);
+	                	}
                     }
                 }
             ); 
