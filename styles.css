@@ -143,7 +143,8 @@ button {
 
 #searchDish {
     margin-left: 10px;
-    width: 74%
+    width: 74%;
+    padding: 0px;
 }
 
 #selectDish {
