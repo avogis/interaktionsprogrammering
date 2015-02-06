@@ -72,7 +72,7 @@ button {
 /*Recipe details*/
 
 #imageOfChosenDish img {
-    height:400px;
+    width:400px;
 }
 
 #ingredientList {
