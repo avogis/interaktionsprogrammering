@@ -66,6 +66,8 @@ button {
     border-style: solid;
     text-align: center;
     min-height: 600px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 /*Recipe details*/
@@ -88,6 +90,21 @@ button {
 }
 #confirmDishButton {
     margin-bottom: 10px;
+}
+#dishTable {
+    text-align: left;
+}
+#guestDiv {
+    text-align: right;
+}
+#guestPopulateDiv {
+    text-align: left;
+}
+#leftTotalCost {
+    text-align: right;
+}
+#leftTotalSek {
+    text-align: left;
 }
 
 /*viewAllDishes*/
