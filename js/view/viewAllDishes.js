@@ -134,10 +134,12 @@ var ViewAllDishes = function (container, model) {
             var addImage = addAnImage(dish);
             var dishName = document.getElementById("nameOfDish");
             dishName.innerHTML = dish.name;
+            clearDiv(imageDiv);
             imageDiv.appendChild(addImage);
             var ingriedientsList = document.getElementById("headerIngriedients");
             ingriedientsList.innerHTML = "Dinner for " + nrGuests + " people";
             var ingriedients = document.getElementById("igredientTable");
+            clearDiv(ingriedients);
             var listOfIngridients = dish.ingredients;
             var priceForADish = 0;
             for(i = 0; i < listOfIngridients.length; i++){
