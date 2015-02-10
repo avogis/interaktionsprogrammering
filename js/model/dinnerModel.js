@@ -3,6 +3,19 @@ var DinnerModel = function() {
 
 	var fullMenu = [];
 	var numberOfMyGuests = 0; 
+	var observers = [];
+
+	//add Observers
+	this.addObserver = function(observer) {
+		observers.push(observer);
+	}
+
+	//notify observers
+	var notifyObservers = function(obj) {
+		for(i = 0; i < observers.length; i++){
+			observers[i].update(obj);
+		}
+	}
 
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu

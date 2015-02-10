@@ -55,21 +55,7 @@ var ViewAllDishes = function (container, model) {
         }
     }
 
-    ShowMenu(container, menu, false);
-
-    // //is it prehaps better to replace div content rather clear a whole div? 
-    // //lets ask someone
-    // function ReplaceContentInWholeDiv(wholeDiv, dish){
-    //     //replace div pic 
-    //     //replace div name
-    //     //replace div description
-
-    // }
-
-    // function ReplaceContentInContainer(id, content) {
-    //     var container = document.getElementById(id);
-    //     container.innerHTML = content;
-    // }	
+    ShowMenu(container, menu, false);	
 
     function clearDiv(div){
         div.innerHTML = "";
