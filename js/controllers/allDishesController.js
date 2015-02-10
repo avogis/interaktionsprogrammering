@@ -32,10 +32,19 @@ var AllDishesController = function (view, model) {
     view.confirmDinDin.addEventListener("click", 
         function(e){
             document.getElementById("viewAllDishes").style.display = "none";
-            ViewDinnerOverview(model);
-            document.getElementById("overviewContent").style.display = "";
-            document.getElementById("viewDinnerOverview").style.display = "";
-            document.getElementById("overviewPrint").style.display = "";
+            document.getElementById("dinnerOverview").style.display = "";
+            document.getElementById("overviewBorder").style.display = "";
+
         }
     );
+     // for(var i = 0; i < this.images.length; i++) {
+        //     var image = this.images[i];
+
+        //     image.onclick = function(event) {
+        //         model.setCurrentDish(event.srcElement.id);
+        //         var searchDishDiv = document.getElementById("searchDish");
+        //         searchDishDiv.style.display = "none";
+        //         document.getElementById("viewRecipeDetails").style.display = "";     
+        //     };
+        // }
 }

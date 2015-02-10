@@ -197,9 +197,9 @@
             </div> <!-- end of ViewAllApges -->
 
             <!-- viewDinnerOverview and Print -->
-            <div id="viewDinnerOverview" style="display: none">
+            <div id="viewDinnerOverview">
                 <!-- Horizontal middle -->
-                <div class="row" id="overviewBorder">
+                <div class="row" id="overviewBorder" style="display: none">
                     <div class="col-md-3 col-md-offset-1">
                         <h2 id="myDinner"> My Dinner: </h2>
                     </div>
@@ -207,9 +207,9 @@
                         <button class="btn" id="backEditButton">Go back and edit dinner</button>
                     </div>
                 </div>
-                <div> <!--Overviewcontentdiv -->
+                <div id="dinnerOverview" style="display: none"> <!--Overviewcontentdiv -->
                     <!-- Main Content -->
-                    <div class="row" id="overviewContent" style="display: none">
+                    <div class="row" id="overviewContent">
                         <div class="col-md-8" id="overviewDishes">
                         <!-- Här ska det poplueras med valda dishes -->
                             <div class="row" id="displayChosenMenu">
@@ -234,7 +234,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row" id="overviewPrint" style="display: none">
+                    <div class="row" id="overviewPrint">
                         <div class="col-md-12">
                             <button class="btn" id="overviewPrintButton">Print full recipe</button>
                         </div>
@@ -264,6 +264,10 @@
     <script src="js/view/viewRecipeDetails.js"></script>
     <script src="js/controllers/recipeDetailsController.js"></script>
     <script src="js/view/viewDinnerOverview.js"></script>
+    <script src="js/controllers/dinnerOverviewController.js"></script>
+    <script src="js/view/viewDinnerBorder.js"></script>
+    <script src="js/controllers/dinnerBorderController.js"></script>
+    <script src="js/view/viewPrintDinner.js"></script>
     <!-- <script src="js/view/exampleViewController.js"></script> -->
 </body>
 </html>

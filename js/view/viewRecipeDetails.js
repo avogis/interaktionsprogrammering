@@ -7,8 +7,7 @@ var ViewRecipeDetails = function (container, model) {
 
 
     this.update = function() {
-        console.log("HEJ");
-        clearDiv(container);
+        // clearDiv(container);
         var nrGuests = model.getNumberOfGuests();
         var dish = model.getCurrentDish();
         if(dish !== null){

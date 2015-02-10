@@ -11,18 +11,19 @@ var DinnerModel = function() {
 	//add Observers
 	this.addObserver = function(observer) {
 		observers.push(observer);
+		// console.log("observers");
+		// console.log(observers);
 	}
 
 	//notify observers
 	var notifyObservers = function() {
 		for(i = 0; i < observers.length; i++){
+			console.log(i);
 			observers[i].update();
 		}
 	}
 
 	this.getCurrentDish = function() {
-		console.log("currentDish");
-		console.log(currentDish);
 		return currentDish;
 	}
 	this.setCurrentDish = function(id) {
@@ -55,10 +56,13 @@ var DinnerModel = function() {
 	//OR WHAT DO YOU MEAN? DON`T UNDERSTAND
 	this.setNumberOfGuests = function(num) {
 		numberOfMyGuests = num; 
+		notifyObservers();
 	}
 
 	// should return 
-	this.getNumberOfGuests = function() { //why does it return a number that is +1 the selected?!
+	this.getNumberOfGuests = function() {
+		// console.log("numberOfMyGuests"); //why does it return a number that is +1 the selected?!
+		// console.log(numberOfMyGuests); //why does it return a number that is +1 the selected?!
 		return numberOfMyGuests;
 	}
 
@@ -119,9 +123,11 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	//don't really understand...
 	this.addDishToMenu = function(id) {
+		console.log("adds to menu");
 		for(key in dishes){
 			if(dishes[key].id == id){
 				fullMenu.push(dishes[key]);
+				notifyObservers();
 				break;
 			}
 		}

@@ -1,4 +1,4 @@
-var ViewDinnerOverview = function(model){
+var ViewDinnerOverview = function(container, model){
 
 	var colNames = ["colOneOver", "colTwoOver", "colThreeOver"];
 	
@@ -10,7 +10,6 @@ var ViewDinnerOverview = function(model){
 
 
 	if(firstConfirm !== true){
-		console.log("do i ever get in here?");
 		for(i = 0; colNames.length; i++){
 		    document.getElementById("displayChosenMenu").remove();
 		}
@@ -23,7 +22,6 @@ var ViewDinnerOverview = function(model){
     }
 
     document.getElementById("totalCostOver").innerHTML = model.getTotalMenuPrice();
-    document.getElementById("myDinner").innerHTML = "My dinner: " + model.getNumberOfGuests();
 
 	function setDishContent(colName, array, index){
 		var colNameParent = document.createElement("DIV");
@@ -61,46 +59,8 @@ var ViewDinnerOverview = function(model){
         return dishPic;
     }
 
-    var printBtn= document.getElementById("overviewPrintButton");
-    printBtn.addEventListener("click", 
-    	function(e){
-    		document.getElementById("overviewContent").style.display = "none";
-    		document.getElementById("overviewPrint").style.display = "none";
-    		var printDiv = document.getElementById("printRecipe");
-    		clearDiv(printDiv);
-    		printDiv.style.display = "";
-    		if(firstConfirm !== true){
-    			clearDiv(printDiv);
-    		}
-    		for(i = 0; i < menu.length; i++){
-    			var printDishRow = document.createElement("DIV");
-    			printDishRow.className = "row";
-    			var printDishPic = document.createElement("DIV");
-    			printDishPic.className = "col-md-2";
-    			var printDishName = document.createElement("DIV");
-    			printDishName.className = "col-md-3";
-    			var printDishPrep = document.createElement("DIV");
-    			printDishPrep.className = "col-md-4";
-    			printDishPic.appendChild(addAnImage(menu[i]));
-    			printDishName.innerHTML = menu[i].name;
-    			printDishPrep.innerHTML = menu[i].description;
-    			printDishRow.appendChild(printDishPic);
-    			printDishRow.appendChild(printDishName);
-    			printDishRow.appendChild(printDishPrep);
-    			printDiv.appendChild(printDishRow);
-    		}
-    	}
-    );
-	
-	var goBackBtn = document.getElementById("backEditButton");
-    goBackBtn.addEventListener("click", 
-	   	function(e){
-	   		firstConfirm = false;	
-	   		document.getElementById("printRecipe").style.display = "none";	
-	   		document.getElementById("viewDinnerOverview").style.display = "none";	
-	   		document.getElementById("viewAllDishes").style.display = "";	
-	   	}
-   	);
+    this.printBtn= document.getElementById("overviewPrintButton");
+
 
    	function clearDiv(div){
         div.innerHTML = "";

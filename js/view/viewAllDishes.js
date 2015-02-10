@@ -4,6 +4,7 @@ var ViewAllDishes = function (container, model) {
     var colNames = ["colOne", "colTwo", "colThree", "colFour", "colFive"];
     var pathToImages = "images/";
     model.addObserver(this);
+    this.images = null;
 
 
     var options = document.getElementById("chooseFood");
@@ -18,6 +19,17 @@ var ViewAllDishes = function (container, model) {
     this.update = function() {
         var allDishesOfAType = model.getAllDishes(model.getType(), model.getFilter());
         ShowAllDishes(allDishesOfAType, true);
+        this.images = document.getElementsByTagName("img");
+        for(var i = 0; i < this.images.length; i++) {
+            var image = this.images[i];
+
+            image.onclick = function(event) {
+            model.setCurrentDish(event.srcElement.id);
+            var searchDishDiv = document.getElementById("searchDish");
+            searchDishDiv.style.display = "none";
+            document.getElementById("viewRecipeDetails").style.display = "";     
+            };
+        }
     }
 
     var ShowAllDishes = function(array, update){
@@ -112,17 +124,26 @@ var ViewAllDishes = function (container, model) {
     }
 
 
-    //ALL OF THIS SHOULD BE IN IN ANOTHER CONTROLLER
-    var images = document.getElementsByTagName("img");
-    for(var i = 0; i < images.length; i++) {
-        var image = images[i];
-        image.onclick = function(event) {
-            model.setCurrentDish(event.srcElement.id);
-            var searchDishDiv = document.getElementById("searchDish");
-            searchDishDiv.style.display = "none";
-            document.getElementById("viewRecipeDetails").style.display = "";     
-        };
-    }
+    //FIX THE BUG!!!!!!
+
+
+    this.images = document.getElementsByTagName("img");
+
+    // function setListenersToImages(images){
+        for(var i = 0; i < this.images.length; i++) {
+            var image = this.images[i];
+
+            image.onclick = function(event) {
+                model.setCurrentDish(event.srcElement.id);
+                var searchDishDiv = document.getElementById("searchDish");
+                searchDishDiv.style.display = "none";
+                document.getElementById("viewRecipeDetails").style.display = "";     
+            };
+        }
+    // } 
+
+    // setListenersToImages(this.images);      
+ 
 
 
     this.searchBtn= document.getElementById("searchButton");

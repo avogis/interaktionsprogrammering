@@ -9,5 +9,9 @@ $(function() {
 	var allDishesController = new AllDishesController(viewAllDishes, model);
 	var viewRecipeDetails = new ViewRecipeDetails($("#viewRecipeDetails"), model);
 	var recipeDetailsController = new RecipeDetailsController(viewRecipeDetails, model);
-
+	var viewDinnerOverView = new ViewDinnerOverview($("#dinnerOverview"), model);
+	var dinnerOverviewController = new DinnerOverviewController(viewDinnerOverView, model);
+	var viewDinnerBorder = new ViewDinnerBorder($("#overviewBorder"), model);
+	var dinnerBorderController = new DinnerBorderController(viewDinnerBorder, model);
+	var viewPrintDinner = new ViewPrintDinner($("#printRecipe"),model);
 });
