@@ -2,12 +2,9 @@ var ViewRecipeDetails = function (container, model) {
 
 	this.confirmButton = document.getElementById("confirmDishButton");
 	this.backButton = document.getElementById("backButton");
-    this.chosenNrOfGuests = document.getElementById("populateGuestOption");
     model.addObserver(this);
 
-
     this.update = function() {
-        // clearDiv(container);
         var nrGuests = model.getNumberOfGuests();
         var dish = model.getCurrentDish();
         if(dish !== null){
@@ -22,8 +19,7 @@ var ViewRecipeDetails = function (container, model) {
             var ingriedients = document.getElementById("igredientTable");
             clearDiv(ingriedients);
             var listOfIngridients = dish.ingredients;
-            var priceForADish = 0;
-            for(i = 0; i < listOfIngridients.length; i++){
+            for(var i = 0; i < listOfIngridients.length; i++){
                 var ingriedient = document.createElement("TR");
                 var amount = document.createElement("TD");
                 var product = document.createElement("TD");
@@ -44,10 +40,8 @@ var ViewRecipeDetails = function (container, model) {
                 ingriedient.appendChild(price);
                 ingriedients.appendChild(ingriedient);
                 document.getElementById("description").innerHTML = dish.description;
-                priceForADish = priceForADish + (listOfIngridients[i].price * nrGuests);
-                document.getElementById("dishCost").innerHTML = priceForADish;
             }
-            document.getElementById("totalCostViewDish").innerHTML = priceForADish;
+            document.getElementById("totalCostViewDish").innerHTML = model.priceForADish(dish);
         }
     }
 

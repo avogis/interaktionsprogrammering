@@ -7,7 +7,7 @@ var AllDishesController = function (view, model) {
 	        var chosenIngridient = document.getElementById("chooseIngridient").value;
 	        model.setType(chosenOption);
 	        model.setFilter(chooseIngridient);
-			e.preventDefault(); //making the page not reload
+			e.preventDefault(); 
 		}
 	);
 
@@ -20,31 +20,11 @@ var AllDishesController = function (view, model) {
         }
     );
 
-    view.chosenNrOfGuests.addEventListener("change", 
-        function(e){
-            var chosenNrOfGuests = document.getElementById("populateGuestOption");
-            var chosenOption = chosenNrOfGuests.options[chosenNrOfGuests.selectedIndex].value;
-            model.setNumberOfGuests(chosenOption);
-            e.preventDefault();   
-        }
-    );
+    view.menuScrollDiv.on( "click", "img", function() {
+        model.setCurrentDish(event.srcElement.id);
+        var searchDishDiv = document.getElementById("searchDish");
+        searchDishDiv.style.display = "none";
+        document.getElementById("viewRecipeDetails").style.display = ""; 
+    });
 
-    view.confirmDinDin.addEventListener("click", 
-        function(e){
-            document.getElementById("viewAllDishes").style.display = "none";
-            document.getElementById("dinnerOverview").style.display = "";
-            document.getElementById("overviewBorder").style.display = "";
-
-        }
-    );
-     // for(var i = 0; i < this.images.length; i++) {
-        //     var image = this.images[i];
-
-        //     image.onclick = function(event) {
-        //         model.setCurrentDish(event.srcElement.id);
-        //         var searchDishDiv = document.getElementById("searchDish");
-        //         searchDishDiv.style.display = "none";
-        //         document.getElementById("viewRecipeDetails").style.display = "";     
-        //     };
-        // }
 }

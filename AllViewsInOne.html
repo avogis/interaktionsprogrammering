@@ -69,7 +69,7 @@
                                     <tbody id = "dishNameAndCostTBody">
                                         <tr id ="dishNameAndCostTR1">
                                             <td id="dishName" >Pending</td>
-                                            <td id="dishCost">0.00</td>
+                                            <td colspan = "2" id="dishCost">0.00</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -197,7 +197,7 @@
             </div> <!-- end of ViewAllApges -->
 
             <!-- viewDinnerOverview and Print -->
-            <div id="viewDinnerOverview">
+            <div id="viewDinnerOverview" style="display: none">
                 <!-- Horizontal middle -->
                 <div class="row" id="overviewBorder" style="display: none">
                     <div class="col-md-3 col-md-offset-1">
@@ -260,7 +260,9 @@
     <script src="js/view/viewStartPage.js"></script>
     <script src="js/controllers/startPageController.js"></script>    
     <script src="js/view/viewAllDishes.js"></script>
+    <script src="js/view/viewMyDinnerLeft.js"></script>
     <script src="js/controllers/allDishesController.js"></script>
+    <script src="js/controllers/myDinnerController.js"></script>
     <script src="js/view/viewRecipeDetails.js"></script>
     <script src="js/controllers/recipeDetailsController.js"></script>
     <script src="js/view/viewDinnerOverview.js"></script>

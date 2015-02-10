@@ -1,5 +1,7 @@
 var DinnerBorderController = function(view, model) {
-	view.goBackBtn.addEventListener("click", 
+	
+	view.goBackBtn.addEventListener("click",
+
 	   	function(e){
 	   		firstConfirm = false;	
 	   		document.getElementById("printRecipe").style.display = "none";	

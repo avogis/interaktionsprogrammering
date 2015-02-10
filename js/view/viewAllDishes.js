@@ -18,28 +18,17 @@ var ViewAllDishes = function (container, model) {
 
     this.update = function() {
         var allDishesOfAType = model.getAllDishes(model.getType(), model.getFilter());
-        ShowAllDishes(allDishesOfAType, true);
-        this.images = document.getElementsByTagName("img");
-        for(var i = 0; i < this.images.length; i++) {
-            var image = this.images[i];
-
-            image.onclick = function(event) {
-            model.setCurrentDish(event.srcElement.id);
-            var searchDishDiv = document.getElementById("searchDish");
-            searchDishDiv.style.display = "none";
-            document.getElementById("viewRecipeDetails").style.display = "";     
-            };
-        }
+        ShowAllDishes(allDishesOfAType, true);  
     }
 
     var ShowAllDishes = function(array, update){
         if(update == true){
-            for(i = 0; i < colNames.length; i++){
+            for(var i = 0; i < colNames.length; i++){
                 clearDiv(document.getElementById(colNames[i]));
             }
         }
         if(array.length > 5){
-            for(i = 0; i < array.length; i=i+5){
+            for(var i = 0; i < array.length; i=i+5){
                 for(j = 0; j < 5; j++){
                     var index = (i+j);
                     LoopDishes(options, array, optionNamesTemp, index, j, update);
@@ -47,7 +36,7 @@ var ViewAllDishes = function (container, model) {
             }
         }
         else{
-            for(i = 0; i < array.length; i++){
+            for(var i = 0; i < array.length; i++){
                 var index = i;
                 LoopDishes(options, array, optionNamesTemp, index, i, update);
             }
@@ -58,7 +47,7 @@ var ViewAllDishes = function (container, model) {
         var colName = document.getElementById(colNames[colNameIndex]);
         if (update == false){
             setDishContent(colName, array, index);
-            //oprions
+            //options
             var type = menu[index].type;
             var found = optionNamesTemp.indexOf(type);
             if(found == -1){
@@ -103,17 +92,6 @@ var ViewAllDishes = function (container, model) {
         colName.appendChild(dishDescDiv);
     }
 
-    populateNrOfGuest("populateGuestOption");
-
-    function populateNrOfGuest(divName){
-        var nrOfGuests = document.getElementById(divName);
-        for(i = 0; i <= 15; i++){
-            var option = document.createElement("option");
-            option.value = i;
-            option.text = i;
-            nrOfGuests.appendChild(option);
-        }
-    }
 
     function addAnImage(dish){
         var dishPic = document.createElement("IMG");
@@ -123,36 +101,10 @@ var ViewAllDishes = function (container, model) {
         return dishPic;
     }
 
-
-    //FIX THE BUG!!!!!!
-
-
-    this.images = document.getElementsByTagName("img");
-
-    // function setListenersToImages(images){
-        for(var i = 0; i < this.images.length; i++) {
-            var image = this.images[i];
-
-            image.onclick = function(event) {
-                model.setCurrentDish(event.srcElement.id);
-                var searchDishDiv = document.getElementById("searchDish");
-                searchDishDiv.style.display = "none";
-                document.getElementById("viewRecipeDetails").style.display = "";     
-            };
-        }
-    // } 
-
-    // setListenersToImages(this.images);      
+    this.menuScrollDiv = $("#menuScroll");   
  
-
-
     this.searchBtn= document.getElementById("searchButton");
 
     this.chosenType = document.getElementById("chooseFood");
-
-    this.chosenNrOfGuests= document.getElementById("populateGuestOption");
-         
-
-    this.confirmDinDin= document.getElementById("confirmDinner");
 
 } 

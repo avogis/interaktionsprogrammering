@@ -2,6 +2,7 @@
 var DinnerModel = function() {
 
 	var fullMenu = [];
+	var lastAddedDish = null;
 	var numberOfMyGuests = 0; 
 	var observers = [];
 	var currentDish = null;
@@ -11,14 +12,11 @@ var DinnerModel = function() {
 	//add Observers
 	this.addObserver = function(observer) {
 		observers.push(observer);
-		// console.log("observers");
-		// console.log(observers);
 	}
 
 	//notify observers
-	var notifyObservers = function() {
-		for(i = 0; i < observers.length; i++){
-			console.log(i);
+	notifyObservers = function() {
+		for(var i = 0; i < observers.length; i++){
 			observers[i].update();
 		}
 	}
@@ -47,6 +45,10 @@ var DinnerModel = function() {
 
 	this.getType = function() {
 		return currentType;
+	}
+
+	this.getLastAddedDish = function(){
+		return lastAddedDish;
 	}
 
 
@@ -119,14 +121,23 @@ var DinnerModel = function() {
 		return totalPrice * parseInt(this.getNumberOfGuests());	
 	}
 
+	this.priceForADish = function(dish){
+		var listOfIngridients = dish.ingredients;	
+		var priceForADish = 0;
+            for(var i = 0; i < listOfIngridients.length; i++){
+            	priceForADish = priceForADish + (listOfIngridients[i].price * this.getNumberOfGuests());
+            }
+        return priceForADish;
+	}
+
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	//don't really understand...
 	this.addDishToMenu = function(id) {
-		console.log("adds to menu");
 		for(key in dishes){
 			if(dishes[key].id == id){
 				fullMenu.push(dishes[key]);
+				lastAddedDish = dishes[key];
 				notifyObservers();
 				break;
 			}

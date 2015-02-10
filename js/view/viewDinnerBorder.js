@@ -4,9 +4,8 @@ var ViewDinnerBorder = function(container, model){
 	
 	this.goBackBtn = document.getElementById("backEditButton");
 	document.getElementById("myDinner").innerHTML = "My dinner: " + model.getNumberOfGuests();
+	
 	this.update = function(){
-		console.log("Border update + model.getNumberOfGuests()");
-		console.log(model.getNumberOfGuests());
 		document.getElementById("myDinner").innerHTML = "My dinner: " + model.getNumberOfGuests();
 	}
 }

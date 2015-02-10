@@ -94,6 +94,15 @@ button {
 #dishTable {
     text-align: left;
 }
+
+#dishTable tr .btn{
+    visibility: hidden;
+}
+
+#dishTable tr:hover .btn {
+    visibility: visible;
+}
+
 #guestDiv {
     text-align: right;
 }
