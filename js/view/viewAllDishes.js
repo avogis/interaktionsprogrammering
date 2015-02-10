@@ -3,6 +3,7 @@ var ViewAllDishes = function (container, model) {
     var menu = model.getAllAvailableDishes();
     var colNames = ["colOne", "colTwo", "colThree", "colFour", "colFive"];
     var pathToImages = "images/";
+    model.addObserver(this);
 
 
     var options = document.getElementById("chooseFood");
@@ -14,7 +15,12 @@ var ViewAllDishes = function (container, model) {
     options.appendChild(allOption);
     optionNamesTemp.push(allOptionText);
 
-    var ShowMenu = function(container, array, update){
+    this.update = function() {
+        var allDishesOfAType = model.getAllDishes(model.getType(), model.getFilter());
+        ShowAllDishes(allDishesOfAType, true);
+    }
+
+    var ShowAllDishes = function(array, update){
         if(update == true){
             for(i = 0; i < colNames.length; i++){
                 clearDiv(document.getElementById(colNames[i]));
@@ -55,7 +61,7 @@ var ViewAllDishes = function (container, model) {
         }
     }
 
-    ShowMenu(container, menu, false);	
+    ShowAllDishes(menu, false);	
 
     function clearDiv(div){
         div.innerHTML = "";
@@ -111,98 +117,21 @@ var ViewAllDishes = function (container, model) {
     for(var i = 0; i < images.length; i++) {
         var image = images[i];
         image.onclick = function(event) {
-            var nrGuests = model.getNumberOfGuests();
+            model.setCurrentDish(event.srcElement.id);
             var searchDishDiv = document.getElementById("searchDish");
             searchDishDiv.style.display = "none";
-            var clickedOnImageId = event.srcElement.id;
-            var dish = model.getDish(clickedOnImageId);
-            var imageDiv = document.getElementById("imageOfChosenDish");
-            var addImage = addAnImage(dish);
-            var dishName = document.getElementById("nameOfDish");
-            dishName.innerHTML = dish.name;
-            clearDiv(imageDiv);
-            imageDiv.appendChild(addImage);
-            var ingriedientsList = document.getElementById("headerIngriedients");
-            ingriedientsList.innerHTML = "Dinner for " + nrGuests + " people";
-            var ingriedients = document.getElementById("igredientTable");
-            clearDiv(ingriedients);
-            var listOfIngridients = dish.ingredients;
-            var priceForADish = 0;
-            for(i = 0; i < listOfIngridients.length; i++){
-                var ingriedient = document.createElement("TR");
-                var amount = document.createElement("TD");
-                var product = document.createElement("TD");
-                var sek = document.createElement("TD");
-                var price = document.createElement("TD");
-                ingriedient.id = "ingriedient"+i;
-                amount.id = "amount"+i;
-                product.id = "product"+i;
-                sek.id = "sek"+i;
-                price.id = "price"+i;
-                amount.innerHTML = (listOfIngridients[i].quantity  * nrGuests) + " " + listOfIngridients[i].unit;
-                product.innerHTML = listOfIngridients[i].name;
-                sek.innerHTML = "SEK";
-                price.innerHTML = (listOfIngridients[i].price * nrGuests);
-                ingriedient.appendChild(amount);
-                ingriedient.appendChild(product);
-                ingriedient.appendChild(sek);
-                ingriedient.appendChild(price);
-                ingriedients.appendChild(ingriedient);
-                document.getElementById("description").innerHTML = dish.description;
-                priceForADish = priceForADish + (listOfIngridients[i].price * nrGuests);
-                document.getElementById("dishCost").innerHTML = priceForADish;
-            }
-            document.getElementById("totalCostViewDish").innerHTML = priceForADish;
-            document.getElementById("viewRecipeDetails").style.display = "";
+            document.getElementById("viewRecipeDetails").style.display = "";     
         };
     }
 
 
-    var searchBtn= document.getElementById("searchButton");
-    searchBtn.addEventListener("click", 
-    	function(e){
-    		var choice = document.getElementById("chooseFood");
-			var chosenOption = choice.options[choice.selectedIndex].value;
-            var chosenIngridient = document.getElementById("chooseIngridient").value;
-    		var chosenDish = model.getAllDishes(chosenOption, chosenIngridient);
-    		e.preventDefault(); //making the page not reload
-            var tempArray= [];
-            for(i = 0; i < chosenDish.length; i++){
-                tempArray.push(chosenDish[i]);
-            }
-            ShowMenu(container, tempArray, true);
-    	}
-    );
+    this.searchBtn= document.getElementById("searchButton");
 
-    var chosenType = document.getElementById("chooseFood");
-    chosenType.addEventListener("change", 
-        function(e){
-            var chosenType = document.getElementById("chooseFood");
-            var chosenOption = chosenType.options[chosenType.selectedIndex].value;
-            var allDishesOfAType = model.getSelectedDish(chosenOption);
-            e.preventDefault();
-            ShowMenu(container, allDishesOfAType, true);     
-        }
-    );
+    this.chosenType = document.getElementById("chooseFood");
 
-    var chosenNrOfGuests= document.getElementById("populateGuestOption");
-    chosenNrOfGuests.addEventListener("change", 
-        function(e){
-            var chosenNrOfGuests = document.getElementById("populateGuestOption");
-            var chosenOption = chosenNrOfGuests.options[chosenNrOfGuests.selectedIndex].value;
-            model.setNumberOfGuests(chosenOption);
-            e.preventDefault();   
-        }
-    );     
+    this.chosenNrOfGuests= document.getElementById("populateGuestOption");
+         
 
-    var confirmDinDin= document.getElementById("confirmDinner");
-    confirmDinDin.addEventListener("click", 
-        function(e){
-            document.getElementById("viewAllDishes").style.display = "none";
-            ViewDinnerOverview(model);
-            document.getElementById("overviewContent").style.display = "";
-            document.getElementById("viewDinnerOverview").style.display = "";
-            document.getElementById("overviewPrint").style.display = "";
-        }
-    );
+    this.confirmDinDin= document.getElementById("confirmDinner");
+
 } 

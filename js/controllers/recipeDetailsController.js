@@ -1,8 +1,6 @@
-var ViewRecipeDetails = function (container, model) {
+var RecipeDetailsController = function (view, model) {
 
-
-	var temp = document.getElementById("confirmDishButton");
-    temp.addEventListener("click", 
+	 view.confirmButton.addEventListener("click", 
     	function(e){
     		var imageDiv = document.getElementById("imageOfChosenDish");
     		var img = imageDiv.getElementsByTagName("img");
@@ -54,17 +52,14 @@ var ViewRecipeDetails = function (container, model) {
     	}
     );
 
-
-	var temp = document.getElementById("backButton");
-    temp.addEventListener("click", 
+	view.backButton.addEventListener("click", 
     	function(e){
     		document.getElementById("viewRecipeDetails").style.display = "none";	
     		document.getElementById("searchDish").style.display = "";	
     	}
     ); 
 
-    var chosenNrOfGuests = document.getElementById("populateGuestOption");
-    chosenNrOfGuests.addEventListener("change", 
+    view.chosenNrOfGuests.addEventListener("change", 
         function(e){
             var chosenNrOfGuests = document.getElementById("populateGuestOption");
             var chosenOption = chosenNrOfGuests.options[chosenNrOfGuests.selectedIndex].value;
@@ -102,8 +97,7 @@ var ViewRecipeDetails = function (container, model) {
         }
     ); 
 
-    function clearDiv(div){
+	function clearDiv(div){
         div.innerHTML = "";
     }
-
 }

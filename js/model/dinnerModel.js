@@ -4,6 +4,9 @@ var DinnerModel = function() {
 	var fullMenu = [];
 	var numberOfMyGuests = 0; 
 	var observers = [];
+	var currentDish = null;
+	var currentType = "all";
+	var currentFilter = "";
 
 	//add Observers
 	this.addObserver = function(observer) {
@@ -11,11 +14,40 @@ var DinnerModel = function() {
 	}
 
 	//notify observers
-	var notifyObservers = function(obj) {
+	var notifyObservers = function() {
 		for(i = 0; i < observers.length; i++){
-			observers[i].update(obj);
+			observers[i].update();
 		}
 	}
+
+	this.getCurrentDish = function() {
+		console.log("currentDish");
+		console.log(currentDish);
+		return currentDish;
+	}
+	this.setCurrentDish = function(id) {
+		currentDish = this.getDish(id);
+		notifyObservers();
+	}
+
+	this.setFilter = function(filter) {
+		currentFilter = filter;
+		notifyObservers();
+	}
+
+	this.getFilter = function() {
+		return currentFilter;
+	}
+
+	this.setType = function(type){
+		currentType = type;
+		notifyObservers();
+	}
+
+	this.getType = function() {
+		return currentType;
+	}
+
 
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
@@ -111,21 +143,24 @@ var DinnerModel = function() {
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
 	this.getAllDishes = function (type, filter) {
-	  return $(dishes).filter(function(index,dish) {
-		var found = true;
-		if(filter){
-			found = false;
-			$.each(dish.ingredients,function(index,ingredient) {
-				if(ingredient.name.indexOf(filter)!=-1) {
+		if(type == "all"){
+			return dishes;
+		}
+	  	return $(dishes).filter(function(index,dish) {
+			var found = true;
+			if(filter){
+				found = false;
+				$.each(dish.ingredients,function(index,ingredient) {
+					if(ingredient.name.indexOf(filter)!=-1) {
+						found = true;
+					}
+				});
+				if(dish.name.indexOf(filter) != -1)
+				{
 					found = true;
 				}
-			});
-			if(dish.name.indexOf(filter) != -1)
-			{
-				found = true;
 			}
-		}
-	  	return dish.type == type && found;
+		  	return dish.type == type && found;
 	  });	
 	}
 
