@@ -2,6 +2,7 @@ var ViewMyDinnerLeft = function(container, model){
 
 	var oldDish = null;
 	var oldnrOfGuests = 0;
+	var self = this;
 
 	model.addObserver(this);
 
@@ -64,8 +65,4 @@ var ViewMyDinnerLeft = function(container, model){
             nrOfGuests.appendChild(option);
         }
     }	
-
-    function clearDiv(div){
-        div.innerHTML = "";
-    }
 }

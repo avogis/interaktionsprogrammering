@@ -3,21 +3,22 @@ var ViewRecipeDetails = function (container, model) {
 	this.confirmButton = document.getElementById("confirmDishButton");
 	this.backButton = document.getElementById("backButton");
     model.addObserver(this);
+    var self = this;
 
     this.update = function() {
         var nrGuests = model.getNumberOfGuests();
         var dish = model.getCurrentDish();
         if(dish !== null){
             var imageDiv = document.getElementById("imageOfChosenDish");
-            var addImage = addAnImage(dish);
+            var addImage = self.addAnImage(dish);
             var dishName = document.getElementById("nameOfDish");
             dishName.innerHTML = dish.name;
-            clearDiv(imageDiv);
+            self.clearDiv(imageDiv);
             imageDiv.appendChild(addImage);
             var ingriedientsList = document.getElementById("headerIngriedients");
             ingriedientsList.innerHTML = "Dinner for " + nrGuests + " people";
             var ingriedients = document.getElementById("igredientTable");
-            clearDiv(ingriedients);
+            self.clearDiv(ingriedients);
             var listOfIngridients = dish.ingredients;
             for(var i = 0; i < listOfIngridients.length; i++){
                 var ingriedient = document.createElement("TR");
@@ -43,18 +44,5 @@ var ViewRecipeDetails = function (container, model) {
             }
             document.getElementById("totalCostViewDish").innerHTML = model.priceForADish(dish);
         }
-    }
-
-
-    function addAnImage(dish){
-        var dishPic = document.createElement("IMG");
-        dishPic.src = "images/"+dish.image;
-        dishPic.alt = dish.name;
-        dishPic.id = dish.id;
-        return dishPic;
-    }
-
-    function clearDiv(div){
-        div.innerHTML = "";
     }
 }

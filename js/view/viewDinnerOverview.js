@@ -2,11 +2,14 @@ var ViewDinnerOverview = function(container, model){
 
 	var colNames = ["colOneOver", "colTwoOver", "colThreeOver"];
 
+	var self = this;
+    this.printBtn= document.getElementById("overviewPrintButton");
+
 	model.addObserver(this);
 
 	this.update = function(){
 
-		clearDiv(document.getElementById("displayChosenMenu"));
+		self.clearDiv(document.getElementById("displayChosenMenu"));
 		var menu = model.getFullMenu();
 
 		if(menu.length !== 0){
@@ -24,7 +27,7 @@ var ViewDinnerOverview = function(container, model){
 		colNameParent.id = colName; 
 		//div for pic
 		var dishPicDiv = document.createElement("DIV");
-		var dishPic = addAnImage(array[index]);
+		var dishPic = self.addAnImage(array[index]);
 		dishPic.className = "img-rounded";
 		dishPicDiv.appendChild(dishPic);
 		//div for name
@@ -45,20 +48,4 @@ var ViewDinnerOverview = function(container, model){
 		colNameParent.appendChild(dishDescDiv);
 		document.getElementById("displayChosenMenu").appendChild(colNameParent);
 	}
-
-	function addAnImage(dish){
-        var dishPic = document.createElement("IMG");
-        dishPic.src = "images/"+dish.image;
-        dishPic.alt = dish.name;
-        dishPic.id = dish.id;
-        return dishPic;
-    }
-
-    this.printBtn= document.getElementById("overviewPrintButton");
-
-
-   	function clearDiv(div){
-        div.innerHTML = "";
-    }
-
 }

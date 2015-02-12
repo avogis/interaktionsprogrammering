@@ -1,12 +1,13 @@
 var ViewAllDishes = function (container, model) {
 
+    this.images = null;
+    this.menuScrollDiv = $("#menuScroll");   
+    this.searchBtn= document.getElementById("searchButton");
+    this.chosenType = document.getElementById("chooseFood");
+
     var menu = model.getAllAvailableDishes();
     var colNames = ["colOne", "colTwo", "colThree", "colFour", "colFive"];
-    var pathToImages = "images/";
-    model.addObserver(this);
-    this.images = null;
-
-
+    var self = this;
     var options = document.getElementById("chooseFood");
     var optionNamesTemp = [];
     var allOption = document.createElement("option");
@@ -16,6 +17,8 @@ var ViewAllDishes = function (container, model) {
     options.appendChild(allOption);
     optionNamesTemp.push(allOptionText);
 
+    model.addObserver(this);
+
     this.update = function() {
         var allDishesOfAType = model.getAllDishes(model.getType(), model.getFilter());
         ShowAllDishes(allDishesOfAType, true); 
@@ -24,7 +27,7 @@ var ViewAllDishes = function (container, model) {
     var ShowAllDishes = function(array, update){
         if(update == true){
             for(var i = 0; i < colNames.length; i++){
-                clearDiv(document.getElementById(colNames[i]));
+                self.clearDiv(document.getElementById(colNames[i]));
             }
         }
         if(array.length > 5){
@@ -64,14 +67,10 @@ var ViewAllDishes = function (container, model) {
 
     ShowAllDishes(menu, false);	
 
-    function clearDiv(div){
-        div.innerHTML = "";
-    }
-
     function setDishContent(colName, array, index){
         //div for pic
         var dishPicDiv = document.createElement("DIV");
-        var dishPic = addAnImage(array[index]);
+        var dishPic = self.addAnImage(array[index]);
         dishPic.className = "img-rounded";
         dishPicDiv.appendChild(dishPic);
         //div for name
@@ -91,20 +90,4 @@ var ViewAllDishes = function (container, model) {
         colName.appendChild(dishPicDiv);
         colName.appendChild(dishDescDiv);
     }
-
-
-    function addAnImage(dish){
-        var dishPic = document.createElement("IMG");
-        dishPic.src = pathToImages+dish.image;
-        dishPic.alt = dish.name;
-        dishPic.id = dish.id;
-        return dishPic;
-    }
-
-    this.menuScrollDiv = $("#menuScroll");   
- 
-    this.searchBtn= document.getElementById("searchButton");
-
-    this.chosenType = document.getElementById("chooseFood");
-
 } 

@@ -6,8 +6,4 @@ var DinnerOverviewController = function(view, model) {
             document.getElementById("viewDinnerOverview").style.display = "none";
     	}
     );
-
-	function clearDiv(div){
-	        div.innerHTML = "";
-	}
 }

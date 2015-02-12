@@ -1,5 +1,7 @@
 var RecipeDetailsController = function (view, model) {
 
+    var self = this;
+
 	 view.confirmButton.addEventListener("click", 
     	function(e){
             document.getElementById("searchDish").style.display = "";
@@ -8,7 +10,7 @@ var RecipeDetailsController = function (view, model) {
     		var id = img[0].id;
     		model.addDishToMenu(id);
             document.getElementById("dishCost").innerHTML = "0.0";
-			clearDiv(document.getElementById("imageOfChosenDish"));
+			self.clearDiv(document.getElementById("imageOfChosenDish"));
             document.getElementById("viewRecipeDetails").style.display = "none";
     	}
     );
@@ -18,9 +20,6 @@ var RecipeDetailsController = function (view, model) {
     		document.getElementById("viewRecipeDetails").style.display = "none";	
     		document.getElementById("searchDish").style.display = "";	
     	}
-    ); 
+    );
 
-	function clearDiv(div){
-        div.innerHTML = "";
-    }
 }
