@@ -212,6 +212,15 @@ button {
     text-align: center;
 }
 
+/*print recipe*/
+#printRecipe {
+    /*height:100%;*/
+    border-right: solid;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 400px;
+} 
+
 
 
 
