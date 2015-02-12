@@ -73,14 +73,7 @@ button {
 /*Recipe details*/
 
 #imageOfChosenDish img {
-    width: 400px;
-    height: 400px;
-}
-
-#imageOfChosenDish img .img-rounded{
-    float: left;
-    /*height: 100px;*/
-    /*width: 400px;  */
+    width:400px;
 }
 
 #ingredientList {
