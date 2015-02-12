@@ -18,7 +18,7 @@ var ViewAllDishes = function (container, model) {
 
     this.update = function() {
         var allDishesOfAType = model.getAllDishes(model.getType(), model.getFilter());
-        ShowAllDishes(allDishesOfAType, true);  
+        ShowAllDishes(allDishesOfAType, true); 
     }
 
     var ShowAllDishes = function(array, update){

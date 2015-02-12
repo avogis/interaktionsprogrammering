@@ -5,9 +5,10 @@ var AllDishesController = function (view, model) {
 			var choice = document.getElementById("chooseFood");
 			var chosenOption = choice.options[choice.selectedIndex].value;
 	        var chosenIngridient = document.getElementById("chooseIngridient").value;
+            e.preventDefault();
 	        model.setType(chosenOption);
-	        model.setFilter(choosenIngridient);
-			e.preventDefault(); 
+	        model.setFilter(chosenIngridient); 
+            chooseIngridient.value = "";
 		}
 	);
 

@@ -160,9 +160,7 @@ var DinnerModel = function() {
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
 	this.getAllDishes = function (type, filter) {
-		if(type == "all"){
-			return dishes;
-		}
+		currentFilter = "";
 	  	return $(dishes).filter(function(index,dish) {
 			var found = true;
 			if(filter){
@@ -177,8 +175,13 @@ var DinnerModel = function() {
 					found = true;
 				}
 			}
-		  	return dish.type == type && found;
-	  });	
+			if(type == "all"){
+				return found;
+			}
+			else{
+				return dish.type == type && found;
+			}
+	  	});	
 	}
 
 	//function that returns a dish of specific ID
