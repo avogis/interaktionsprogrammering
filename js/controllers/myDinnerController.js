@@ -20,7 +20,6 @@ var MyDinnerController = function(view, model){
     view.confirmDinDin.addEventListener("click", 
         function(e){
             document.getElementById("viewAllDishes").style.display = "none";
-            document.getElementById("dinnerOverview").style.display = "";
             document.getElementById("viewDinnerOverview").style.display = "";
             document.getElementById("overviewBorder").style.display = "";
         }

@@ -24,11 +24,6 @@ var ViewMyDinnerLeft = function(container, model){
 			deleteButton.className = "btn btn-danger";
 			deleteButton.id = "addedBtn"+id;
 			deleteButton.innerHTML = "x";
-			// deleteButton.addEventListener("click",
-		 //           		function(e){
-			// 				model.removeDishFromMenu(id);
-			// 				dishNameAndCostTR.remove();	
-		 //           		});
 			dishCost.innerHTML = model.getTotalMenuPrice();
 			dishNameAndCostTR.appendChild(dishName);
 			dishNameAndCostTR.appendChild(dishCost);

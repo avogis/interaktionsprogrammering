@@ -3,9 +3,9 @@ var ViewPrintDinner = function(container, model){
 	model.addObserver(this);
 
 	this.update = function(){
+		var printDiv = document.getElementById("printRecipe");
+		clearDiv(printDiv);
 		if(menu.length > 0){
-			var printDiv = document.getElementById("printRecipe");
-			clearDiv(printDiv);
 			for(var i = 0; i < menu.length; i++){
 				var printDishRow = document.createElement("DIV");
 				printDishRow.className = "row";

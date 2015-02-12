@@ -196,55 +196,54 @@
                 </div>
             </div> <!-- end of ViewAllApges -->
 
+            <div class="row" id="overviewBorder" style="display: none">
+                <div class="col-md-3 col-md-offset-1">
+                    <h2 id="myDinner"> My Dinner: </h2>
+                </div>
+                <div class="col-md-3 col-md-offset-7" id="colBackButton">
+                    <button class="btn" id="backEditButton">Go back and edit dinner</button>
+                </div>
+            </div>
             <!-- viewDinnerOverview and Print -->
             <div id="viewDinnerOverview" style="display: none">
                 <!-- Horizontal middle -->
-                <div class="row" id="overviewBorder" style="display: none">
-                    <div class="col-md-3 col-md-offset-1">
-                        <h2 id="myDinner"> My Dinner: </h2>
-                    </div>
-                    <div class="col-md-3 col-md-offset-7" id="colBackButton">
-                        <button class="btn" id="backEditButton">Go back and edit dinner</button>
-                    </div>
-                </div>
-                <div id="dinnerOverview" style="display: none"> <!--Overviewcontentdiv -->
-                    <!-- Main Content -->
-                    <div class="row" id="overviewContent">
-                        <div class="col-md-8" id="overviewDishes">
-                        <!-- Här ska det poplueras med valda dishes -->
-                            <div class="row" id="displayChosenMenu">
-                                <div class="col-md-2" id="colOneOver">   
-                                </div>
-                                <div class="col-md-2" id="colTwoOver">
-                                </div>
-                                <div class="col-md-2" id="colThreeOver">
-                                </div>
+                <div class="row" id="overviewContent">
+                    <div class="col-md-8" id="overviewDishes">
+                    <!-- Här ska det poplueras med valda dishes -->
+                        <div class="row" id="displayChosenMenu">
+                            <div class="col-md-2" id="colOneOver">   
                             </div>
-                        </div>
-                        <div class="col-md-4" id="overviewTotalCost">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <p>Total Cost</p>
-                                </div>
+                            <div class="col-md-2" id="colTwoOver">
                             </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <p id="totalCostOver">0.00</p>
-                                </div>
+                            <div class="col-md-2" id="colThreeOver">
                             </div>
                         </div>
                     </div>
-                    <div class="row" id="overviewPrint">
-                        <div class="col-md-12">
-                            <button class="btn" id="overviewPrintButton">Print full recipe</button>
+                    <div class="col-md-4" id="overviewTotalCost">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>Total Cost</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p id="totalCostOver">0.00</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="row" id="overviewPrint">
+                    <div class="col-md-12">
+                        <button class="btn" id="overviewPrintButton">Print full recipe</button>
+                    </div>
+                </div>
+            </div> <!-- End of view Dinner Overview -->
+
+            <div>
                 <div id="printRecipe" style="display: none"> <!-- Print recipe -->
                     <!-- recipies are populated here -->
                 </div>
-            </div> <!-- End of view Dinner Overview -->
-            
+            </div>
 
         </div> <!--  bodyAllPagesClosed -->
 
