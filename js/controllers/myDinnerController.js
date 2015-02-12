@@ -23,7 +23,6 @@ var MyDinnerController = function(view, model){
             document.getElementById("dinnerOverview").style.display = "";
             document.getElementById("viewDinnerOverview").style.display = "";
             document.getElementById("overviewBorder").style.display = "";
-
         }
     );
 }

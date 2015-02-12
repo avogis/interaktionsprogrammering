@@ -154,6 +154,7 @@ var DinnerModel = function() {
 				}
 			}
 		}
+		notifyObservers();
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
