@@ -23,7 +23,7 @@ var ViewDinnerOverview = function(container, model){
 
 	function setDishContent(colName, array, index){
 		var colNameParent = document.createElement("DIV");
-		colNameParent.className = "col-md-2";
+		colNameParent.className = "col-md-4";
 		colNameParent.id = colName; 
 		//div for pic
 		var dishPicDiv = document.createElement("DIV");
