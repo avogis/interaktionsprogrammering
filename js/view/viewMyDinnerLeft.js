@@ -1,14 +1,12 @@
 var ViewMyDinnerLeft = function(container, model){
 
 	var oldDish = null;
+	var oldnrOfGuests = 0;
 
 	model.addObserver(this);
 
 	this.update = function(){
 		var currentDish = model.getCurrentDish();
-		if(currentDish !== null){
-    		document.getElementById("dishCost").innerHTML = model.priceForADish(currentDish);
-		}
 		var addedDish = model.getLastAddedDish();
 		if(addedDish !== null && oldDish !== addedDish){
 			oldDish = addedDish;
@@ -20,16 +18,36 @@ var ViewMyDinnerLeft = function(container, model){
 			dishName.innerHTML = addedDish.name;
 			dishName.id = "added"+id;
 			var dishCost = document.createElement("TD");
+			dishCost.id = "cost"+id;
 			var deleteButton = document.createElement("BUTTON");
 			deleteButton.className = "btn btn-danger";
 			deleteButton.id = "addedBtn"+id;
 			deleteButton.innerHTML = "x";
-			dishCost.innerHTML = model.getTotalMenuPrice();
+			dishCost.innerHTML = model.priceForADish(addedDish);
 			dishNameAndCostTR.appendChild(dishName);
 			dishNameAndCostTR.appendChild(dishCost);
 			dishNameAndCostTR.appendChild(deleteButton);
 			dishNameAndCostTBody.appendChild(dishNameAndCostTR);
 			document.getElementById("dishCost").innerHTML = "0.0";
+			document.getElementById("totalSek").innerHTML = model.getTotalMenuPrice()+" SEK";
+		}
+		var newNrOfGuests = model.getNumberOfGuests(); 
+		if(oldnrOfGuests !== newNrOfGuests){
+			var dishNameAndCostTBody = document.getElementById("dishNameAndCostTBody");
+			var children = dishNameAndCostTBody.children;
+			for (var i = 0; i < children.length; i++) {
+  				var tableChild = children[i];
+  				if(tableChild.id != "dishNameAndCostTR1"){
+  					var grandChildren = tableChild.children;
+  					var dishId = grandChildren[1].id.replace("cost", "");
+  					console.log(dishId);
+  					var grandChildDish = model.getDish(dishId);
+  					console.log(grandChildDish);
+  					console.log(model.priceForADish(grandChildDish));
+  					document.getElementById("cost"+dishId).innerHTML = model.priceForADish(grandChildDish);
+  				}
+			}
+			document.getElementById("dishCost").innerHTML = model.priceForADish(currentDish);
 			document.getElementById("totalSek").innerHTML = model.getTotalMenuPrice()+" SEK";
 		}
 	}
