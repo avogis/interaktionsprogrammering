@@ -13,5 +13,4 @@ function MotherController(){
         dishPic.id = dish.id;
         return dishPic;
     }
-
 }
