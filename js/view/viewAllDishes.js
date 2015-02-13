@@ -13,16 +13,12 @@ var ViewAllDishes = function (container, model) {
     model.addObserver(this);
 
     this.update = function(dishes) {
-        if(dishes.length != 0){
-            console.log("ViewAllDishes");
-            console.log(dishes);
+        if(dishes.length != 0 && Array.isArray(dishes)){
             ShowAllDishes(dishes, true); 
         }
     }
 
     var ShowAllDishes = function(array, update){
-        console.log("ShowAllDishes");
-        console.log(array);
         if(update == true){
             for(var i = 0; i < colNames.length; i++){
                 self.clearDiv(document.getElementById(colNames[i]));
@@ -67,6 +63,7 @@ var ViewAllDishes = function (container, model) {
         //div for pic
         var dishPicDiv = document.createElement("DIV");
         var dishPic = self.addAnImage(array[index]);
+        dishPic.onError = ImgOnError(this); //varför funkar inte detta?
         dishPic.className = "img-rounded";
         dishPicDiv.appendChild(dishPic);
         //div for name
@@ -85,5 +82,13 @@ var ViewAllDishes = function (container, model) {
         colName.appendChild(dishNameDiv);
         colName.appendChild(dishPicDiv);
         // colName.appendChild(dishDescDiv);
+    }
+
+
+    function ImgOnError(image){
+        //VARFÖR FUNKAR INTE ENNA LÖSNING T.EX.?
+        image.onerror = "";
+        image.src = "images/lasagna.jpg";
+        return true;
     }
 } 

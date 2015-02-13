@@ -3,11 +3,12 @@ var DinnerModel = function() {
 
 	var fullMenu = [];
 	var lastAddedDish = null;
-	var numberOfMyGuests = 0; 
+	var numberOfMyGuests = 1; 
 	var observers = [];
 	var currentDish = null;
 	var currentType = "all";
 	var currentFilter = "";
+	var apiKey = "dvx96F0ts86514dMmAyK4Jz44kHs47Us";
 
 	//add Observers
 	this.addObserver = function(observer) {
@@ -27,8 +28,7 @@ var DinnerModel = function() {
 		return currentDish;
 	}
 	this.setCurrentDish = function(id) {
-		currentDish = this.getDish(id);
-		notifyObservers(currentDish);
+		this.getDish(id);
 	}
 
 	this.setFilter = function(filter) {
@@ -96,7 +96,6 @@ var DinnerModel = function() {
 	//HOW DO I ACCESS THE DISHES OTHERWISE?
 	this.getRecipeJson = function(category, searchword) {
     //prototyp för getAllDishes
-        var apiKey = "dvx96F0ts86514dMmAyK4Jz44kHs47Us";
         var url = "http://api.bigoven.com/recipes?pg=1&rpp=25&include_primarycat="
                   + category
                   + "&api_key="+apiKey;
@@ -220,12 +219,44 @@ var DinnerModel = function() {
 	}
 
 	//function that returns a dish of specific ID
-	this.getDish = function (id) {
-	  for(key in dishes){
-			if(dishes[key].id == id) {
-				return dishes[key];
-			}
-		}
+	this.getDish = function (recipeID) {
+	 //  for(key in dishes){
+		// 	if(dishes[key].id == id) {
+		// 		return dishes[key];
+		// 	}
+		// }
+		var url = "http://api.bigoven.com/recipe/" + recipeID + "?api_key="+apiKey;
+		$.ajax({
+	        type: "GET",
+	        dataType: 'json',
+	        cache: false,
+	        url: url,
+	        success: function (data) {
+	        	var dish = {};
+	        	dish["id"] = data["RecipeID"];
+	        	dish["name"] = data["Title"];
+	        	dish["description"] = data["Instructions"];
+	        	dish["image"]  = data["ImageURL"];
+	        	var tempIngridients = data["Ingredients"];
+	        	var ingredientsList = [];
+	        	for(var i =0; i < tempIngridients.length; i++){
+	        		var ingredientsMap = {};;
+	        		ingredientsMap["name"] = tempIngridients[i]["Name"];
+	        		var quantityTemp = tempIngridients[i]["Quantity"];
+	        		ingredientsMap["quantity"] = tempIngridients[i]["Quantity"];
+	        		ingredientsMap["price"] = quantityTemp;
+	        		var unit = tempIngridients[i]["Unit"];
+	        		if(unit == null){
+	        			ingredientsMap["unit"] = "";	
+	        		}else{
+	        			ingredientsMap["unit"] = unit;
+	        		}
+	        		ingredientsList.push(ingredientsMap);
+	        	}
+	        	dish["ingredients"] = ingredientsList;
+	        	notifyObservers(dish); 
+	        }
+	    });
 	}
 
 
