@@ -14,10 +14,11 @@ var AllDishesController = function (view, model) {
 
 	view.chosenType.addEventListener("change", 
         function(e){
+            console.log("kommer du in");
             var chosenType = document.getElementById("chooseFood");
             var chosenOption = chosenType.options[chosenType.selectedIndex].value;
-            model.setType(chosenOption);
-            e.preventDefault();
+            model.getRecipeJson(chosenOption, "");
+            // e.preventDefault();
         }
     );
 

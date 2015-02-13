@@ -5,26 +5,24 @@ var ViewAllDishes = function (container, model) {
     this.searchBtn= document.getElementById("searchButton");
     this.chosenType = document.getElementById("chooseFood");
 
-    var menu = model.getAllAvailableDishes();
+    var menu = model.getRecipeJson("Appetizers", "");
     var colNames = ["colOne", "colTwo", "colThree", "colFour", "colFive"];
     var self = this;
     var options = document.getElementById("chooseFood");
-    var optionNamesTemp = [];
-    var allOption = document.createElement("option");
-    var allOptionText = "all";
-    allOption.value = allOptionText;
-    allOption.text = allOptionText;
-    options.appendChild(allOption);
-    optionNamesTemp.push(allOptionText);
 
     model.addObserver(this);
 
-    this.update = function() {
-        var allDishesOfAType = model.getAllDishes(model.getType(), model.getFilter());
-        ShowAllDishes(allDishesOfAType, true); 
+    this.update = function(dishes) {
+        if(dishes.length != 0){
+            console.log("ViewAllDishes");
+            console.log(dishes);
+            ShowAllDishes(dishes, true); 
+        }
     }
 
     var ShowAllDishes = function(array, update){
+        console.log("ShowAllDishes");
+        console.log(array);
         if(update == true){
             for(var i = 0; i < colNames.length; i++){
                 self.clearDiv(document.getElementById(colNames[i]));
@@ -34,38 +32,36 @@ var ViewAllDishes = function (container, model) {
             for(var i = 0; i < array.length; i=i+5){
                 for(j = 0; j < 5; j++){
                     var index = (i+j);
-                    LoopDishes(options, array, optionNamesTemp, index, j, update);
+                    LoopDishes(array, index, j, update);
                 }
             }
         }
         else{
             for(var i = 0; i < array.length; i++){
                 var index = i;
-                LoopDishes(options, array, optionNamesTemp, index, i, update);
+                LoopDishes(array, index, i, update);
             }
         }         
     }
 
-    var LoopDishes = function(options, array, optionNamesTemp, index, colNameIndex, update){
+    var LoopDishes = function(array, index, colNameIndex, update){
         var colName = document.getElementById(colNames[colNameIndex]);
         if (update == false){
             setDishContent(colName, array, index);
             //options
-            var type = menu[index].type;
-            var found = optionNamesTemp.indexOf(type);
-            if(found == -1){
-                var option = document.createElement("option");
-                option.value = type;
-                option.text = type;
-                options.appendChild(option);
-                optionNamesTemp.push(type);
-            }
         }else{
             setDishContent(colName, array, index);   
         }
     }
 
-    ShowAllDishes(menu, false);	
+    var categories = ["Appetizer", "Main dish", "Dessert"];
+    
+    for(var i = 0; i < categories.length; i++){
+        var option = document.createElement("option");
+        option.value = categories[i];
+        option.text = categories[i];
+        options.appendChild(option);
+    }
 
     function setDishContent(colName, array, index){
         //div for pic
@@ -79,15 +75,15 @@ var ViewAllDishes = function (container, model) {
         dishName.id = "allDishNames";
         dishName.innerText = array[index].name;
         dishNameDiv.appendChild(dishName);
-        //div for descriptio
-        var dishDescDiv = document.createElement("DIV");
-        var dishDesc = document.createElement("P");
-        dishDesc.id = "allDishDescriptions";
-        dishDesc.innerText = array[index].description;
-        dishDescDiv.appendChild(dishDesc);
+        // //div for descriptio
+        // var dishDescDiv = document.createElement("DIV");
+        // var dishDesc = document.createElement("P");
+        // dishDesc.id = "allDishDescriptions";
+        // dishDesc.innerText = array[index].description;
+        // dishDescDiv.appendChild(dishDesc);
         //append all
         colName.appendChild(dishNameDiv);
         colName.appendChild(dishPicDiv);
-        colName.appendChild(dishDescDiv);
+        // colName.appendChild(dishDescDiv);
     }
 } 

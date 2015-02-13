@@ -15,9 +15,11 @@ var DinnerModel = function() {
 	}
 
 	//notify observers
-	notifyObservers = function() {
+	notifyObservers = function(dishes) {
+		// console.log("notifies");
+		// console.log(dishes);
 		for(var i = 0; i < observers.length; i++){
-			observers[i].update();
+			observers[i].update(dishes);
 		}
 	}
 
@@ -26,12 +28,12 @@ var DinnerModel = function() {
 	}
 	this.setCurrentDish = function(id) {
 		currentDish = this.getDish(id);
-		notifyObservers();
+		notifyObservers(currentDish);
 	}
 
 	this.setFilter = function(filter) {
 		currentFilter = filter;
-		notifyObservers();
+		notifyObservers(currentFilter);
 	}
 
 	this.getFilter = function() {
@@ -40,7 +42,7 @@ var DinnerModel = function() {
 
 	this.setType = function(type){
 		currentType = type;
-		notifyObservers();
+		notifyObservers(currentType);
 	}
 
 	this.getType = function() {
@@ -58,7 +60,7 @@ var DinnerModel = function() {
 	//OR WHAT DO YOU MEAN? DON`T UNDERSTAND
 	this.setNumberOfGuests = function(num) {
 		numberOfMyGuests = num; 
-		notifyObservers();
+		notifyObservers(numberOfMyGuests);
 	}
 
 	// should return 
@@ -92,9 +94,41 @@ var DinnerModel = function() {
 	}
 
 	//HOW DO I ACCESS THE DISHES OTHERWISE?
-	this.getAllAvailableDishes = function() {
-		return dishes;
-	}
+	this.getRecipeJson = function(category, searchword) {
+    //prototyp för getAllDishes
+        var apiKey = "dvx96F0ts86514dMmAyK4Jz44kHs47Us";
+        var url = "http://api.bigoven.com/recipes?pg=1&rpp=25&include_primarycat="
+                  + category
+                  + "&api_key="+apiKey;
+        $.ajax({
+            type: "GET",
+            dataType: 'json',
+            cache: false,
+            url: url,
+            success: function (data) {
+                // alert('success');
+                var dishes = [];
+                var allInfo = data["Results"];
+                for(var i=0; i < allInfo.length; i++){
+                    var dishMap = {};
+                    var dish = allInfo[i];
+                    var id = dish["RecipeID"];
+                    var name = dish["Title"];
+                    var image = dish["ImageURL120"];
+                    var category = dish["Category"];
+                    dishMap["name"] = name;
+                    dishMap["id"] = id;
+                    dishMap["image"] = image;
+                    dishMap["category"] = category;
+                    dishes.push(dishMap);
+                }
+                //notifyObservers med listan
+                // console.log(dishes);
+                notifyObservers(dishes);
+            }
+        });
+    }
+
 
 	//Returns all ingredients for all the dishes on the menu. 
 	//added parameter "menu"

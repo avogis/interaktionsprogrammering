@@ -8,9 +8,17 @@ function MotherController(){
 
     this.addAnImage = function addAnImage(dish){
         var dishPic = document.createElement("IMG");
-        dishPic.src = "images/"+dish.image;
+        dishPic.src = dish.image;
+        //HUR GÖR VI MED FEL NÄR BILDEN INTE FINNS?
         dishPic.alt = dish.name;
         dishPic.id = dish.id;
         return dishPic;
+    }
+
+    function ImgOnError(image){
+        //VARFÖR FUNKAR INTE ENNA LÖSNING T.EX.?
+        image.onerror = "";
+        image.src = "images/lasagna.jpg";
+        return true;
     }
 }
