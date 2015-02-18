@@ -4,12 +4,15 @@ var ViewMyDinnerLeft = function(container, model){
 	var oldnrOfGuests = 0;
 	var self = this;
 
-	//model.addObserver(this);
+	model.addObserver(this);
 
 	this.update = function(what){
-		console.log("what");
-		console.log(what);
-		var currentDish = model.getCurrentDish();
+		var newNrOfGuests = model.getNumberOfGuests(); 
+		if(typeof(what) == "string"){
+			newNrOfGuests = what;
+		}
+		var currentDish = model.getTheDish();
+		console.log(currentDish);
 		var addedDish = model.getLastAddedDish();
 		if(addedDish !== null && oldDish !== addedDish){
 			oldDish = addedDish;
@@ -33,7 +36,6 @@ var ViewMyDinnerLeft = function(container, model){
 			dishNameAndCostTBody.appendChild(dishNameAndCostTR);
 			document.getElementById("totalSek").innerHTML = model.getTotalMenuPrice()+" SEK";
 		}
-		var newNrOfGuests = model.getNumberOfGuests(); 
 		if(oldnrOfGuests !== newNrOfGuests && currentDish !== null){
 			var dishNameAndCostTBody = document.getElementById("dishNameAndCostTBody");
 			var children = dishNameAndCostTBody.children;
