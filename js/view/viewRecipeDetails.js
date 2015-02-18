@@ -5,17 +5,12 @@ var ViewRecipeDetails = function (container, model) {
     model.addObserver(this);
     var self = this;
 
-    this.update = function() {
+    this.update = function(dish) {
         var nrGuests = model.getNumberOfGuests();
-<<<<<<< HEAD
         // var currentDish = model.getCurrentDish();
         if(dish !== null && dish !== undefined && !Array.isArray(dish)){
             console.log("dish: ");
             console.log(dish);
-=======
-        var dish = model.getCurrentDish();
-        if(dish !== null){
->>>>>>> parent of d576985... my dinner doesn't work....
             var imageDiv = document.getElementById("imageOfChosenDish");
             var addImage = self.addAnImage(dish);
             var dishName = document.getElementById("nameOfDish");
