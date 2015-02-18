@@ -28,6 +28,8 @@ var DinnerModel = function() {
 		return currentDish;
 	}
 	this.setCurrentDish = function(id) {
+		console.log("Kommer jag in här???")
+		currentDish = id;
 		this.getDish(id);
 	}
 
@@ -60,7 +62,8 @@ var DinnerModel = function() {
 	//OR WHAT DO YOU MEAN? DON`T UNDERSTAND
 	this.setNumberOfGuests = function(num) {
 		numberOfMyGuests = num; 
-		notifyObservers(numberOfMyGuests);
+		//notifyObservers(numberOfMyGuests);
+		this.getDish(currentDish);
 	}
 
 	// should return 
@@ -220,11 +223,7 @@ var DinnerModel = function() {
 
 	//function that returns a dish of specific ID
 	this.getDish = function (recipeID) {
-	 //  for(key in dishes){
-		// 	if(dishes[key].id == id) {
-		// 		return dishes[key];
-		// 	}
-		// }
+		console.log("kommer jag in i getDish");
 		var url = "http://api.bigoven.com/recipe/" + recipeID + "?api_key="+apiKey;
 		$.ajax({
 	        type: "GET",

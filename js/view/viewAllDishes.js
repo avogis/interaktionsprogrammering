@@ -63,7 +63,7 @@ var ViewAllDishes = function (container, model) {
         //div for pic
         var dishPicDiv = document.createElement("DIV");
         var dishPic = self.addAnImage(array[index]);
-        dishPic.onError = ImgOnError(this); //varför funkar inte detta?
+        dishPic.addEventListener("error", ImgOnError);
         dishPic.className = "img-rounded";
         dishPicDiv.appendChild(dishPic);
         //div for name
@@ -84,11 +84,7 @@ var ViewAllDishes = function (container, model) {
         // colName.appendChild(dishDescDiv);
     }
 
-
-    function ImgOnError(image){
-        //VARFÖR FUNKAR INTE ENNA LÖSNING T.EX.?
-        image.onerror = "";
-        image.src = "images/lasagna.jpg";
-        return true;
+    function ImgOnError(evt){
+        evt.target.src = "images/300.gif";
     }
 } 
