@@ -13,12 +13,16 @@ var ViewAllDishes = function (container, model) {
     model.addObserver(this);
 
     this.update = function(dishes) {
-        if(dishes.length != 0 && Array.isArray(dishes)){
+        if(dishes.length != 0){
+            console.log("ViewAllDishes");
+            console.log(dishes);
             ShowAllDishes(dishes, true); 
         }
     }
 
     var ShowAllDishes = function(array, update){
+        console.log("ShowAllDishes");
+        console.log(array);
         if(update == true){
             for(var i = 0; i < colNames.length; i++){
                 self.clearDiv(document.getElementById(colNames[i]));
@@ -63,7 +67,10 @@ var ViewAllDishes = function (container, model) {
         //div for pic
         var dishPicDiv = document.createElement("DIV");
         var dishPic = self.addAnImage(array[index]);
+<<<<<<< HEAD
         dishPic.addEventListener("error", ImgOnError);
+=======
+>>>>>>> parent of d576985... my dinner doesn't work....
         dishPic.className = "img-rounded";
         dishPicDiv.appendChild(dishPic);
         //div for name
@@ -83,8 +90,11 @@ var ViewAllDishes = function (container, model) {
         colName.appendChild(dishPicDiv);
         // colName.appendChild(dishDescDiv);
     }
+<<<<<<< HEAD
 
     function ImgOnError(evt){
         evt.target.src = "images/300.gif";
     }
+=======
+>>>>>>> parent of d576985... my dinner doesn't work....
 } 

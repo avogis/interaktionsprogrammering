@@ -3,12 +3,11 @@ var DinnerModel = function() {
 
 	var fullMenu = [];
 	var lastAddedDish = null;
-	var numberOfMyGuests = 1; 
+	var numberOfMyGuests = 0; 
 	var observers = [];
 	var currentDish = null;
 	var currentType = "all";
 	var currentFilter = "";
-	var apiKey = "dvx96F0ts86514dMmAyK4Jz44kHs47Us";
 
 	//add Observers
 	this.addObserver = function(observer) {
@@ -28,9 +27,14 @@ var DinnerModel = function() {
 		return currentDish;
 	}
 	this.setCurrentDish = function(id) {
+<<<<<<< HEAD
 		console.log("Kommer jag in här???")
 		currentDish = id;
 		this.getDish(id);
+=======
+		currentDish = this.getDish(id);
+		notifyObservers(currentDish);
+>>>>>>> parent of d576985... my dinner doesn't work....
 	}
 
 	this.setFilter = function(filter) {
@@ -99,6 +103,7 @@ var DinnerModel = function() {
 	//HOW DO I ACCESS THE DISHES OTHERWISE?
 	this.getRecipeJson = function(category, searchword) {
     //prototyp för getAllDishes
+        var apiKey = "dvx96F0ts86514dMmAyK4Jz44kHs47Us";
         var url = "http://api.bigoven.com/recipes?pg=1&rpp=25&include_primarycat="
                   + category
                   + "&api_key="+apiKey;
@@ -222,6 +227,7 @@ var DinnerModel = function() {
 	}
 
 	//function that returns a dish of specific ID
+<<<<<<< HEAD
 	this.getDish = function (recipeID) {
 		console.log("kommer jag in i getDish");
 		var url = "http://api.bigoven.com/recipe/" + recipeID + "?api_key="+apiKey;
@@ -256,6 +262,14 @@ var DinnerModel = function() {
 	        	notifyObservers(dish); 
 	        }
 	    });
+=======
+	this.getDish = function (id) {
+	  for(key in dishes){
+			if(dishes[key].id == id) {
+				return dishes[key];
+			}
+		}
+>>>>>>> parent of d576985... my dinner doesn't work....
 	}
 
 

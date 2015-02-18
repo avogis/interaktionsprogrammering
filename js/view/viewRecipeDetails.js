@@ -5,23 +5,28 @@ var ViewRecipeDetails = function (container, model) {
     model.addObserver(this);
     var self = this;
 
-    this.update = function(dish) {
+    this.update = function() {
         var nrGuests = model.getNumberOfGuests();
+<<<<<<< HEAD
         // var currentDish = model.getCurrentDish();
         if(dish !== null && dish !== undefined && !Array.isArray(dish)){
             console.log("dish: ");
             console.log(dish);
+=======
+        var dish = model.getCurrentDish();
+        if(dish !== null){
+>>>>>>> parent of d576985... my dinner doesn't work....
             var imageDiv = document.getElementById("imageOfChosenDish");
             var addImage = self.addAnImage(dish);
             var dishName = document.getElementById("nameOfDish");
-            dishName.innerHTML = dish["name"];
+            dishName.innerHTML = dish.name;
             self.clearDiv(imageDiv);
             imageDiv.appendChild(addImage);
             var ingriedientsList = document.getElementById("headerIngriedients");
             ingriedientsList.innerHTML = "Dinner for " + nrGuests + " people";
             var ingriedients = document.getElementById("igredientTable");
             self.clearDiv(ingriedients);
-            var listOfIngridients = dish["ingredients"]
+            var listOfIngridients = dish.ingredients;
             for(var i = 0; i < listOfIngridients.length; i++){
                 var ingriedient = document.createElement("TR");
                 var amount = document.createElement("TD");
@@ -34,7 +39,7 @@ var ViewRecipeDetails = function (container, model) {
                 sek.id = "sek"+i;
                 price.id = "price"+i;
                 amount.innerHTML = (listOfIngridients[i].quantity  * nrGuests) + " " + listOfIngridients[i].unit;
-                product.innerHTML = listOfIngridients[i]["name"];
+                product.innerHTML = listOfIngridients[i].name;
                 sek.innerHTML = "SEK";
                 price.innerHTML = (listOfIngridients[i].price * nrGuests);
                 ingriedient.appendChild(amount);
