@@ -9,6 +9,11 @@ var DinnerModel = function() {
 	var currentType = "all";
 	var currentFilter = "";
 	var apiKey = "dvx96F0ts86514dMmAyK4Jz44kHs47Us";
+	var theDish = null;
+
+	this.getTheDish = function(){
+		return theDish;
+	}
 
 	//add Observers
 	this.addObserver = function(observer) {
@@ -59,14 +64,11 @@ var DinnerModel = function() {
 	//OR WHAT DO YOU MEAN? DON`T UNDERSTAND
 	this.setNumberOfGuests = function(num) {
 		numberOfMyGuests = num; 
-		//notifyObservers(numberOfMyGuests);
-		this.getDish(currentDishID);
+		notifyObservers(numberOfMyGuests);
 	}
 
 	// should return 
 	this.getNumberOfGuests = function() {
-		// console.log("numberOfMyGuests"); //why does it return a number that is +1 the selected?!
-		// console.log(numberOfMyGuests); //why does it return a number that is +1 the selected?!
 		return numberOfMyGuests;
 	}
 
@@ -220,7 +222,7 @@ var DinnerModel = function() {
 
 	//function that returns a dish of specific ID
 	this.getDish = function (recipeID) {
-		console.log("kommer jag in i getDish");
+		var dish = {};
 		var url = "http://api.bigoven.com/recipe/" + recipeID + "?api_key="+apiKey;
 		$.ajax({
 	        type: "GET",
@@ -228,7 +230,6 @@ var DinnerModel = function() {
 	        cache: false,
 	        url: url,
 	        success: function (data) {
-	        	var dish = {};
 	        	dish["id"] = data["RecipeID"];
 	        	dish["name"] = data["Title"];
 	        	dish["description"] = data["Instructions"];
@@ -250,6 +251,7 @@ var DinnerModel = function() {
 	        		ingredientsList.push(ingredientsMap);
 	        	}
 	        	dish["ingredients"] = ingredientsList;
+	        	theDish = dish;
 	        	notifyObservers(dish); 
 	        }
 	    });

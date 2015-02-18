@@ -19,8 +19,6 @@ var ViewAllDishes = function (container, model) {
     }
 
     var ShowAllDishes = function(array, update){
-        console.log("ShowAllDishes");
-        console.log(array);
         if(update == true){
             for(var i = 0; i < colNames.length; i++){
                 self.clearDiv(document.getElementById(colNames[i]));

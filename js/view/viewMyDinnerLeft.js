@@ -4,9 +4,11 @@ var ViewMyDinnerLeft = function(container, model){
 	var oldnrOfGuests = 0;
 	var self = this;
 
-	model.addObserver(this);
+	//model.addObserver(this);
 
-	this.update = function(){
+	this.update = function(what){
+		console.log("what");
+		console.log(what);
 		var currentDish = model.getCurrentDish();
 		var addedDish = model.getLastAddedDish();
 		if(addedDish !== null && oldDish !== addedDish){

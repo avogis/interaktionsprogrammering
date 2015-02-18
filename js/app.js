@@ -8,8 +8,8 @@ $(function() {
 	ViewAllDishes.prototype = new MotherController();
 	var viewAllDishes = new ViewAllDishes($("#dinnerDishes"), model);
 	var allDishesController = new AllDishesController(viewAllDishes, model);
-// 	var viewMyDinnerLeft = new ViewMyDinnerLeft($("#pageLeft"), model);
-// 	var myDinnerController = new MyDinnerController(viewMyDinnerLeft ,model);
+	var viewMyDinnerLeft = new ViewMyDinnerLeft($("#pageLeft"), model);
+	var myDinnerController = new MyDinnerController(viewMyDinnerLeft ,model);
 	ViewRecipeDetails.prototype = new MotherController();
 	var viewRecipeDetails = new ViewRecipeDetails($("#viewRecipeDetails"), model);
 	RecipeDetailsController.prototype = new MotherController();

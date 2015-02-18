@@ -7,10 +7,11 @@ var ViewRecipeDetails = function (container, model) {
 
     this.update = function(dish) {
         var nrGuests = model.getNumberOfGuests();
-        // var currentDish = model.getCurrentDish();
+        if(typeof(dish) == "string"){
+            nrGuests = dish;
+            dish = model.getTheDish();
+        }
         if(dish !== null && dish !== undefined && !Array.isArray(dish)){
-            console.log("dish: ");
-            console.log(dish);
             var imageDiv = document.getElementById("imageOfChosenDish");
             var addImage = self.addAnImage(dish);
             var dishName = document.getElementById("nameOfDish");
