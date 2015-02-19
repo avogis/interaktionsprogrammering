@@ -1,21 +1,30 @@
 var ViewMyDinnerLeft = function(container, model){
 
-	var oldDish = null;
+	var oldDishId = null;
 	var oldnrOfGuests = 0;
 	var self = this;
 
 	model.addObserver(this);
 
 	this.update = function(what){
+		console.log(what);
 		var newNrOfGuests = model.getNumberOfGuests(); 
 		if(typeof(what) == "string"){
 			newNrOfGuests = what;
+			//oldnrOfGuests = newNrOfGuests;
 		}
-		var currentDish = model.getTheDish();
+		var currentDish = model.getCurrentDish();
+		var theDish = model.getTheDish();
+		console.log("currentDish");
 		console.log(currentDish);
 		var addedDish = model.getLastAddedDish();
-		if(addedDish !== null && oldDish !== addedDish){
-			oldDish = addedDish;
+		console.log("addedDish");
+		console.log(addedDish);
+		if(addedDish !== null && oldDishId !== addedDish){
+			oldnrOfGuests = newNrOfGuests;
+			console.log("kommer jag inte här");
+			oldDishId = addedDish;
+			addedDish = model.getTheDish();
 			var id = addedDish.id;
 			var dishNameAndCostTBody = document.getElementById("dishNameAndCostTBody");
 			dishNameAndCostTR = document.createElement("TR");
@@ -34,9 +43,12 @@ var ViewMyDinnerLeft = function(container, model){
 			dishNameAndCostTR.appendChild(dishCost);
 			dishNameAndCostTR.appendChild(deleteButton);
 			dishNameAndCostTBody.appendChild(dishNameAndCostTR);
-			document.getElementById("totalSek").innerHTML = model.getTotalMenuPrice()+" SEK";
+			//document.getElementById("totalSek").innerHTML = model.getTotalMenuPrice()+" SEK";
 		}
-		if(oldnrOfGuests !== newNrOfGuests && currentDish !== null){
+		if(oldnrOfGuests !== newNrOfGuests && theDish !== null){
+			oldnrOfGuests = newNrOfGuests;
+			console.log("kommer den in här=");
+			console.log(theDish);
 			var dishNameAndCostTBody = document.getElementById("dishNameAndCostTBody");
 			var children = dishNameAndCostTBody.children;
 			for (var i = 0; i < children.length; i++) {
@@ -44,11 +56,13 @@ var ViewMyDinnerLeft = function(container, model){
   				if(tableChild.id != "dishNameAndCostTR1"){
   					var grandChildren = tableChild.children;
   					var dishId = grandChildren[1].id.replace("cost", "");
-  					document.getElementById("cost"+dishId).innerHTML = model.priceForADish(model.getDish(dishId));
+  					//här blir det fel!!!! man ska ju hämta olika dishes....
+  					//hur ska jag göra med MENYN?
+  					document.getElementById("cost"+dishId).innerHTML = model.priceForADish(theDish);
   				}
 			}
-			document.getElementById("dishCost").innerHTML = model.priceForADish(currentDish);
-			document.getElementById("totalSek").innerHTML = model.getTotalMenuPrice()+" SEK";
+			document.getElementById("dishCost").innerHTML = model.priceForADish(theDish);
+			//document.getElementById("totalSek").innerHTML = model.getTotalMenuPrice()+" SEK";
 		}
 	}
 	    

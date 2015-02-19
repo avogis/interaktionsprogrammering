@@ -2,7 +2,7 @@
 var DinnerModel = function() {
 
 	var fullMenu = [];
-	var lastAddedDish = null;
+	var lastAddedDishId = null;
 	var numberOfMyGuests = 0; 
 	var observers = [];
 	var currentDishID = null;
@@ -30,6 +30,7 @@ var DinnerModel = function() {
 	this.getCurrentDish = function() {
 		return currentDishID;
 	}
+
 	this.setCurrentDish = function(id) {
 		currentDishID = id;
 		this.getDish(id);
@@ -54,7 +55,7 @@ var DinnerModel = function() {
 	}
 
 	this.getLastAddedDish = function(){
-		return lastAddedDish;
+		return lastAddedDishId;
 	}
 
 
@@ -169,14 +170,8 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	//don't really understand...
 	this.addDishToMenu = function(id) {
-		for(key in dishes){
-			if(dishes[key].id == id){
-				fullMenu.push(dishes[key]);
-				lastAddedDish = dishes[key];
-				notifyObservers();
-				break;
-			}
-		}
+		lastAddedDishId = id;
+		fullMenu.push(id);
 	}
 
 	//Removes dish from menu
@@ -252,6 +247,7 @@ var DinnerModel = function() {
 	        	}
 	        	dish["ingredients"] = ingredientsList;
 	        	theDish = dish;
+	        	//console.log(theDish);
 	        	notifyObservers(dish); 
 	        }
 	    });
