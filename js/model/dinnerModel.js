@@ -32,9 +32,6 @@ var DinnerModel = function() {
 	}
 
 	this.setCurrentDish = function(recipeID) {
-		// currentDishID = id;
-		// this.getDish(id);
-		// fullMenu.push(id);
 		var dish={};
 		var url = "http://api.bigoven.com/recipe/" + recipeID + "?api_key="+apiKey;
         $.ajax({

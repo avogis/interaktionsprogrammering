@@ -1,7 +1,6 @@
 var ViewPrintDinner = function(container, model){
 
 	var self = this;
-	// var menu = model.getFullMenu();
 	model.addObserver(this);
 
 	this.update = function(menu, string){

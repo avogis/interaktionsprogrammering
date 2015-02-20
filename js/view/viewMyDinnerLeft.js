@@ -14,10 +14,6 @@ var ViewMyDinnerLeft = function(container, model){
 				//oldnrOfGuests = newNrOfGuests;
 			}
 			var currentDish = model.getCurrentDish();
-			console.log(currentDish);
-			var theDish = model.getTheDish();
-			var addedDish = model.getLastAddedDish();
-			console.log(addedDish);
 			if(currentDish !== null){
 				oldnrOfGuests = newNrOfGuests;
 				var id = currentDish.id;
