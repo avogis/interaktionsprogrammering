@@ -8,15 +8,16 @@ var ViewMyDinnerLeft = function(container, model){
 
 	this.update = function(what, string){
 		if(string == "fullMenu"){
-			console.log("jag ska inte komma in här");
 			var newNrOfGuests = model.getNumberOfGuests(); 
 			if(typeof(what) == "string"){
 				newNrOfGuests = what;
 				//oldnrOfGuests = newNrOfGuests;
 			}
 			var currentDish = model.getCurrentDish();
+			console.log(currentDish);
 			var theDish = model.getTheDish();
 			var addedDish = model.getLastAddedDish();
+			console.log(addedDish);
 			if(currentDish !== null){
 				oldnrOfGuests = newNrOfGuests;
 				var id = currentDish.id;

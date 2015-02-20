@@ -251,16 +251,51 @@ var DinnerModel = function() {
 	}
 
 	//Removes dish from menu
-	this.removeDishFromMenu = function(id) {
-		for(key in dishes){
-			if(dishes[key].id == id){
-				var index = fullMenu.indexOf(dishes[key]);
-				if(index > -1){
-					fullMenu.splice(index, 1);
-				}
+	this.removeDishFromMenu = function(recipeID) {
+		var dish = {};
+		var url = "http://api.bigoven.com/recipe/" + recipeID + "?api_key="+apiKey;
+		$.ajax({
+	        type: "GET",
+	        dataType: 'json',
+	        cache: false,
+	        url: url,
+	        success: function (data) {
+	        	dish["id"] = data["RecipeID"];
+	        	dish["name"] = data["Title"];
+	        	dish["description"] = data["Instructions"];
+	        	dish["image"]  = data["ImageURL"];
+	        	var tempIngridients = data["Ingredients"];
+	        	var ingredientsList = [];
+	        	for(var i =0; i < tempIngridients.length; i++){
+	        		var ingredientsMap = {};;
+	        		ingredientsMap["name"] = tempIngridients[i]["Name"];
+	        		var quantityTemp = tempIngridients[i]["Quantity"];
+	        		ingredientsMap["quantity"] = tempIngridients[i]["Quantity"];
+	        		ingredientsMap["price"] = quantityTemp;
+	        		var unit = tempIngridients[i]["Unit"];
+	        		if(unit == null){
+	        			ingredientsMap["unit"] = "";	
+	        		}else{
+	        			ingredientsMap["unit"] = unit;
+	        		}
+	        		ingredientsList.push(ingredientsMap);
+	        	}
+	        	dish["ingredients"] = ingredientsList;
+	        	removeDish(dish); 
+	        }
+	    });
+	}
+
+	removeDish = function(dish){
+		var dishId = dish["id"];
+		for(var i = 0; i < fullMenu.length; i++){
+			var tempId = fullMenu[i]["id"];
+			var index = i;
+			if(dishId == tempId){
+				fullMenu.splice(index, 1);
 			}
 		}
-		notifyObservers();
+		notifyObservers(fullMenu, "removeMenu");
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")

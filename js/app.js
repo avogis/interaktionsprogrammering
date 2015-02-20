@@ -19,6 +19,6 @@ $(function() {
 	var dinnerOverviewController = new DinnerOverviewController(viewDinnerOverView, model);
 	var viewDinnerBorder = new ViewDinnerBorder($("#overviewBorder"), model);
 	var dinnerBorderController = new DinnerBorderController(viewDinnerBorder, model);
-// 	ViewPrintDinner.prototype = new MotherController();
-// 	var viewPrintDinner = new ViewPrintDinner($("#printRecipe"),model);
+	ViewPrintDinner.prototype = new MotherController();
+	var viewPrintDinner = new ViewPrintDinner($("#printRecipe"),model);
 });

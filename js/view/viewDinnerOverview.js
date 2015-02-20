@@ -8,7 +8,7 @@ var ViewDinnerOverview = function(container, model){
 	model.addObserver(this);
 
 	this.update = function(menu, string){
-		if(string == "fullMenu"){
+		if(string == "fullMenu" || string == "removeMenu" ){
 			self.clearDiv(document.getElementById("displayChosenMenu"));
 			if(menu.length !== 0){
 				for(var i = 0; i < menu.length; i++){

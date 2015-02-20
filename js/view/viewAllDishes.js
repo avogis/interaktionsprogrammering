@@ -13,8 +13,6 @@ var ViewAllDishes = function (container, model) {
     model.addObserver(this);
 
     this.update = function(dishes, string) {
-        // console.log("string");
-        // console.log(string);
         if(string == "availableDishes"){
             if(dishes.length != 0 && Array.isArray(dishes)){
                 ShowAllDishes(dishes, true); 
