@@ -79,7 +79,9 @@ button {
 #ingredientList {
     background-color: #FFDB94;
     border: solid;
-
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 600px;
 }
 #igredientTable tr{
     border: hidden;
@@ -101,6 +103,12 @@ button {
 
 #dishTable tr:hover .btn {
     visibility: visible;
+}
+
+#description {
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 300px;  
 }
 
 #guestDiv {
