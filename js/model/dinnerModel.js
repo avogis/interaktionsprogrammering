@@ -2,10 +2,10 @@
 var DinnerModel = function() {
 
 	var fullMenu = [];
-	var lastAddedDishId = null;
+	var lastAddedDish = null;
 	var numberOfMyGuests = 0; 
 	var observers = [];
-	var currentDishID = null;
+	var currentDish = null;
 	var currentType = "all";
 	var currentFilter = "";
 	var apiKey = "dvx96F0ts86514dMmAyK4Jz44kHs47Us";
@@ -21,19 +21,57 @@ var DinnerModel = function() {
 	}
 
 	//notify observers
-	notifyObservers = function(dishes) {
+	notifyObservers = function(dishes, string) {
 		for(var i = 0; i < observers.length; i++){
-			observers[i].update(dishes);
+			observers[i].update(dishes, string);
 		}
 	}
 
 	this.getCurrentDish = function() {
-		return currentDishID;
+		return currentDish;
 	}
 
-	this.setCurrentDish = function(id) {
-		currentDishID = id;
-		this.getDish(id);
+	this.setCurrentDish = function(recipeID) {
+		// currentDishID = id;
+		// this.getDish(id);
+		// fullMenu.push(id);
+		var dish={};
+		var url = "http://api.bigoven.com/recipe/" + recipeID + "?api_key="+apiKey;
+        $.ajax({
+            type: "GET",
+            dataType: 'json',
+            cache: false,
+            url: url,
+            success: function (data) {
+            	dish["id"] = data["RecipeID"];
+	        	dish["name"] = data["Title"];
+	        	dish["description"] = data["Instructions"];
+	        	dish["image"]  = data["ImageURL"];
+	        	var tempIngridients = data["Ingredients"];
+	        	var ingredientsList = [];
+	        	for(var i =0; i < tempIngridients.length; i++){
+	        		var ingredientsMap = {};;
+	        		ingredientsMap["name"] = tempIngridients[i]["Name"];
+	        		var quantityTemp = tempIngridients[i]["Quantity"];
+	        		ingredientsMap["quantity"] = tempIngridients[i]["Quantity"];
+	        		ingredientsMap["price"] = quantityTemp;
+	        		var unit = tempIngridients[i]["Unit"];
+	        		if(unit == null){
+	        			ingredientsMap["unit"] = "";	
+	        		}else{
+	        			ingredientsMap["unit"] = unit;
+	        		}
+	        		ingredientsList.push(ingredientsMap);
+	        	}
+	        	dish["ingredients"] = ingredientsList;
+	        	internCurrentDish(dish);
+            }
+        });
+	}
+
+	internCurrentDish = function(dish){
+		currentDish = dish;
+		notifyObservers(dish, "currentDish");
 	}
 
 	this.setFilter = function(filter) {
@@ -55,7 +93,7 @@ var DinnerModel = function() {
 	}
 
 	this.getLastAddedDish = function(){
-		return lastAddedDishId;
+		return lastAddedDish;
 	}
 
 
@@ -65,7 +103,7 @@ var DinnerModel = function() {
 	//OR WHAT DO YOU MEAN? DON`T UNDERSTAND
 	this.setNumberOfGuests = function(num) {
 		numberOfMyGuests = num; 
-		notifyObservers(numberOfMyGuests);
+		notifyObservers(numberOfMyGuests, "numberOfMyGuests");
 	}
 
 	// should return 
@@ -126,7 +164,7 @@ var DinnerModel = function() {
                 }
                 //notifyObservers med listan
                 // console.log(dishes);
-                notifyObservers(dishes);
+                notifyObservers(dishes, "availableDishes");
             }
         });
     }
@@ -169,9 +207,47 @@ var DinnerModel = function() {
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	//don't really understand...
-	this.addDishToMenu = function(id) {
-		lastAddedDishId = id;
-		fullMenu.push(id);
+	this.addDishToMenu = function(recipeID) {
+		// lastAddedDishId = id;
+		// fullMenu.push(id);
+		var dish={};
+		var url = "http://api.bigoven.com/recipe/" + recipeID + "?api_key="+apiKey;
+        $.ajax({
+            type: "GET",
+            dataType: 'json',
+            cache: false,
+            url: url,
+            success: function (data) {
+            	dish["id"] = data["RecipeID"];
+	        	dish["name"] = data["Title"];
+	        	dish["description"] = data["Instructions"];
+	        	dish["image"]  = data["ImageURL"];
+	        	var tempIngridients = data["Ingredients"];
+	        	var ingredientsList = [];
+	        	for(var i =0; i < tempIngridients.length; i++){
+	        		var ingredientsMap = {};;
+	        		ingredientsMap["name"] = tempIngridients[i]["Name"];
+	        		var quantityTemp = tempIngridients[i]["Quantity"];
+	        		ingredientsMap["quantity"] = tempIngridients[i]["Quantity"];
+	        		ingredientsMap["price"] = quantityTemp;
+	        		var unit = tempIngridients[i]["Unit"];
+	        		if(unit == null){
+	        			ingredientsMap["unit"] = "";	
+	        		}else{
+	        			ingredientsMap["unit"] = unit;
+	        		}
+	        		ingredientsList.push(ingredientsMap);
+	        	}
+	        	dish["ingredients"] = ingredientsList;
+	        	toMenu(dish);
+            }
+        });
+	}
+
+	toMenu = function(dish){
+		fullMenu.push(dish);
+		lastAddedDish = dish;
+		notifyObservers(fullMenu, "fullMenu");
 	}
 
 	//Removes dish from menu
@@ -248,7 +324,7 @@ var DinnerModel = function() {
 	        	dish["ingredients"] = ingredientsList;
 	        	theDish = dish;
 	        	//console.log(theDish);
-	        	notifyObservers(dish); 
+	        	notifyObservers(dish, "chosenDish"); 
 	        }
 	    });
 	}
