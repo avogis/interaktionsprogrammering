@@ -7,18 +7,17 @@ var ViewDinnerOverview = function(container, model){
 
 	model.addObserver(this);
 
-	this.update = function(){
+	this.update = function(menu, string){
+		if(string == "fullMenu"){
+			self.clearDiv(document.getElementById("displayChosenMenu"));
+			if(menu.length !== 0){
+				for(var i = 0; i < menu.length; i++){
+					setDishContent(colNames[i%3], menu, i);
+				}		
+		    }
 
-		self.clearDiv(document.getElementById("displayChosenMenu"));
-		var menu = model.getFullMenu();
-
-		if(menu.length !== 0){
-			for(var i = 0; i < menu.length; i++){
-				setDishContent(colNames[i%3], menu, i);
-			}		
-	    }
-
-	    document.getElementById("totalCostOver").innerHTML = model.getTotalMenuPrice();
+		    document.getElementById("totalCostOver").innerHTML = model.getTotalMenuPrice();
+		}
 	}
 
 	function setDishContent(colName, array, index){

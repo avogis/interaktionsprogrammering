@@ -6,8 +6,6 @@ var ViewRecipeDetails = function (container, model) {
     var self = this;
 
     this.update = function(dish, string) {
-        console.log("kommer jag till recipe details?");
-        console.log(string);
         var nrGuests = model.getNumberOfGuests();
         if(string == "currentDish" || string == "numberOfMyGuests"){
             if(typeof(dish) == "string"){

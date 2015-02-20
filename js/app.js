@@ -14,11 +14,11 @@ $(function() {
 	var viewRecipeDetails = new ViewRecipeDetails($("#viewRecipeDetails"), model);
 	RecipeDetailsController.prototype = new MotherController();
 	var recipeDetailsController = new RecipeDetailsController(viewRecipeDetails, model);
-// 	ViewDinnerOverview.prototype = new MotherController();
-// 	var viewDinnerOverView = new ViewDinnerOverview($("#dinnerOverview"), model);
-// 	var dinnerOverviewController = new DinnerOverviewController(viewDinnerOverView, model);
-// 	var viewDinnerBorder = new ViewDinnerBorder($("#overviewBorder"), model);
-// 	var dinnerBorderController = new DinnerBorderController(viewDinnerBorder, model);
+	ViewDinnerOverview.prototype = new MotherController();
+	var viewDinnerOverView = new ViewDinnerOverview($("#dinnerOverview"), model);
+	var dinnerOverviewController = new DinnerOverviewController(viewDinnerOverView, model);
+	var viewDinnerBorder = new ViewDinnerBorder($("#overviewBorder"), model);
+	var dinnerBorderController = new DinnerBorderController(viewDinnerBorder, model);
 // 	ViewPrintDinner.prototype = new MotherController();
 // 	var viewPrintDinner = new ViewPrintDinner($("#printRecipe"),model);
 });
