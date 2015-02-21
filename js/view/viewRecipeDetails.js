@@ -16,6 +16,7 @@ var ViewRecipeDetails = function (container, model) {
                 var imageDiv = document.getElementById("imageOfChosenDish");
                 var addImage = self.addAnImage(dish);
                 addImage.className = "img-rounded";
+                addImage.addEventListener("error", ImgOnError);
                 var dishName = document.getElementById("nameOfDish");
                 dishName.innerHTML = dish.name;
                 self.clearDiv(imageDiv);
@@ -58,5 +59,9 @@ var ViewRecipeDetails = function (container, model) {
         }
         $("#spinner2").addClass("hidden");
         $("#wait2").addClass("hidden");
+    }
+
+    function ImgOnError(evt){
+        evt.target.src = "images/300.gif";
     }
 }

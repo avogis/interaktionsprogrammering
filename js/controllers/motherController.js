@@ -1,7 +1,5 @@
 function MotherController(){
 
-	this.motherProperty = "hej hej hej";
-
 	this.clearDiv = function clearDiv(div){
         div.innerHTML = "";
     }
@@ -13,12 +11,5 @@ function MotherController(){
         dishPic.alt = dish.name;
         dishPic.id = dish.id;
         return dishPic;
-    }
-
-    function ImgOnError(image){
-        //VARFÖR FUNKAR INTE ENNA LÖSNING T.EX.?
-        image.onerror = "";
-        image.src = "images/lasagna.jpg";
-        return true;
     }
 }
