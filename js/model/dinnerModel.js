@@ -60,7 +60,8 @@ var DinnerModel = function() {
 	        	}
 	        	dish["ingredients"] = ingredientsList;
 	        	internCurrentDish(dish);
-            }
+            },
+        	error: errorFunction
         });
 	}
 
@@ -95,7 +96,8 @@ var DinnerModel = function() {
                     dishes.push(dishMap);
                 }
                 notifyObservers(dishes, "availableDishes");
-            }
+            },
+            error: errorFunction
         });
 		
 	}
@@ -173,8 +175,16 @@ var DinnerModel = function() {
                 //notifyObservers med listan
                 // console.log(dishes);
                 notifyObservers(dishes, "availableDishes");
-            }
+            },
+           	error: errorFunction
         });
+    }
+
+    errorFunction = function(xhr, ajaxOptions, thrownError){
+   		if(xhr.status == 0){
+			alert("It appears that you do not have access to internet. Please connect to wifi."+
+				"The site needs to be connected to the internet or otherwise it will not function properly.");
+		}	
     }
 
 
@@ -248,7 +258,9 @@ var DinnerModel = function() {
 	        	}
 	        	dish["ingredients"] = ingredientsList;
 	        	toMenu(dish);
-            }
+            },
+
+            error: errorFunction
         });
 	}
 
@@ -290,7 +302,8 @@ var DinnerModel = function() {
 	        	}
 	        	dish["ingredients"] = ingredientsList;
 	        	removeDish(dish); 
-	        }
+	        },
+	        error: errorFunction
 	    });
 	}
 
@@ -306,35 +319,6 @@ var DinnerModel = function() {
 		notifyObservers(fullMenu, "removeMenu");
 	}
 
-	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
-	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
-	//if you don't pass any filter all the dishes will be returned
-	this.getAllDishes = function (type, filter) {
-
-	  	return $(dishes).filter(function(index,dish) {
-			var found = true;
-			if(filter){
-				found = false;
-				$.each(dish.ingredients,function(index,ingredient) {
-					if(ingredient.name.indexOf(filter)!=-1) {
-						found = true;
-					}
-				});
-				if(dish.name.indexOf(filter) != -1)
-				{
-					found = true;
-				}
-			}
-			if(type == "all"){
-				return found;
-			}
-			else{
-				return dish.type == type && found;
-			}
-	  	});	
-	}
-
-	//function that returns a dish of specific ID
 	this.getDish = function (recipeID) {
 		var dish = {};
 		var url = "http://api.bigoven.com/recipe/" + recipeID + "?api_key="+apiKey;
@@ -368,7 +352,8 @@ var DinnerModel = function() {
 	        	theDish = dish;
 	        	//console.log(theDish);
 	        	notifyObservers(dish, "chosenDish"); 
-	        }
+	        },
+	        error: errorFunction
 	    });
 	}
 }
