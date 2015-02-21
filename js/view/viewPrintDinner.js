@@ -4,7 +4,7 @@ var ViewPrintDinner = function(container, model){
 	model.addObserver(this);
 
 	this.update = function(menu, string){
-		if(string == "fullMenu"){
+		if(string == "fullMenu" || string == "removeMenu"){
 			var printDiv = document.getElementById("printRecipe");
 			self.clearDiv(printDiv);
 			if(menu.length > 0){
