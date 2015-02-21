@@ -22,6 +22,14 @@ button {
     background: #FFAD33;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
+.fa {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+.wait {
+    text-align: center;   
+}
 
 #pageTitle {
     color: black;

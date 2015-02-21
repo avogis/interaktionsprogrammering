@@ -56,5 +56,7 @@ var ViewRecipeDetails = function (container, model) {
                 document.getElementById("totalCostViewDish").innerHTML = model.priceForADish(dish).toFixed(2);
             }
         }
+        $("#spinner2").addClass("hidden");
+        $("#wait2").addClass("hidden");
     }
 }

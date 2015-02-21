@@ -8,9 +8,10 @@
     <link rel="icon" type="image/png" href="///Users/liza/Documents/Programmeringskurser/DH2641:DH2642%20Interaktionsprogramemring/labb2/interaktionsprogrammering//images/favicon.png" />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
     <!-- <link rel="stylesheet" type="text/css" href="styling.css"> -->
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
 
 </head>
 <body>
@@ -68,8 +69,6 @@
                                     </thead>
                                     <tbody id = "dishNameAndCostTBody">
                                         <tr id ="dishNameAndCostTR1">
-<!--                                             <td id="dishName" >Pending</td>
-                                            <td colspan = "2" id="dishCost">0.00</td> -->
                                         </tr>
                                     </tbody>
                                 </table>
@@ -116,6 +115,8 @@
 
                    <!--      <div id="separatorDiv"></div> -->
                         <section id= "menuScroll">
+                            <i class="fa fa-spinner fa-pulse fa-5x fa-fw margin-bottom" id="spinner"></i>
+                            <p class="wait" id="wait">Wait for it, we're getting exiting recipes just for you!</p>
                             <div class="row" id= "menuScroll">
                                 <div class="col-md-2" id="colOne">   
                                 </div>
@@ -136,6 +137,8 @@
                     <div id = "viewRecipeDetails" style = "display: none">
                      <section>
                         <div class="col-md-5" id="recipePreparation">
+                            <i class="fa fa-spinner fa-pulse fa-5x fa-fw margin-bottom" id="spinner2"></i>
+                            <p class="wait" id="wait2">Wait for it, the recipe details are on their way</p>
                             <div class="row">
                                 <div class="col-md-12">
                                     <h2 id = "nameOfDish"></h2>
@@ -145,11 +148,6 @@
                                 <div class="col-md-12" id="imageOfChosenDish">
                                 </div>
                             </div>
-                            <!-- <div class="row">
-                                <div class="col-md-12">
-                                    <button class="btn" id="backButton">Back to select dish</button>
-                                </div>
-                            </div> -->
                             <div class="row">
                                 <div class="col-md-12">
                                     <h3>Preparations</h3>

@@ -5,6 +5,8 @@ var ViewAllDishes = function (container, model) {
     this.searchBtn= document.getElementById("searchButton");
     this.chosenType = document.getElementById("chooseFood");
 
+    $("#spinner").removeClass("hidden");
+    $("#wait").removeClass("hidden");
     var menu = model.getRecipeJson("Appetizers", "");
     var colNames = ["colOne", "colTwo", "colThree", "colFour", "colFive"];
     var self = this;
@@ -18,6 +20,8 @@ var ViewAllDishes = function (container, model) {
                 ShowAllDishes(dishes, true); 
             }
         }
+        $("#spinner").addClass("hidden");
+        $("#wait").addClass("hidden");
     }
 
     var ShowAllDishes = function(array, update){

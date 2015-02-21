@@ -79,7 +79,6 @@ var DinnerModel = function() {
             cache: true,
             url: url,
             success: function (data) {
-                console.log(data);
                 var dishes = [];
                 var allInfo = data["Results"];
                 for(var i=0; i < allInfo.length; i++){
@@ -146,7 +145,7 @@ var DinnerModel = function() {
 	//HOW DO I ACCESS THE DISHES OTHERWISE?
 	this.getRecipeJson = function(category, searchword) {
     //prototyp för getAllDishes
-        var url = "http://api.bigoven.com/recipes?pg=1&rpp=25&include_primarycat="
+        var url = "http://api.bigoven.com/recipes?pg=1&rpp=100&include_primarycat="
                   + category
                   + "&api_key="+apiKey;
         $.ajax({
