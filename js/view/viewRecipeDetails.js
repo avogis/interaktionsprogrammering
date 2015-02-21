@@ -15,6 +15,7 @@ var ViewRecipeDetails = function (container, model) {
             if(dish !== null && dish !== undefined && !Array.isArray(dish)){
                 var imageDiv = document.getElementById("imageOfChosenDish");
                 var addImage = self.addAnImage(dish);
+                addImage.className = "img-rounded";
                 var dishName = document.getElementById("nameOfDish");
                 dishName.innerHTML = dish.name;
                 self.clearDiv(imageDiv);

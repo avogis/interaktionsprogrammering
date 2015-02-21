@@ -27,24 +27,19 @@ var ViewDinnerOverview = function(container, model){
 		//div for pic
 		var dishPicDiv = document.createElement("DIV");
 		var dishPic = self.addAnImage(array[index]);
+		dishPic.id = "dinnerOverviewPic"
 		dishPic.className = "img-rounded";
 		dishPicDiv.appendChild(dishPic);
 		//div for name
 		var dishNameDiv = document.createElement("DIV");
-		var dishName = document.createElement("HEADER");
+		var dishName = document.createElement("H5");
 		dishName.id = "allDishNames";
 		dishName.innerText = array[index].name;
 		dishNameDiv.appendChild(dishName);
-		//div for descriptio
-		var dishDescDiv = document.createElement("DIV");
-		var dishDesc = document.createElement("P");
-		dishDesc.id = "allDishDescriptions";
-		dishDesc.innerText = array[index].description;
-		dishDescDiv.appendChild(dishDesc);
 		//append all
 		colNameParent.appendChild(dishNameDiv);
 		colNameParent.appendChild(dishPicDiv);
-		colNameParent.appendChild(dishDescDiv);
+		// colNameParent.appendChild(dishDescDiv);
 		document.getElementById("displayChosenMenu").appendChild(colNameParent);
 	}
 }

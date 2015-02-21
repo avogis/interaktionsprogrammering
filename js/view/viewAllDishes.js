@@ -46,7 +46,6 @@ var ViewAllDishes = function (container, model) {
         var colName = document.getElementById(colNames[colNameIndex]);
         if (update == false){
             setDishContent(colName, array, index);
-            //options
         }else{
             setDishContent(colName, array, index);   
         }
@@ -70,20 +69,13 @@ var ViewAllDishes = function (container, model) {
         dishPicDiv.appendChild(dishPic);
         //div for name
         var dishNameDiv = document.createElement("DIV");
-        var dishName = document.createElement("HEADER");
+        var dishName = document.createElement("H5");
         dishName.id = "allDishNames";
         dishName.innerText = array[index].name;
         dishNameDiv.appendChild(dishName);
-        // //div for descriptio
-        // var dishDescDiv = document.createElement("DIV");
-        // var dishDesc = document.createElement("P");
-        // dishDesc.id = "allDishDescriptions";
-        // dishDesc.innerText = array[index].description;
-        // dishDescDiv.appendChild(dishDesc);
         //append all
         colName.appendChild(dishNameDiv);
         colName.appendChild(dishPicDiv);
-        // colName.appendChild(dishDescDiv);
     }
 
     function ImgOnError(evt){

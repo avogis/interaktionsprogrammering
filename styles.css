@@ -74,6 +74,8 @@ button {
 
 #imageOfChosenDish img {
     width:400px;
+    height: 300px;
+    cursor: default;
 }
 
 #ingredientList {
@@ -150,12 +152,16 @@ button {
     float: center;
     height: 100px;
     width: 150px;
+    cursor: pointer;
+    cursor: hand;
 }
 
 #allDishNames {
     text-align: center;
     height: 40px;
-    width: 150px;   
+    width: 150px;
+    overflow: hidden;
+    overflow-y: scroll;   
 }
 
 #searchDish {
@@ -220,6 +226,10 @@ button {
     text-align: center;
 }
 
+#dinnerOverviewPic{
+    cursor: default;
+}
+
 /*print recipe*/
 #printRecipe {
     overflow: hidden;
@@ -232,6 +242,7 @@ button {
     width: 300px;
     float: left;
     margin-right: 15px;
+    cursor: default;
 }
 
 #printDishName {
