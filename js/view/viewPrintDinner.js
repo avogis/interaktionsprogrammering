@@ -11,18 +11,34 @@ var ViewPrintDinner = function(container, model){
 				for(var i = 0; i < menu.length; i++){
 					var printDishRow = document.createElement("DIV");
 					printDishRow.className = "row";
+					
 					var printDishPic = document.createElement("DIV");
-					printDishPic.className = "col-md-2";
+					printDishPic.className = "col-md-10";
+					
 					var printDishName = document.createElement("DIV");
-					printDishName.className = "col-md-3";
+					printDishName.className = "col-md-10";
+					var header = document.createElement("H2");
+					header.innerHTML = menu[i].name;
+					printDishName.appendChild(header);
+					
 					var printDishPrep = document.createElement("DIV");
-					printDishPrep.className = "col-md-4";
-					printDishPic.appendChild(self.addAnImage(menu[i]));
-					printDishName.innerHTML = menu[i].name;
 					printDishPrep.innerHTML = menu[i].description;
-					printDishRow.appendChild(printDishPic);
+					// printDishPrep.align = "left";
+					// printDishPrep.display = "block"
+					
+					var dishPic = document.createElement("IMG");
+					dishPic.src = menu[i].image;
+					dishPic.className = "img-rounded";
+					dishPic.id = "printPic";
+					// dishPic.align = "right";
+
+
+
 					printDishRow.appendChild(printDishName);
-					printDishRow.appendChild(printDishPrep);
+					printDishPic.appendChild(dishPic);
+					printDishPic.appendChild(printDishPrep);
+					printDishRow.appendChild(printDishPic);
+					// printDishRow.appendChild(printDishPrep);
 					printDiv.appendChild(printDishRow);
 				}
 			}

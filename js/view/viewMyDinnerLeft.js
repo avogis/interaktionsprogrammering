@@ -34,7 +34,7 @@ var ViewMyDinnerLeft = function(container, model){
 				dishNameAndCostTR.appendChild(dishCost);
 				dishNameAndCostTR.appendChild(deleteButton);
 				dishNameAndCostTBody.appendChild(dishNameAndCostTR);
-				//document.getElementById("totalSek").innerHTML = model.getTotalMenuPrice()+" SEK";
+				document.getElementById("totalSek").innerHTML = model.getTotalMenuPrice().toFixed(2)+" SEK";
 			}
 		}
 		// if(string == "numberOfMyGuests"){

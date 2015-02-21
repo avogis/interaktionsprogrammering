@@ -9,7 +9,6 @@ var RecipeDetailsController = function (view, model) {
     		var img = imageDiv.getElementsByTagName("img");
     		var id = img[0].id;
     		model.addDishToMenu(id);
-            document.getElementById("dishCost").innerHTML = "0.0";
 			self.clearDiv(document.getElementById("imageOfChosenDish"));
             document.getElementById("viewRecipeDetails").style.display = "none";
     	}

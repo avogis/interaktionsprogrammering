@@ -140,7 +140,7 @@ var DinnerModel = function() {
         $.ajax({
             type: "GET",
             dataType: 'json',
-            cache: false,
+            cache: true,
             url: url,
             success: function (data) {
                 // alert('success');
@@ -212,7 +212,7 @@ var DinnerModel = function() {
         $.ajax({
             type: "GET",
             dataType: 'json',
-            cache: false,
+            cache: true,
             url: url,
             success: function (data) {
             	dish["id"] = data["RecipeID"];
@@ -254,7 +254,7 @@ var DinnerModel = function() {
 		$.ajax({
 	        type: "GET",
 	        dataType: 'json',
-	        cache: false,
+	        cache: true,
 	        url: url,
 	        success: function (data) {
 	        	dish["id"] = data["RecipeID"];
@@ -330,7 +330,7 @@ var DinnerModel = function() {
 		$.ajax({
 	        type: "GET",
 	        dataType: 'json',
-	        cache: false,
+	        cache: true,
 	        url: url,
 	        success: function (data) {
 	        	dish["id"] = data["RecipeID"];
