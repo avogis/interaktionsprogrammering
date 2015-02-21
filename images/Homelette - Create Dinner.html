@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<!-- saved from url=(0142)file:///Users/liza/Documents/Programmeringskurser/DH2641:DH2642%20Interaktionsprogramemring/labb2/interaktionsprogrammering/AllViewsInOne.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homelette - Create Dinner</title>
+    <link rel="icon" type="image/png" href="file:///Users/liza/Documents/Programmeringskurser/DH2641:DH2642%20Interaktionsprogramemring/labb2/interaktionsprogrammering//images/favicon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="styling.css"> -->
+    <link rel="stylesheet" type="text/css" href="./Homelette - Create Dinner_files/styles.css">
+
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <section>
+            <div class="row" id="pageHeader">
+                <div class="col-md-3">
+                    <div id="pageTitle">Homelette</div>
+                </div>
+                <div class="col-md-9" id="bottomAlignedText">
+                    <div id="pageSubTitle">
+                        From the best chefs in the world directly into your kitchen
+                    </div>  
+                </div>
+            </div>
+        </section>
+
+        <div id="bodyForAllPages">
+
+            <div id="startPage" style="display: none;">
+                <div class="row" id="startPageBody">
+                    <div class="col-md-5" id="startPageDescription">
+                        <h2>A Home Dinner Service</h2>  
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>Start quickly</p>
+                        <button id="createDinnerButton" class="btn">Create Dinner</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW ALL DISHES -->
+
+            <div id="viewAllDishes">
+                <div class="row">
+                    <!-- Left side of page, same as for recipeView -->
+                    <section>
+                        <div class="col-md-3" id="pageLeft">
+                            <div class="row">
+                                <h3>My Dinner</h3>
+                            </div>
+                            <div class="row" id="guest">
+                                <div class="col-md-6" id="guestDiv">Guests</div>
+                                <div class="col-md-4" id="guestPopulateDiv">
+                                    <select class="form-control" id="populateGuestOption" value=""><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option></select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <table class="table" id="dishTable">
+                                    <thead>
+                                         <tr>
+                                            <th>Dish Name</th>
+                                            <th>Cost</th>
+                                         </tr>
+                                    </thead>
+                                    <tbody id="dishNameAndCostTBody">
+                                        <tr id="dishNameAndCostTR1">
+<!--                                             <td id="dishName" >Pending</td>
+                                            <td colspan = "2" id="dishCost">0.00</td> -->
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6" id="leftTotalCost">
+                                    <p>Total cost</p>
+                                </div>
+                                <div class="col-md-6" id="leftTotalSek">
+                                    <p id="totalSek">0.00 SEK</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn" id="confirmDinner" value="submit">Confirm Dinner</button>
+                                </div>
+                            </div>          
+                        </div>
+                    </section> <!-- end of previously known aside -->
+
+                    <!-- Main Content -->
+                    <div class="col-md-9" id="searchDish" style="display: none;">
+                        <section id="selectDish">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h2>Select Dish</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <form class="form-inline">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="chooseIngridient" value="" placeholder="Enter key words">
+                                            <button type="submit" class="btn" id="searchButton" value="submit">search</button>
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control" id="chooseFood" value="">
+                                            <option value="Appetizer">Appetizer</option><option value="Main dish">Main dish</option><option value="Dessert">Dessert</option></select> 
+                                        </div>
+                                    </form>  
+                                </div>
+                            </div>  
+                        </section>
+
+                   <!--      <div id="separatorDiv"></div> -->
+                        <section id="menuScroll">
+                            <div class="row" id="menuScroll">
+                                <div class="col-md-2" id="colOne"><div><h5 id="allDishNames">The Kitchn Bacon-Wrapped Potato Bites with Spicy Sour Cream Dipping Sauce</h5></div><div><img src="./Homelette - Create Dinner_files/bacon-wrapped-potato-bites-with-spi-2.jpg" alt="The Kitchn Bacon-Wrapped Potato Bites with Spicy Sour Cream Dipping Sauce" id="434611" class="img-rounded"></div><div><h5 id="allDishNames">Mexican Shrimp Cocktail (Coctel de Camerones)</h5></div><div><img src="./Homelette - Create Dinner_files/mexican-shrimp-cocktail-coctel-de-c.jpg" alt="Mexican Shrimp Cocktail (Coctel de Camerones)" id="203840" class="img-rounded"></div><div><h5 id="allDishNames">Beef Yakitori</h5></div><div><img src="./Homelette - Create Dinner_files/beef-yakitori-2.jpg" alt="Beef Yakitori" id="172549" class="img-rounded"></div><div><h5 id="allDishNames">Phyllo Wrapped Asparagus</h5></div><div><img src="./Homelette - Create Dinner_files/phyllo-wrapped-asparagus.jpg" alt="Phyllo Wrapped Asparagus" id="182212" class="img-rounded"></div><div><h5 id="allDishNames">Warm and Healthy Artichoke and White Bean Dip</h5></div><div><img src="./Homelette - Create Dinner_files/warm-and-healthy-artichoke-and-whit.jpg" alt="Warm and Healthy Artichoke and White Bean Dip" id="549876" class="img-rounded"></div></div>
+                                <div class="col-md-2" id="colTwo"><div><h5 id="allDishNames">Stuffed Mushrooms with Artichoke &amp; Fig (Vegetarian)</h5></div><div><img src="./Homelette - Create Dinner_files/stuffed-mushrooms-with-artichoke-fi.jpg" alt="Stuffed Mushrooms with Artichoke &amp; Fig (Vegetarian)" id="397967" class="img-rounded"></div><div><h5 id="allDishNames">Christie's Guac</h5></div><div><img src="./Homelette - Create Dinner_files/christies-guac.jpg" alt="Christie&#39;s Guac" id="992926" class="img-rounded"></div><div><h5 id="allDishNames">Mini Quiches</h5></div><div><img src="./Homelette - Create Dinner_files/mini-quiches-7.jpg" alt="Mini Quiches" id="182533" class="img-rounded"></div><div><h5 id="allDishNames">Prosciutto with Pears and Arugula (RR)</h5></div><div><img src="./Homelette - Create Dinner_files/prosciutto-with-pears-and-arugula-r.jpg" alt="Prosciutto with Pears and Arugula (RR)" id="745335" class="img-rounded"></div><div><h5 id="allDishNames">Quick and Easy Party Meatballs</h5></div><div><img src="./Homelette - Create Dinner_files/quick-and-easy-party-meatballs-4.jpg" alt="Quick and Easy Party Meatballs" id="173333" class="img-rounded"></div></div>
+                                <div class="col-md-2" id="colThree"><div><h5 id="allDishNames">Smoked Salmon and Lemon-Cream Cheese on Crostini</h5></div><div><img src="./Homelette - Create Dinner_files/smoked-salmon-and-lemon-cream-chees-4.jpg" alt="Smoked Salmon and Lemon-Cream Cheese on Crostini" id="157798" class="img-rounded"></div><div><h5 id="allDishNames">Mini Deep Dish Pizzas</h5></div><div><img src="./Homelette - Create Dinner_files/mini-deep-dish-pizzas.jpg" alt="Mini Deep Dish Pizzas" id="260346" class="img-rounded"></div><div><h5 id="allDishNames">Cauliflower Buffalo Bites</h5></div><div><img src="./Homelette - Create Dinner_files/cauliflower-buffalo-bites-5.jpg" alt="Cauliflower Buffalo Bites" id="780890" class="img-rounded"></div><div><h5 id="allDishNames">Savory Party Bread</h5></div><div><img src="./Homelette - Create Dinner_files/savory-party-bread.jpg" alt="Savory Party Bread" id="50891" class="img-rounded"></div><div><h5 id="allDishNames">Pot Stickers or Steamed Dumplings</h5></div><div><img src="./Homelette - Create Dinner_files/pot-stickers-or-steamed-dumplings-4.jpg" alt="Pot Stickers or Steamed Dumplings" id="161114" class="img-rounded"></div></div>
+                                <div class="col-md-2" id="colFour"><div><h5 id="allDishNames">Simple White Bean Spread</h5></div><div><img src="./Homelette - Create Dinner_files/simple-white-bean-spread-2.jpg" alt="Simple White Bean Spread" id="561434" class="img-rounded"></div><div><h5 id="allDishNames">Asparagus Rolls</h5></div><div><img src="./Homelette - Create Dinner_files/asparagus-rolls-2.jpg" alt="Asparagus Rolls" id="24516" class="img-rounded"></div><div><h5 id="allDishNames">Buffalo Chicken Cheese Balls</h5></div><div><img src="./Homelette - Create Dinner_files/buffalo-chicken-cheese-balls-6.jpg" alt="Buffalo Chicken Cheese Balls" id="201205" class="img-rounded"></div><div><h5 id="allDishNames">Nutty Red Pepper and Basil Dip</h5></div><div><img src="./Homelette - Create Dinner_files/nutty-red-pepper-and-basil-dip-2.jpg" alt="Nutty Red Pepper and Basil Dip" id="561472" class="img-rounded"></div><div><h5 id="allDishNames">Cucumber and Dill Dip</h5></div><div><img src="./Homelette - Create Dinner_files/cucumber-and-dill-dip-2.jpg" alt="Cucumber and Dill Dip" id="712861" class="img-rounded"></div></div>
+                                <div class="col-md-2" id="colFive"><div><h5 id="allDishNames">Grilled Pineapple Salsa</h5></div><div><img src="./Homelette - Create Dinner_files/grilled-pineapple-salsa-2.jpg" alt="Grilled Pineapple Salsa" id="94262" class="img-rounded"></div><div><h5 id="allDishNames">Chicken Satay</h5></div><div><img src="./Homelette - Create Dinner_files/chicken-satay-24.jpg" alt="Chicken Satay" id="158299" class="img-rounded"></div><div><h5 id="allDishNames">Mozzarella Sticks</h5></div><div><img src="./Homelette - Create Dinner_files/mozzarella-sticks-18.jpg" alt="Mozzarella Sticks" id="183484" class="img-rounded"></div><div><h5 id="allDishNames">Coconut Shrimp with Pina Colada Dipping Sauce</h5></div><div><img src="./Homelette - Create Dinner_files/coconut-shrimp-with-pina-colada-dip.jpg" alt="Coconut Shrimp with Pina Colada Dipping Sauce" id="204821" class="img-rounded"></div><div><h5 id="allDishNames">Easy Fruit Party Platter</h5></div><div><img src="./Homelette - Create Dinner_files/easy-fruit-party-platter.jpg" alt="Easy Fruit Party Platter" id="612484" class="img-rounded"></div></div>
+                            </div>
+                        </section>
+                    </div> <!-- end of main content of viewAllDishes -->
+
+
+                    <!-- ViewRecipeDetails -->
+                    <div id="viewRecipeDetails">
+                     <section>
+                        <div class="col-md-5" id="recipePreparation">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h2 id="nameOfDish">The Kitchn Bacon-Wrapped Potato Bites with Spicy Sour Cream Dipping Sauce</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12" id="imageOfChosenDish"><img src="./Homelette - Create Dinner_files/bacon-wrapped-potato-bites-with-spi-2(1).jpg" alt="The Kitchn Bacon-Wrapped Potato Bites with Spicy Sour Cream Dipping Sauce" id="434611" class="img-rounded"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button class="btn" id="backButton">Back to select dish</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3>Preparations</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12" id="description">
+                                    <p id="descriptionText">Preheat the oven to 400. Wash and dry potatoes. Chop them into 1 inch pieces, keeping the chunks roughly the same size even if they aren't the exact same shape. Put the potatoes in a medium pot, cover with cold water, and bring to a boil. Season the water with 2 teaspoons of salt. Once the water begins to boil, cook the potatoes for 3 to 4 minutes, until you can stick a fork into them without too much resistance. You want the potatoes to be almost, but not fully, cooked through so they won't fall apart during the next steps.
+
+Drain the potatoes and put them in a large bowl. Add the rosemary, olive oil, 1/2 tsp salt and a few grinds of pepper, and toss until the potatoes are evenly coated. Cut the strips of bacon into thirds. Wrap each potato bite in a piece of bacon, securing it with a toothpick. Put the potatoes on a baking sheet lined with parchment paper or aluminum foil spaced an inch or two apart. You may need to cook the potatoes in two batches.
+
+Cook the potatoes for 15 minutes, then flip each piece. Cook for another 15-20 minutes, until the bacon is cooked through and as crisp as you like it. Mix the sour cream and hot sauce in a small bowl. Season with salt and pepper. Pile the potato bites on a plate and serve alongside the dip.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Right side of page -->
+                    <section>
+                        <div class="col-md-4" id="ingredientList">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3 id="headerIngriedients">Dinner for 7 people</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table class="table">
+                                        <tbody id="igredientTable"><tr id="ingriedient0"><td id="amount0">7.00 small or medium</td><td id="product0">red potatoes</td><td id="sek0">SEK</td><td id="price0">7.00</td></tr><tr id="ingriedient1"><td id="amount1">17.50 tsp</td><td id="product1">salt </td><td id="sek1">SEK</td><td id="price1">17.50</td></tr><tr id="ingriedient2"><td id="amount2">10.50 tsp</td><td id="product2">minced fresh rosemary</td><td id="sek2">SEK</td><td id="price2">10.50</td></tr><tr id="ingriedient3"><td id="amount3">7.00 tbsp</td><td id="product3">olive oil</td><td id="sek3">SEK</td><td id="price3">7.00</td></tr><tr id="ingriedient4"><td id="amount4">7.00 </td><td id="product4">freshly ground pepper</td><td id="sek4">SEK</td><td id="price4">7.00</td></tr><tr id="ingriedient5"><td id="amount5">7.00 </td><td id="product5">thick cut bacon</td><td id="sek5">SEK</td><td id="price5">7.00</td></tr><tr id="ingriedient6"><td id="amount6">7.00 cup</td><td id="product6">sour cream</td><td id="sek6">SEK</td><td id="price6">7.00</td></tr><tr id="ingriedient7"><td id="amount7">7.00 tsp</td><td id="product7">hot sauce</td><td id="sek7">SEK</td><td id="price7">7.00</td></tr><tr id="ingriedient8"><td id="amount8">7.00 </td><td id="product8">salt and pepper</td><td id="sek8">SEK</td><td id="price8">7.00</td></tr></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button class="btn" id="confirmDishButton">Confirm Dish</button>
+                                </div>
+                                <div class="col-md-3">
+                                    <p> Total cost </p>
+                                </div>
+                                <div class="col-md-3" id="costDish">
+                                    <p id="totalCostViewDish">77.00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section> 
+                    </div>   <!-- end of main content of viewRecipe -->  
+                </div>
+            </div> <!-- end of ViewAllApges -->
+
+            <div class="row" id="overviewBorder" style="display: none">
+                <div class="col-md-3 col-md-offset-1">
+                    <h2 id="myDinner">My dinner: 7</h2>
+                </div>
+                <div class="col-md-3 col-md-offset-7" id="colBackButton">
+                    <button class="btn" id="backEditButton">Go back and edit dinner</button>
+                </div>
+            </div>
+            <!-- viewDinnerOverview and Print -->
+            <div id="viewDinnerOverview" style="display: none">
+                <!-- Horizontal middle -->
+                <div class="row" id="overviewContent">
+                    <div class="col-md-8" id="overviewDishes">
+                    <!-- Här ska det poplueras med valda dishes -->
+                        <div class="row" id="displayChosenMenu">
+                            <div class="col-md-2" id="colOneOver">   
+                            </div>
+                            <div class="col-md-2" id="colTwoOver">
+                            </div>
+                            <div class="col-md-2" id="colThreeOver">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4" id="overviewTotalCost">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>Total Cost</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p id="totalCostOver">0.00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="overviewPrint">
+                    <div class="col-md-12">
+                        <button class="btn" id="overviewPrintButton">Print full recipe</button>
+                    </div>
+                </div>
+            </div> <!-- End of view Dinner Overview -->
+
+            <div>
+                <div id="printRecipe" style="display: none"> <!-- Print recipe -->
+                    <!-- recipies are populated here -->
+                </div>
+            </div>
+
+        </div> <!--  bodyAllPagesClosed -->
+
+    </div>
+    <!-- jQuery -->
+    <script src="./Homelette - Create Dinner_files/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="./Homelette - Create Dinner_files/bootstrap.min.js"></script>
+
+    <!-- The application JavaScript code -->
+    <script src="./Homelette - Create Dinner_files/app.js"></script>
+    <script src="./Homelette - Create Dinner_files/motherController.js"></script>
+    <script src="./Homelette - Create Dinner_files/dinnerModel.js"></script>
+    <script src="./Homelette - Create Dinner_files/viewStartPage.js"></script>
+    <script src="./Homelette - Create Dinner_files/startPageController.js"></script>    
+    <script src="./Homelette - Create Dinner_files/viewAllDishes.js"></script>
+    <script src="./Homelette - Create Dinner_files/viewMyDinnerLeft.js"></script>
+    <script src="./Homelette - Create Dinner_files/myDinnerController.js"></script>
+    <script src="./Homelette - Create Dinner_files/allDishesController.js"></script>
+    <script src="./Homelette - Create Dinner_files/viewRecipeDetails.js"></script>
+    <script src="./Homelette - Create Dinner_files/recipeDetailsController.js"></script>
+    <script src="./Homelette - Create Dinner_files/viewDinnerOverview.js"></script>
+    <script src="./Homelette - Create Dinner_files/dinnerOverviewController.js"></script>
+    <script src="./Homelette - Create Dinner_files/viewDinnerBorder.js"></script>
+    <script src="./Homelette - Create Dinner_files/dinnerBorderController.js"></script>
+    <script src="./Homelette - Create Dinner_files/viewPrintDinner.js"></script>
+    <!-- <script src="js/view/exampleViewController.js"></script> -->
+
+</body></html>

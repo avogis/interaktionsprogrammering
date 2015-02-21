@@ -71,6 +71,9 @@ button {
 }
 
 /*Recipe details*/
+#recipePreparation{
+    max-height: 600px;
+}
 
 #imageOfChosenDish img {
     width:400px;
@@ -89,9 +92,6 @@ button {
     border: hidden;
 }
 
-#backButton {
-    margin-top: 10px;
-}
 #confirmDishButton {
     margin-bottom: 10px;
 }
@@ -149,7 +149,6 @@ button {
 }
 
 .img-rounded {
-    float: center;
     height: 100px;
     width: 150px;
     cursor: pointer;
@@ -177,9 +176,9 @@ button {
     background-color: #FFDB94;
 }
 
-#separatorDiv {
+/*#separatorDiv {
     height: 40px;
-}
+}*/
 
 #searchButton {
     margin-top: 0px;

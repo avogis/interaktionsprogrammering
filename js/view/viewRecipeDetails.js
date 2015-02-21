@@ -51,7 +51,7 @@ var ViewRecipeDetails = function (container, model) {
                     ingriedient.appendChild(sek);
                     ingriedient.appendChild(price);
                     ingriedients.appendChild(ingriedient);
-                    document.getElementById("description").innerHTML = dish.description;
+                    document.getElementById("descriptionText").innerHTML = dish.description;
                 }
                 document.getElementById("totalCostViewDish").innerHTML = model.priceForADish(dish).toFixed(2);
             }
