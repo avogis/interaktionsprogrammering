@@ -7,7 +7,7 @@ var AllDishesController = function (view, model) {
 	        var chosenIngridient = document.getElementById("chooseIngridient").value;
             e.preventDefault();
 	        // model.setType(chosenOption);
-	        model.setFilter(chosenIngridient); 
+	        model.setFilter(chosenIngridient, chosenOption); 
             chooseIngridient.value = "";
 		}
 	);

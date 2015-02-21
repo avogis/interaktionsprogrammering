@@ -6,8 +6,6 @@ var DinnerModel = function() {
 	var numberOfMyGuests = 0; 
 	var observers = [];
 	var currentDish = null;
-	var currentType = "all";
-	var currentFilter = "";
 	var apiKey = "dvx96F0ts86514dMmAyK4Jz44kHs47Us";
 	var theDish = null;
 
@@ -71,22 +69,36 @@ var DinnerModel = function() {
 		notifyObservers(dish, "currentDish");
 	}
 
-	this.setFilter = function(filter) {
-		currentFilter = filter;
-		notifyObservers(currentFilter);
-	}
-
-	this.getFilter = function() {
-		return currentFilter;
-	}
-
-	this.setType = function(type){
-		currentType = type;
-		notifyObservers(currentType);
-	}
-
-	this.getType = function() {
-		return currentType;
+	this.setFilter = function(keyword, category) {
+        var url = "http://api.bigoven.com/recipes?pg=1&rpp=25&include_primarycat="
+          + category + "&any_kw="
+          + keyword + "&api_key="+apiKey;
+        $.ajax({
+            type: "GET",
+            dataType: 'json',
+            cache: true,
+            url: url,
+            success: function (data) {
+                console.log(data);
+                var dishes = [];
+                var allInfo = data["Results"];
+                for(var i=0; i < allInfo.length; i++){
+                    var dishMap = {};
+                    var dish = allInfo[i];
+                    var id = dish["RecipeID"];
+                    var name = dish["Title"];
+                    var image = dish["ImageURL120"];
+                    var category = dish["Category"];
+                    dishMap["name"] = name;
+                    dishMap["id"] = id;
+                    dishMap["image"] = image;
+                    dishMap["category"] = category;
+                    dishes.push(dishMap);
+                }
+                notifyObservers(dishes, "availableDishes");
+            }
+        });
+		
 	}
 
 	this.getLastAddedDish = function(){

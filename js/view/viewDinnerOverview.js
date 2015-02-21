@@ -16,7 +16,7 @@ var ViewDinnerOverview = function(container, model){
 				}		
 		    }
 
-		    document.getElementById("totalCostOver").innerHTML = model.getTotalMenuPrice();
+		    document.getElementById("totalCostOver").innerHTML = model.getTotalMenuPrice().toFixed(2);
 		}
 	}
 
