@@ -14,14 +14,34 @@ var ViewAllDishes = function (container, model) {
 
     model.addObserver(this);
 
+
+    $(document).ready(function() {
+        $(".various").fancybox({
+            maxWidth    : 800,
+            maxHeight   : 600,
+            fitToView   : false,
+            width       : '70%',
+            height      : '70%',
+            autoSize    : false,
+            closeClick  : false,
+            openEffect  : 'none',
+            closeEffect : 'none'
+        });
+    });
+
     this.update = function(dishes, string) {
+        if(string == "error"){
+            $('#errorMessage').trigger('click');
+        }
+        
         if(string == "availableDishes"){
             if(dishes.length != 0 && Array.isArray(dishes)){
                 ShowAllDishes(dishes, true); 
             }
         }
-        $("#spinner").addClass("hidden");
-        $("#wait").addClass("hidden");
+        if(string != "error"){
+            $.fancybox.close();
+        }
     }
 
     var ShowAllDishes = function(array, update){

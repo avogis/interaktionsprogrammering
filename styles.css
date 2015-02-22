@@ -25,10 +25,14 @@ button {
 .fa {
     display: block;
     margin-left: auto;
-    margin-right: auto 
+    margin-right: auto; 
 }
 .wait {
     text-align: center;   
+}
+
+#errorMessage {
+    margin-top: 100px; 
 }
 
 #pageTitle {

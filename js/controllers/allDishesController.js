@@ -2,8 +2,7 @@ var AllDishesController = function (view, model) {
     
     view.searchBtn.addEventListener("click", 
 		function(e){
-            $("#spinner").removeClass("hidden");
-            $("#wait").removeClass("hidden");
+            $('#waitMessage').trigger('click');
 			var choice = document.getElementById("chooseFood");
 			var chosenOption = choice.options[choice.selectedIndex].value;
 	        var chosenIngridient = document.getElementById("chooseIngridient").value;
@@ -16,8 +15,7 @@ var AllDishesController = function (view, model) {
 
 	view.chosenType.addEventListener("change", 
         function(e){
-            $("#spinner").removeClass("hidden");
-            $("#wait").removeClass("hidden");
+            $('#waitMessage').trigger('click');
             var chosenType = document.getElementById("chooseFood");
             var chosenOption = chosenType.options[chosenType.selectedIndex].value;
             model.getRecipeJson(chosenOption, "");
@@ -26,8 +24,7 @@ var AllDishesController = function (view, model) {
     );
 
     view.menuScrollDiv.on( "click", "img", function() {
-        $("#spinner2").removeClass("hidden");
-        $("#wait2").removeClass("hidden");
+        // $('#waitMessage').trigger('click');
         model.setCurrentDish(event.srcElement.id);
         var searchDishDiv = document.getElementById("searchDish");
         searchDishDiv.style.display = "none";

@@ -19,8 +19,7 @@ var MyDinnerController = function(view, model){
 
     view.confirmDinDin.addEventListener("click", 
         function(e){
-            $("#spinner").removeClass("hidden");
-            $("#wait").removeClass("hidden");  
+            // $('#waitMessage').trigger('click');
             document.getElementById("viewAllDishes").style.display = "none";
             document.getElementById("viewDinnerOverview").style.display = "";
             document.getElementById("overviewBorder").style.display = "";

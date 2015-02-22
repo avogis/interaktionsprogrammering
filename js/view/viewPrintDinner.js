@@ -23,22 +23,17 @@ var ViewPrintDinner = function(container, model){
 					
 					var printDishPrep = document.createElement("DIV");
 					printDishPrep.innerHTML = menu[i].description;
-					// printDishPrep.align = "left";
-					// printDishPrep.display = "block"
 					
 					var dishPic = document.createElement("IMG");
 					dishPic.src = menu[i].image;
 					dishPic.className = "img-rounded";
 					dishPic.id = "printPic";
-					// dishPic.align = "right";
-
-
 
 					printDishRow.appendChild(printDishName);
 					printDishPic.appendChild(dishPic);
 					printDishPic.appendChild(printDishPrep);
 					printDishRow.appendChild(printDishPic);
-					// printDishRow.appendChild(printDishPrep);
+
 					printDiv.appendChild(printDishRow);
 				}
 			}

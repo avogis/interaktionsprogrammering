@@ -15,8 +15,14 @@
     <link rel="stylesheet" href="js/bib/font-awesome-4.3.0/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
 
+    <!-- fancyBox -->
+    <link rel="stylesheet" href="js/bib/fancyapps-fancyBox/source/jquery.fancybox.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="js/bib/fancyapps-fancyBox/source/jquery.fancybox.pack.js"></script>
+
 </head>
 <body>
+    <a class="various" data-fancybox-type="iframe" id="errorMessage" href="ErrorMessage.html"></a>
+    <a class="various" data-fancybox-type="iframe" id="waitMessage" href="WaitMessage.html"></a>
     <div class="container">
         <!-- HEADER -->
         <section >
@@ -114,11 +120,7 @@
                                 </div>
                             </div>  
                         </section>
-
-                   <!--      <div id="separatorDiv"></div> -->
                         <section id= "menuScroll">
-                            <i class="fa fa-spinner fa-pulse fa-5x fa-fw margin-bottom" id="spinner"></i>
-                            <p class="wait" id="wait">Wait for it, we're getting exiting recipes just for you!</p>
                             <div class="row" id= "menuScroll">
                                 <div class="col-md-2" id="colOne">   
                                 </div>
@@ -139,8 +141,6 @@
                     <div id = "viewRecipeDetails" style = "display: none">
                      <section>
                         <div class="col-md-5" id="recipePreparation">
-                            <i class="fa fa-spinner fa-pulse fa-5x fa-fw margin-bottom" id="spinner2"></i>
-                            <p class="wait" id="wait2">Wait for it, the recipe details are on their way</p>
                             <div class="row">
                                 <div class="col-md-12">
                                     <h2 id = "nameOfDish"></h2>

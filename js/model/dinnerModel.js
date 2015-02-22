@@ -181,10 +181,11 @@ var DinnerModel = function() {
     }
 
     errorFunction = function(xhr, ajaxOptions, thrownError){
-   		if(xhr.status == 0){
-			alert("It appears that you do not have access to internet. Please connect to wifi."+
-				"The site needs to be connected to the internet or otherwise it will not function properly.");
-		}	
+  //  		if(xhr.status == 0){
+		// 	alert("It appears that you do not have access to internet. Please connect to wifi."+
+		// 		"The site needs to be connected to the internet or otherwise it will not function properly.");
+		// }
+		notifyObservers(null, "error");	
     }
 
 
