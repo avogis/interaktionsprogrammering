@@ -121,21 +121,6 @@ var DinnerModel = function() {
 		return numberOfMyGuests;
 	}
 
-	//Returns the dish that is on the menu for selected type 
-	this.getSelectedDish = function(type) {
-		if(type == "all"){
-			return dishes;
-		}else{
-			var arrayToReturn = [];
-			for(i = 0; i < dishes.length; i++){
-				if(dishes[i].type === type){
-					arrayToReturn.push(dishes[i]);
-				}
-			}
-			return arrayToReturn;
-		}
-	}
-
 	//Returns all the dishes on the menu.
 	//missinterpreted this one!
 	//i think that the menu should be passed throught the controller right?
@@ -146,7 +131,6 @@ var DinnerModel = function() {
 
 	//HOW DO I ACCESS THE DISHES OTHERWISE?
 	this.getRecipeJson = function(category, searchword) {
-    //prototyp för getAllDishes
         var url = "http://api.bigoven.com/recipes?pg=1&rpp=100&include_primarycat="
                   + category
                   + "&api_key="+apiKey;
@@ -172,8 +156,6 @@ var DinnerModel = function() {
                     dishMap["category"] = category;
                     dishes.push(dishMap);
                 }
-                //notifyObservers med listan
-                // console.log(dishes);
                 notifyObservers(dishes, "availableDishes");
             },
            	error: errorFunction
@@ -181,10 +163,6 @@ var DinnerModel = function() {
     }
 
     errorFunction = function(xhr, ajaxOptions, thrownError){
-  //  		if(xhr.status == 0){
-		// 	alert("It appears that you do not have access to internet. Please connect to wifi."+
-		// 		"The site needs to be connected to the internet or otherwise it will not function properly.");
-		// }
 		notifyObservers(null, "error");	
     }
 
